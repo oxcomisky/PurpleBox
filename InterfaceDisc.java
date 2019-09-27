@@ -10,5 +10,10 @@ package purplebox;
  * @author oxcom
  */
 public interface InterfaceDisc {
+
+    /**
+     *
+     * @return
+     */
     public Boolean available();
 }

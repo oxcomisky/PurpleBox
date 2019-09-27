@@ -10,13 +10,49 @@ package purplebox;
  * @author oxcom
  */
 public interface InterfaceAdmin {
+    
+    /**
+     *
+     */
     public void addMovie();
+
+    /**
+     *
+     */
     public void removeMovie();
+
+    /**
+     *
+     */
     public void changePriceDVD();
+
+    /**
+     *
+     */
     public void changePriceBluRay();
+
+    /**
+     *
+     */
     public void changePriceGame();
+
+    /**
+     *
+     */
     public void volumeDiscount();
+
+    /**
+     *
+     */
     public void addPromoCode();
+
+    /**
+     *
+     */
     public void disableUnit();
+
+    /**
+     *
+     */
     public void EnableUnit();
 }
