@@ -24,38 +24,52 @@ public interface InterfaceUser {
      * @require purpleBox.isEmpty() == false
      * @param key
      * @param purpleBox
-     * @return a list a Disc objects that meet the specified search criteria
+     * @ensure 
+     * @return a list of Disc objects that meet the specified search criteria
      */
-
-    
     public ArrayList search(String key, Inventory purpleBox);
 
     /**Increases the quantity value of the returned Disc object by 1
-     *
+     *@require disc Matches a title in the given Inventory
+     *@param disc
+     *@param purpleBox
      */
-    public void returnDisc();
+    public void returnDisc(Disc disc, Inventory purpleBox);
 
-    /**
+    /**Takes a promoCode and checks if its valid, returns the corresponding int value associated with the discount
      * @require promoCode > 0
-     * @ensure result >=0 && result <=3
+     * @ensure result >= 0 && result <= 2
      * @param promoCode
-     * @return an Int that corresponds to what kind of discount the user receives
+     * @return returns an Int that corresponds to what kind of discount the user receives
      */
     public int promoCode(int promoCode);
 
-    /**
-     *
-     * @return
+    /**Inputs a credit card number, checks for validity, and returns a list to be used as a receipt
+     * @require cardNumber is a 16 digit value
+     * @param cardNumber
+     * @param shoppingCart
+     * @return returns an ArrayList with the contents of the shopping cart
+     * @ensure result.isEmpty() == false
      */
-    public ArrayList pay();
+    public ArrayList pay(int cardNumber, Inventory shoppingCart);
 
     /**
-     *
+     * @require shoppingCart.isEmpty() == false
+     * @param shoppingCart
      */
-    public void remove();
+    public void remove(Inventory shoppingCart);
 
     /**
-     *
+     * @require shoppingCart.isEmpty() == false
+     * @param shoppingCart
      */
-    public void removeAll();
+    public void removeAll(Inventory shoppingCart);
+    
+     /**
+     * @require purpleBox.isEmpty == false
+     * @param purpleBox
+     * @return returns true or false depending on the value of the quantity variable
+     * @ensure result (true || false)
+     */
+    public Boolean available(Inventory purpleBox);
 }

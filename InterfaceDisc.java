@@ -7,13 +7,8 @@ package purplebox;
 
 /**
  *
- * @author oxcom
+ * @author Jon Comisky
  */
 public interface InterfaceDisc {
 
-    /**
-     *
-     * @return
-     */
-    public Boolean available();
 }
