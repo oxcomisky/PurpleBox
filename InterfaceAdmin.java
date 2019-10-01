@@ -16,7 +16,7 @@ public interface InterfaceAdmin {
     /**
      * @param disc the Disc object the Admin wishes to add
      * @param inventory an ArrayList of disc objects: the inventory of this.purpleBox
-     *  @ensure inventory.append(disc)
+     * @ensure inventory.append(disc)
      */
     public void addDisc(Disc disc, ArrayList inventory);
 
