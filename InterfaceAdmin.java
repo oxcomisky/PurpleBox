@@ -5,53 +5,69 @@
  */
 package purplebox;
 
+import java.util.ArrayList;
+
 /**
  *
- * @author Jon Comisky
+ * @author Jon Comisky, 
  */
 public interface InterfaceAdmin {
     
     /**
-     * @require disc 
-     * @param disc
-     * @param purpleBox
+     * @param disc the Disc object the Admin wishes to add
+     * @param inventory an ArrayList of disc objects: the inventory of this.purpleBox
+     *  @ensure inventory.append(disc)
      */
-    public void addDisc(Disc disc, Inventory purpleBox);
+    public void addDisc(Disc disc, ArrayList inventory);
 
     /**
-     * @require purpleBox contains disc
-     * @require purpleBox.isEmpty() == false
-     * @param disc
-     * @param purpleBox
+     * @param disc the Disc object the Admin wishes to remove
+     * @param inventory an ArrayList of disc objects: the inventory of this.purpleBox
+     * @ensure disc is removed IFF purpleBox contains a disc
+     * @ensure nothing is done if purpleBox.isEmpty() == true
      */
-    public void removeDisc(Disc disc, Inventory purpleBox);
+    public void removeDisc(Disc disc, ArrayList inventory);
 
     /**
-     * @param purpleBox
+     * @require newPrice > 0
+     * @param newPrice a double defined by the Admin setting the new price
+     * @param inventory an arrayList of disc objects: the inventory of this.purpleBox
+     * @ensure only Disc.getType().compareTo("DVD") == 0 && Disc.getPrice() == newPrice
      */
-    public void changePriceDVD(Inventory purpleBox);
+    public void changePriceDVD(double newPrice, ArrayList inventory);
 
     /**
-     * @param purpleBox
+     * @require newPrice > 0
+     * @param newPrice a double defined by the Admin setting the new price
+     * @param inventory an arrayList of disc objects: the inventory of this.purpleBox
+     * @ensure only Disc.getType().compareTo("BluRay") == 0 && Disc.getPrice() == newPrice
      */
-    public void changePriceBluRay(Inventory purpleBox);
+    public void changePriceBluRay(double newPrice, ArrayList inventory);
 
     /**
-     * @param purpleBox
+     * @require newPrice > 0
+     * @param newPrice a double defined by the Admin setting the new price
+     * @param inventory an arrayList of disc objects: the inventory of this.purpleBox
+     * @ensure (Disc.getType().compareTo("PS4") == 0 || Disc.getType().compareTo("XboxOne") == 0) && Disc.getPrice() == newPrice
      */
-    public void changePriceGame(Inventory purpleBox);
+    public void changePriceGame(double newPrice, ArrayList inventory);
 
     /**
-     * @param cartTotal
      * @require cartTotal > 0
+     * @param cartTotal an Int reflecting how many items need to be in the users cart, defined by Admin
+     * @ensure the has been changed 
      */
     public void volumeDiscount(int cartTotal);
 
     /**
-     * @param promoCode
      * @require promoCode > 0
+     * @require 0 < percentOff <= 1 
+     * @param code an Int defined by the Admin representing a new promotional code
+     * @param PromoCodeList an ArrayList of promoCode of which to add the code to
+     * @param percentOff a double decimal value to be added with the code to the PromoCodeList
+     * @ensure a new promoCode object has been created using the input and added to PromoCodeList
      */
-    public void addPromoCode(int promoCode);
+    public void addPromoCode(int code, ArrayList PromoCodeList, double percentOff);
 
     /**
      * @require unit is enabled
