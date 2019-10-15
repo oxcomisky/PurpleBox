@@ -5,54 +5,18 @@
  */
 package purplebox;
 
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author oxcom
  */
-import java.sql.*;
-import javax.swing.*;
-import net.proteanit.sql.DbUtils;
 
 public class PurpleBoxGUI extends javax.swing.JFrame {
-    
-    Connection conn = null;
-    ResultSet rs = null;
-    PreparedStatement pst = null;
-
-    /**
-     * Creates new form PurpleBoxGUI
-     */
     public PurpleBoxGUI() {
         initComponents();
-        conn = DataBaseConnector.ConnectDB();
-        updateTable();
-    }
-    private void updateTable(){
-        try{
-            String SQL = "SELECT * FROM Movies";
-            pst = conn.prepareStatement(SQL);
-            rs = pst.executeQuery();
-            MoviesTable.setModel(DbUtils.resultSetToTableModel(rs));
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(rootPane, "Error");
-        }
-        try{
-            String SQL = "SELECT * FROM Games";
-            pst = conn.prepareStatement(SQL);
-            rs = pst.executeQuery();
-            GamesTable.setModel(DbUtils.resultSetToTableModel(rs));
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(rootPane, "Error");
-        }
-        try{
-            String SQL = "SELECT * FROM ShoppingCart";
-            pst = conn.prepareStatement(SQL);
-            rs = pst.executeQuery();
-            ShoppingCartTable.setModel(DbUtils.resultSetToTableModel(rs));
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(rootPane, "Error");
-        }
-        
+        PurpleBox.setEnabledAt(4, false);
     }
 
     /**
@@ -67,9 +31,14 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
+        jFrame1 = new javax.swing.JFrame();
+        jDialog1 = new javax.swing.JDialog();
+        popupMenu1 = new java.awt.PopupMenu();
+        popupMenu2 = new java.awt.PopupMenu();
         PurpleBox = new javax.swing.JTabbedPane();
         Home = new java.awt.Panel();
         HomeMessage = new java.awt.Label();
+        AdminLogin = new javax.swing.JButton();
         Movies = new java.awt.Panel();
         jScrollPane2 = new javax.swing.JScrollPane();
         MoviesTable = new javax.swing.JTable();
@@ -90,46 +59,147 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
         RemoveFromCart = new javax.swing.JButton();
         RemoveAll = new javax.swing.JButton();
         Checkout = new javax.swing.JButton();
+        textField8 = new java.awt.TextField();
+        textField9 = new java.awt.TextField();
+        CodeTextField = new java.awt.TextField();
+        SubmitCode = new javax.swing.JButton();
+        ADMINPanel = new java.awt.Panel();
+        textField1 = new java.awt.TextField();
+        textField3 = new java.awt.TextField();
+        textField5 = new java.awt.TextField();
+        textField7 = new java.awt.TextField();
+        Title = new java.awt.TextField();
+        choice1 = new java.awt.Choice();
+        jSpinner1 = new javax.swing.JSpinner();
+        Genre = new javax.swing.JSpinner();
+        Type = new javax.swing.JSpinner();
+        textField2 = new java.awt.TextField();
+        Release = new java.awt.TextField();
+        textField4 = new java.awt.TextField();
+        Price = new java.awt.TextField();
+        jSpinner2 = new javax.swing.JSpinner();
+        Remove = new javax.swing.JButton();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        AdminMovieTable = new javax.swing.JTable();
+        RemoveAllAdmin = new javax.swing.JButton();
+        ChangePriceDVD = new javax.swing.JButton();
+        ChangePriceBluRay = new javax.swing.JButton();
+        ChangePriceGame = new javax.swing.JButton();
+        textField6 = new java.awt.TextField();
+        code = new java.awt.TextField();
+        percentOff = new javax.swing.JSpinner();
+        codeType = new javax.swing.JSpinner();
+        AddCode = new javax.swing.JButton();
+        CodeLabel = new javax.swing.JLabel();
+        CodeLabel1 = new javax.swing.JLabel();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        AdminGameTable = new javax.swing.JTable();
+        VolumeDiscountLabel = new javax.swing.JLabel();
+        textField10 = new java.awt.TextField();
+        button1 = new java.awt.Button();
+        jButton1 = new javax.swing.JButton();
+        AddDisc = new javax.swing.JButton();
 
         jCheckBoxMenuItem1.setSelected(true);
         jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
 
+        javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
+        jFrame1.getContentPane().setLayout(jFrame1Layout);
+        jFrame1Layout.setHorizontalGroup(
+            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jFrame1Layout.setVerticalGroup(
+            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
+        jDialog1.getContentPane().setLayout(jDialog1Layout);
+        jDialog1Layout.setHorizontalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jDialog1Layout.setVerticalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        popupMenu1.setLabel("popupMenu1");
+
+        popupMenu2.setLabel("popupMenu2");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(153, 0, 153));
         setFocusableWindowState(false);
-        setFont(new java.awt.Font("Monospaced", 0, 14)); // NOI18N
+        setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
+        setName("PurpleBoxFrame"); // NOI18N
 
         PurpleBox.setBackground(new java.awt.Color(76, 44, 118));
         PurpleBox.setTabPlacement(javax.swing.JTabbedPane.LEFT);
+        PurpleBox.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
 
         HomeMessage.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         HomeMessage.setForeground(new java.awt.Color(204, 204, 204));
         HomeMessage.setText("Welcome to Purple Box. Select a tab to get started renting your favorite games and movies!");
+
+        AdminLogin.setFont(new java.awt.Font("Monospaced", 0, 11)); // NOI18N
+        AdminLogin.setText("Admin Login");
+        AdminLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AdminLoginActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout HomeLayout = new javax.swing.GroupLayout(Home);
         Home.setLayout(HomeLayout);
         HomeLayout.setHorizontalGroup(
             HomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(HomeLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(105, 105, 105)
                 .addComponent(HomeMessage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addContainerGap(166, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HomeLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(AdminLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         HomeLayout.setVerticalGroup(
             HomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(HomeLayout.createSequentialGroup()
-                .addGap(67, 67, 67)
-                .addComponent(HomeMessage, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
-                .addGap(163, 163, 163))
+                .addContainerGap()
+                .addComponent(HomeMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(357, 357, 357)
+                .addComponent(AdminLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         PurpleBox.addTab("Home", Home);
 
-        org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, MoviesTable, org.jdesktop.beansbinding.ObjectProperty.create(), MoviesTable, org.jdesktop.beansbinding.BeanProperty.create("elements"));
-        bindingGroup.addBinding(binding);
-        binding.bind();
-        jScrollPane2.setViewportView(MoviesTable);
+        Movies.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
 
+        MoviesTable.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
+        MoviesTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Title", "Genre", "Type", "Release", "Critic Rating", "Quantity", "Price"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Double.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        MoviesTable.setColumnSelectionAllowed(true);
+        jScrollPane2.setViewportView(MoviesTable);
+        MoviesTable.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+
+        AddToCartMovie.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
         AddToCartMovie.setText("Add To Cart");
         AddToCartMovie.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -138,6 +208,7 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
         });
 
         TextOutputMovies.setColumns(20);
+        TextOutputMovies.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
         TextOutputMovies.setRows(5);
         jScrollPane1.setViewportView(TextOutputMovies);
 
@@ -146,11 +217,11 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
         MoviesLayout.setHorizontalGroup(
             MoviesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MoviesLayout.createSequentialGroup()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 462, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 611, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(MoviesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(MoviesLayout.createSequentialGroup()
-                        .addComponent(AddToCartMovie, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(AddToCartMovie, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
                         .addGap(499, 499, 499))
                     .addGroup(MoviesLayout.createSequentialGroup()
                         .addComponent(jScrollPane1)
@@ -159,38 +230,59 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
         MoviesLayout.setVerticalGroup(
             MoviesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MoviesLayout.createSequentialGroup()
-                .addComponent(jScrollPane1)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 461, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(AddToCartMovie)
                 .addContainerGap())
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 450, Short.MAX_VALUE)
+            .addComponent(jScrollPane2)
         );
 
         PurpleBox.addTab("Movies", Movies);
 
-        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, GamesTable, org.jdesktop.beansbinding.ObjectProperty.create(), GamesTable, org.jdesktop.beansbinding.BeanProperty.create("elements"));
-        bindingGroup.addBinding(binding);
-        binding.bind();
+        GamesTable.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
+        GamesTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Title", "Genre", "Type", "Release", "Critic Rating", "Quantity", "Price"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Double.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        GamesTable.setColumnSelectionAllowed(true);
         jScrollPane3.setViewportView(GamesTable);
+        GamesTable.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 
         TextOutputGames.setColumns(20);
+        TextOutputGames.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
         TextOutputGames.setRows(5);
         jScrollPane4.setViewportView(TextOutputGames);
 
+        AddToCartGame.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
         AddToCartGame.setText("Add To Cart");
+        AddToCartGame.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddToCartGameActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout GamesLayout = new javax.swing.GroupLayout(Games);
         Games.setLayout(GamesLayout);
         GamesLayout.setHorizontalGroup(
             GamesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(GamesLayout.createSequentialGroup()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 462, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 611, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(GamesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 580, Short.MAX_VALUE)
-                    .addGroup(GamesLayout.createSequentialGroup()
-                        .addComponent(AddToCartGame)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 623, Short.MAX_VALUE)
+                    .addComponent(AddToCartGame))
                 .addContainerGap())
         );
         GamesLayout.setVerticalGroup(
@@ -200,20 +292,36 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(AddToCartGame)
                 .addContainerGap())
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 450, Short.MAX_VALUE)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 506, Short.MAX_VALUE)
         );
 
         PurpleBox.addTab("Games", Games);
 
-        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, ShoppingCartTable, org.jdesktop.beansbinding.ObjectProperty.create(), ShoppingCartTable, org.jdesktop.beansbinding.BeanProperty.create("elements"));
-        bindingGroup.addBinding(binding);
-        binding.bind();
+        ShoppingCartTable.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
+        ShoppingCartTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Title", "Genre", "Type", "Release", "Critic Rating", "Quantity", "Price"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Double.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
         jScrollPane5.setViewportView(ShoppingCartTable);
 
         ShoppingCartOutput.setColumns(20);
+        ShoppingCartOutput.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
         ShoppingCartOutput.setRows(5);
         jScrollPane6.setViewportView(ShoppingCartOutput);
 
+        RemoveFromCart.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
         RemoveFromCart.setText("Remove From Cart");
         RemoveFromCart.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -221,52 +329,380 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
             }
         });
 
+        RemoveAll.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
         RemoveAll.setText("Remove All From Cart");
+        RemoveAll.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RemoveAllActionPerformed(evt);
+            }
+        });
 
+        Checkout.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
         Checkout.setText("Checkout");
+        Checkout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CheckoutActionPerformed(evt);
+            }
+        });
+
+        textField8.setText("textField8");
+
+        textField9.setText("textField9");
+
+        CodeTextField.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
+        CodeTextField.setText("Enter Promo Code Here");
+
+        SubmitCode.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
+        SubmitCode.setText("Submit Code");
 
         javax.swing.GroupLayout ShoppingCartLayout = new javax.swing.GroupLayout(ShoppingCart);
         ShoppingCart.setLayout(ShoppingCartLayout);
         ShoppingCartLayout.setHorizontalGroup(
             ShoppingCartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ShoppingCartLayout.createSequentialGroup()
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 462, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 579, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(ShoppingCartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 580, Short.MAX_VALUE)
+                    .addComponent(jScrollPane6)
+                    .addGroup(ShoppingCartLayout.createSequentialGroup()
+                        .addComponent(Checkout)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 328, Short.MAX_VALUE)
+                        .addComponent(CodeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(SubmitCode))
                     .addGroup(ShoppingCartLayout.createSequentialGroup()
                         .addGroup(ShoppingCartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(RemoveFromCart)
-                            .addComponent(RemoveAll)
-                            .addComponent(Checkout))
+                            .addComponent(RemoveAll))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         ShoppingCartLayout.setVerticalGroup(
             ShoppingCartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 450, Short.MAX_VALUE)
+            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 506, Short.MAX_VALUE)
             .addGroup(ShoppingCartLayout.createSequentialGroup()
-                .addComponent(jScrollPane6)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 359, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(RemoveFromCart)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(RemoveAll)
                 .addGap(45, 45, 45)
-                .addComponent(Checkout)
+                .addGroup(ShoppingCartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(Checkout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(SubmitCode, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(CodeTextField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
         PurpleBox.addTab("Shopping Cart", ShoppingCart);
 
+        ADMINPanel.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
+
+        org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, ADMINPanel, org.jdesktop.beansbinding.ELProperty.create("${visible}"), ADMINPanel, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
+        bindingGroup.addBinding(binding);
+
+        textField1.setText("textField1");
+
+        textField3.setText("textField3");
+
+        textField5.setText("textField5");
+
+        textField7.setText("textField7");
+
+        Title.setText("Title");
+        Title.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TitleActionPerformed(evt);
+            }
+        });
+
+        jSpinner1.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
+        jSpinner1.setModel(new javax.swing.SpinnerNumberModel(0, null, 5, 1));
+        jSpinner1.setInheritsPopupMenu(true);
+        jSpinner1.setValue(10);
+
+        Genre.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
+        Genre.setModel(new javax.swing.SpinnerListModel(new String[] {"Genre", "Drama", "Action", "Comedy", "Sci-Fi", "Fantasy", "RPG", "Adventure"}));
+        Genre.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                GenreMouseClicked(evt);
+            }
+        });
+
+        Type.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
+        Type.setModel(new javax.swing.SpinnerListModel(new String[] {"DVD", "BluRay", "XboxOne", "PS4"}));
+        Type.setName("Type"); // NOI18N
+
+        textField2.setText("textField2");
+
+        Release.setText("Release Year");
+
+        textField4.setText("textField4");
+
+        Price.setName("Price"); // NOI18N
+        Price.setText("Price");
+
+        jSpinner2.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
+        jSpinner2.setModel(new javax.swing.SpinnerNumberModel(0, 0, 100, 1));
+
+        Remove.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
+        Remove.setText("Remove");
+        Remove.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RemoveActionPerformed(evt);
+            }
+        });
+
+        AdminMovieTable.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
+        AdminMovieTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Title", "Genre", "Type", "Release", "Critic Score", "Quantity", "Price"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Double.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane7.setViewportView(AdminMovieTable);
+
+        RemoveAllAdmin.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
+        RemoveAllAdmin.setText("Remove All");
+        RemoveAllAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RemoveAllAdminActionPerformed(evt);
+            }
+        });
+
+        ChangePriceDVD.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
+        ChangePriceDVD.setText("Change Price of DVD");
+        ChangePriceDVD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ChangePriceDVDActionPerformed(evt);
+            }
+        });
+
+        ChangePriceBluRay.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
+        ChangePriceBluRay.setText("Change Price of BluRay");
+        ChangePriceBluRay.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ChangePriceBluRayActionPerformed(evt);
+            }
+        });
+
+        ChangePriceGame.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
+        ChangePriceGame.setText("Change Price of Game");
+        ChangePriceGame.setActionCommand("Change Price of Game");
+        ChangePriceGame.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ChangePriceGameActionPerformed(evt);
+            }
+        });
+
+        textField6.setText("textField6");
+
+        code.setText("Code");
+
+        percentOff.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
+        percentOff.setModel(new javax.swing.SpinnerNumberModel(0.1d, 0.1d, 0.3d, 0.1d));
+
+        codeType.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
+        codeType.setModel(new javax.swing.SpinnerNumberModel(1, null, 3, 1));
+
+        AddCode.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
+        AddCode.setText("Add Code");
+        AddCode.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddCodeActionPerformed(evt);
+            }
+        });
+
+        CodeLabel.setText("Enter New Disc:");
+
+        CodeLabel1.setText("Enter New Promo Code:");
+
+        AdminGameTable.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
+        AdminGameTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Title", "Genre", "Type", "Release", "Critic Score", "Quantity", "Price"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Double.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane9.setViewportView(AdminGameTable);
+
+        VolumeDiscountLabel.setText("Enter New Volume Discount: ");
+
+        textField10.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
+        textField10.setText("Enter an Integer");
+        textField10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textField10ActionPerformed(evt);
+            }
+        });
+
+        button1.setLabel("button1");
+
+        jButton1.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
+        jButton1.setText("Set Discount");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        AddDisc.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
+        AddDisc.setText("Add Disc");
+
+        javax.swing.GroupLayout ADMINPanelLayout = new javax.swing.GroupLayout(ADMINPanel);
+        ADMINPanel.setLayout(ADMINPanelLayout);
+        ADMINPanelLayout.setHorizontalGroup(
+            ADMINPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ADMINPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(ADMINPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(RemoveAllAdmin)
+                    .addComponent(ChangePriceDVD)
+                    .addComponent(ChangePriceBluRay)
+                    .addComponent(ChangePriceGame)
+                    .addComponent(Remove)
+                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 586, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(ADMINPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ADMINPanelLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane9)
+                        .addContainerGap())
+                    .addGroup(ADMINPanelLayout.createSequentialGroup()
+                        .addGap(8, 8, 8)
+                        .addGroup(ADMINPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(ADMINPanelLayout.createSequentialGroup()
+                                .addComponent(VolumeDiscountLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(textField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton1)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ADMINPanelLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(CodeLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(code, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(percentOff, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(codeType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(AddCode)
+                                .addGap(298, 298, 298))
+                            .addGroup(ADMINPanelLayout.createSequentialGroup()
+                                .addComponent(CodeLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Title, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Genre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(Type, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Release, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Price, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(22, 22, 22)
+                                .addComponent(AddDisc)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+        );
+        ADMINPanelLayout.setVerticalGroup(
+            ADMINPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ADMINPanelLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addGroup(ADMINPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 135, Short.MAX_VALUE)
+                .addGroup(ADMINPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(ADMINPanelLayout.createSequentialGroup()
+                        .addComponent(Remove)
+                        .addGap(18, 18, 18)
+                        .addComponent(RemoveAllAdmin)
+                        .addGap(18, 18, 18)
+                        .addComponent(ChangePriceDVD)
+                        .addGap(18, 18, 18)
+                        .addComponent(ChangePriceBluRay)
+                        .addGap(18, 18, 18)
+                        .addComponent(ChangePriceGame)
+                        .addGap(6, 6, 6))
+                    .addGroup(ADMINPanelLayout.createSequentialGroup()
+                        .addGroup(ADMINPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButton1)
+                            .addGroup(ADMINPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(VolumeDiscountLabel)
+                                .addComponent(textField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(31, 31, 31)
+                        .addGroup(ADMINPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(ADMINPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(Genre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(Type, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(ADMINPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(Release, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Price, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(ADMINPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(CodeLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(Title, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(AddDisc))
+                        .addGap(38, 38, 38)
+                        .addGroup(ADMINPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(ADMINPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(code, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(ADMINPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(percentOff, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(codeType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(AddCode)))
+                            .addGroup(ADMINPanelLayout.createSequentialGroup()
+                                .addComponent(CodeLabel1)
+                                .addGap(6, 6, 6)))))
+                .addContainerGap())
+        );
+
+        PurpleBox.addTab("ADMIN", ADMINPanel);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(PurpleBox)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(PurpleBox, javax.swing.GroupLayout.DEFAULT_SIZE, 1343, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(PurpleBox)
+            .addComponent(PurpleBox, javax.swing.GroupLayout.PREFERRED_SIZE, 511, Short.MAX_VALUE)
         );
 
         bindingGroup.bind();
@@ -274,14 +710,79 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void AddToCartMovieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddToCartMovieActionPerformed
+    private void CheckoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckoutActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_AddToCartMovieActionPerformed
+    }//GEN-LAST:event_CheckoutActionPerformed
+
+    private void RemoveAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveAllActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RemoveAllActionPerformed
 
     private void RemoveFromCartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveFromCartActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_RemoveFromCartActionPerformed
 
+    private void AddToCartGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddToCartGameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AddToCartGameActionPerformed
+
+    private void AddToCartMovieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddToCartMovieActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AddToCartMovieActionPerformed
+
+    private void AdminLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminLoginActionPerformed
+        // TODO add your handling code here:
+        String PassKey = JOptionPane.showInputDialog(rootPane, "Enter Your PassKey", DISPOSE_ON_CLOSE);
+        if(PassKey.equalsIgnoreCase("12345")){
+            JOptionPane.showMessageDialog(AdminLogin, "PassKey Accepted");
+            PurpleBox.setEnabledAt(4, true);
+        }
+        else{
+            JOptionPane.showMessageDialog(AdminLogin, "Wrong PassKey");
+        }
+    }//GEN-LAST:event_AdminLoginActionPerformed
+
+    private void TitleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TitleActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TitleActionPerformed
+
+    private void RemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RemoveActionPerformed
+
+    private void RemoveAllAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveAllAdminActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RemoveAllAdminActionPerformed
+
+    private void ChangePriceDVDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChangePriceDVDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ChangePriceDVDActionPerformed
+
+    private void ChangePriceBluRayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChangePriceBluRayActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ChangePriceBluRayActionPerformed
+
+    private void ChangePriceGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChangePriceGameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ChangePriceGameActionPerformed
+
+    private void AddCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddCodeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AddCodeActionPerformed
+
+    private void GenreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GenreMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_GenreMouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void textField10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textField10ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textField10ActionPerformed
+
+    
     /**
      * @param args the command line arguments
      */
@@ -311,38 +812,91 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new PurpleBoxGUI().setVisible(true);
             }
         });
+        
+        
+        //Start the PurpleBox Code Here
+        ArrayList<Disc> DVD = new ArrayList<>();
+        
+        Disc godfather = new Disc("The Godfather", "Drama", "DVD", "1972", 98, 2, 1.25);
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private java.awt.Panel ADMINPanel;
+    private javax.swing.JButton AddCode;
+    private javax.swing.JButton AddDisc;
     private javax.swing.JButton AddToCartGame;
     private javax.swing.JButton AddToCartMovie;
+    private javax.swing.JTable AdminGameTable;
+    private javax.swing.JButton AdminLogin;
+    private javax.swing.JTable AdminMovieTable;
+    private javax.swing.JButton ChangePriceBluRay;
+    private javax.swing.JButton ChangePriceDVD;
+    private javax.swing.JButton ChangePriceGame;
     private javax.swing.JButton Checkout;
+    private javax.swing.JLabel CodeLabel;
+    private javax.swing.JLabel CodeLabel1;
+    private java.awt.TextField CodeTextField;
     private java.awt.Panel Games;
     private javax.swing.JTable GamesTable;
+    private javax.swing.JSpinner Genre;
     private java.awt.Panel Home;
     private java.awt.Label HomeMessage;
     private java.awt.Panel Movies;
     private javax.swing.JTable MoviesTable;
+    private java.awt.TextField Price;
     private javax.swing.JTabbedPane PurpleBox;
+    private java.awt.TextField Release;
+    private javax.swing.JButton Remove;
     private javax.swing.JButton RemoveAll;
+    private javax.swing.JButton RemoveAllAdmin;
     private javax.swing.JButton RemoveFromCart;
     private java.awt.Panel ShoppingCart;
     private javax.swing.JTextArea ShoppingCartOutput;
     private javax.swing.JTable ShoppingCartTable;
+    private javax.swing.JButton SubmitCode;
     private javax.swing.JTextArea TextOutputGames;
     private javax.swing.JTextArea TextOutputMovies;
+    private java.awt.TextField Title;
+    private javax.swing.JSpinner Type;
+    private javax.swing.JLabel VolumeDiscountLabel;
+    private java.awt.Button button1;
+    private java.awt.Choice choice1;
+    private java.awt.TextField code;
+    private javax.swing.JSpinner codeType;
+    private javax.swing.JButton jButton1;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
+    private javax.swing.JDialog jDialog1;
+    private javax.swing.JFrame jFrame1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane9;
+    private javax.swing.JSpinner jSpinner1;
+    private javax.swing.JSpinner jSpinner2;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JSpinner percentOff;
+    private java.awt.PopupMenu popupMenu1;
+    private java.awt.PopupMenu popupMenu2;
+    private java.awt.TextField textField1;
+    private java.awt.TextField textField10;
+    private java.awt.TextField textField2;
+    private java.awt.TextField textField3;
+    private java.awt.TextField textField4;
+    private java.awt.TextField textField5;
+    private java.awt.TextField textField6;
+    private java.awt.TextField textField7;
+    private java.awt.TextField textField8;
+    private java.awt.TextField textField9;
     private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 }

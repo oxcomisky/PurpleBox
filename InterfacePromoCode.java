@@ -11,16 +11,40 @@ package purplebox;
  */
 public interface InterfacePromoCode {
     
+    /**
+     *
+     * @return
+     */
     public int getCode();
 
+    /**
+     *
+     * @param code
+     */
     public void setCode(int code);
     
+    /**
+     *
+     * @return
+     */
     public double getPercentOff();
 
-    public void setPercentOff(double percentOff;
+    /**
+     *
+     * @param percentOff
+     */
+    public void setPercentOff(double percentOff);
 
+    /**
+     *
+     * @return
+     */
     public int getCodeType();
 
+    /**
+     *
+     * @param codeType
+     */
     public void setCodeType(int codeType);
 	
 }

@@ -62,12 +62,13 @@ public interface InterfaceAdmin {
     /**
      * @require promoCode > 0
      * @require 0 < percentOff <= 1 
-     * @param code an Int defined by the Admin representing a new promotional code
      * @param PromoCodeList an ArrayList of promoCode of which to add the code to
+     * @param code an Int defined by the Admin representing a new promotional code
      * @param percentOff a double decimal value to be added with the code to the PromoCodeList
+     * @param codeType an Int defined by the Admin representing the type of code
      * @ensure a new promoCode object has been created using the input and added to PromoCodeList
      */
-    public void addPromoCode(int code, ArrayList PromoCodeList, double percentOff);
+    public void addPromoCode(ArrayList PromoCodeList, int code, double percentOff, int codeType);
 
     /**
      * @require unit is enabled

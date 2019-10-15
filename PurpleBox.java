@@ -11,146 +11,65 @@ import java.util.ArrayList;
  *
  * @author Jon Comisky
  */
-public class PurpleBox implements InterfaceAdmin, InterfaceUser, InterfaceDisc, InterfacePromoCode{
+public class PurpleBox implements InterfaceAdmin, InterfaceUser{
     
     //Disc Data Members
-    String title;
-    String genre;
-    String type;
-    String release;
-    int criticScore;
-    int quantity;
-    double price;
-    //end Disc Dta members
+    public Disc disc;
+    //end Disc Data members
     
     //PromoCode Data Members
-    int code;
-    double percentOff;
-    int codeType;
+    public PromoCode promoCode;
     //end PromoCode Data Members
 
     public PurpleBox() {
     }
 
-    public PurpleBox(String title, String genre, String type, String release, int criticScore, int quantity, double price) {
-        this.title = title;
-        this.genre = genre;
-        this.type = type;
-        this.release = release;
-        this.criticScore = criticScore;
-        this.quantity = quantity;
-        this.price = price;
-    }
-    
-    
-    
-    public PurpleBox(String title, String genre, String type, String release, int criticScore, int quantity, double price, int code, double percentOff, int codeType) {
-        this.title = title;
-        this.genre = genre;
-        this.type = type;
-        this.release = release;
-        this.criticScore = criticScore;
-        this.quantity = quantity;
-        this.price = price;
-        this.code = code;
-        this.percentOff = percentOff;
-        this.codeType = codeType;
-    }
-    
-    
-
-    public String getTitle() {
-        return title;
+    public PurpleBox(Disc disc) {
+        this.disc = disc;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public PurpleBox(PromoCode promoCode) {
+        this.promoCode = promoCode;
     }
 
-    public String getGenre() {
-        return genre;
+    public PurpleBox(Disc disc, PromoCode promoCode) {
+        this.disc = disc;
+        this.promoCode = promoCode;
     }
 
-    public void setGenre(String genre) {
-        this.genre = genre;
+    public Disc getDisc() {
+        return disc;
     }
 
-    public String getType() {
-        return type;
+    public void setDisc(Disc disc) {
+        this.disc = disc;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public PromoCode getPromoCode() {
+        return promoCode;
     }
 
-    public String getRelease() {
-        return release;
+    public void setPromoCode(PromoCode promoCode) {
+        this.promoCode = promoCode;
     }
-
-    public void setRelease(String release) {
-        this.release = release;
-    }
-
-    public int getCriticScore() {
-        return criticScore;
-    }
-
-    public void setCriticScore(int criticScore) {
-        this.criticScore = criticScore;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
-    public int getCode() {
-        return code;
-    }
-
-    public void setCode(int code) {
-        this.code = code;
-    }
-
-    public double getPercentOff() {
-        return percentOff;
-    }
-
-    public void setPercentOff(double percentOff) {
-        this.percentOff = percentOff;
-    }
-
-    public int getCodeType() {
-        return codeType;
-    }
-
-    public void setCodeType(int codeType) {
-        this.codeType = codeType;
-    }
-    
-    
     
     
     //admin methods
      @Override
     public void addDisc(Disc disc, ArrayList inventory) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try{
+            inventory.add(disc);
+        }catch(Exception e){
+            
+        }
     }
 
     @Override
     public void removeDisc(Disc disc, ArrayList inventory) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(inventory.isEmpty() == false){
+            inventory.remove(disc);
+        }
+        
     }
 
     @Override
@@ -170,12 +89,14 @@ public class PurpleBox implements InterfaceAdmin, InterfaceUser, InterfaceDisc, 
 
     @Override
     public void volumeDiscount(int cartTotal) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
     @Override
-    public void addPromoCode(int code, ArrayList PromoCodeList, double percentOff) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void addPromoCode(ArrayList PromoCodeList, int code, double percentOff, int codeType) {
+        PromoCode temp = new PromoCode(code,percentOff,codeType);
+        
+        PromoCodeList.add(temp);
     }
 
     @Override

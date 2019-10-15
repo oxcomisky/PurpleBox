@@ -14,6 +14,7 @@ import java.util.ArrayList;
 public interface InterfaceUser {
     
     
+    
     /**Searches the inventory for all objects that contain the specified string
      * @param key the user defined String that will be compared to all strings w/in inventory
      * @param inventory the ArrayList of Disc which to be searched for the user specified string
