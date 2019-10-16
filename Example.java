@@ -12,7 +12,7 @@ package purplebox;
 import java.util.ArrayList;
 import java.util.Scanner;
 public class Example {
-
+    private static int num=0;
     private static Object InterfaceDiscs;
     public static void main(String[] args) {
         
@@ -43,26 +43,35 @@ public class Example {
      discs.add(new Disc("Star Wars: Jedi Fallen Order","Sci-Fi","PS4","2019",89,1,2.99) {});
      discs.add(new Disc("Watchdogs","Action","PS4","2019",89,1,2.99) {});
      discs.add(new Disc("Doom: Eternal","Action","PS4","2020",100,1,2.99) {});
-    for (InterfaceDisc Disc1: discs) {
-     System.out.println(Disc1.getTitle());
-     System.out.println(Disc1.getGenre());
-   }
-        Scanner input = new Scanner(System.in); //Create  a scanner object
-    System.out.println("Welcome to PurpleBox, select a command to continue");
-    System.out.println("Select 1 for the Movies tab.");
-    System.out.println("Select 2 for the Games tab.");
-    System.out.println("Select 3 for the Shopping Cart tab.");
-    System.out.print("Select 4 to return a movie or game");
+     
+   /// for (InterfaceDisc Disc1: discs) {
+    // System.out.println(Disc1.getTitle());
+   ///  System.out.println(Disc1.getGenre());
+  // }
+  while(1==1)
+{
+    Scanner input = new Scanner(System.in); //Create  a scanner object
+    System.out.format("Welcome to PurpleBox, select a command to continue %n");
+    System.out.format("Select 0 to exit Application. %n");
+    System.out.format("Select 1 for the Movies tab.%n");
+    System.out.format("Select 2 for the Games tab.%n");
+    System.out.format("Select 3 for the Shopping Cart tab.%n");
+    System.out.format("Select 4 to return a movie or game %n");
+    System.out.format("Select 99 for Admin Module %n-->");
+    System.out.format("Enter selection: ");
     int userInput = input.nextInt(); //read user input
     System.out.println("You selected: " + userInput);
     
     switch (userInput) {
+        case 0:  System.out.println("Thanks for shopping with PurpleBox"); 
+            break;
         case 1: System.out.println("Here are all the possible movie selections");
         //print(moviesList); call method to print movies list
-        System.out.println("Welcome to PurpleBox movies tab, select a command to continue");
+    System.out.println("Welcome to PurpleBox movies tab, select a command to continue");
     System.out.println("Select 1 for the Grown-Ups movie.");
     System.out.println("Select 2 for the Freddy Kreuger movie.");
     System.out.println("Select 3 for the Kujo movie.");
+
     userInput = input.nextInt(); //read user input
     System.out.println("You selected: " + userInput);
           //  if 
@@ -89,22 +98,69 @@ public class Example {
     System.out.println("Select 2 to checkout your shopping cart.");
     userInput = input.nextInt(); //read user input
     System.out.println("You selected: " + userInput);
-          //  if
+
         
         break;
     
-      case 4: System.out.print("Which movie or game will you be returning /n");
+      case 4: System.out.format("Which movie or game will you be returning %n");
         //print(shoppingCartList); call method to print shopping cart list
-         System.out.println("Welcome to your purple box shopping cart list, select a command to continue");
-    System.out.println("Select 1 to keep shopping.");
-    System.out.println("Select 2 to checkout your shopping cart.");
-    userInput = input.nextInt(); //read user input
-    System.out.println("You selected: " + userInput);
-          //  if
+            for (InterfaceDisc Disc1: discs) {
+              num = num+ 1;
+              System.out.format("Movie %d : %s\n", num, Disc1.getTitle());
+            } 
+         System.out.println("Please select the movie number to return");
+         userInput = input.nextInt(); //read user input and validate to  add
+         
+         System.out.println("You selected: " + userInput);
+         //returnDisc(Disc,Disc);
+            
         
+        break;
+    
+    
+    case 99: System.out.format("Please enter the Admin Passcode %n");
+         userInput = input.nextInt(); //read user input check for 9999
+         if (userInput==9999) {
+               int admin=1;
+               while(admin==1) {
+              System.out.format("**** Welcome to PurpleBox Admin *** %n");
+              System.out.format("Select 0 to leave admin.%n");
+              System.out.format("Select 1 to Add Discs.%n");
+              System.out.format("Select 2 to Add PromoCode.%n");
+              System.out.format("Select 3 to change price of BluRay.%n");
+              System.out.format("Select 4 to change price of DVD.%n");
+              System.out.format("Select 5 to change price of game.%n");
+              System.out.format("Select 6 to disable unit.%n");
+              System.out.format("Select 7 to change volume discount.%n");
+              System.out.format("Select 8 to change price of game.%n");
+              System.out.format("Enter selection: ");
+              userInput = input.nextInt(); //read user input
+              System.out.println("You selected: " + userInput);   
+              switch (userInput) {
+        case 0:  System.out.format("Thanks for shopping with PurpleBox %n");
+            admin=0; 
+            break;
+        case 1: System.out.format("Selected Add Discs.%n");   
+           break;
+        case 2: System.out.format("Selected Add PromoCode.%n");
+           break;
+        case 3: System.out.format("Selected change price of BluRay.%n");
+           break;
+        case 4: System.out.format("Selected change price of DVD.%n");
+           break;
+        case 5: System.out.format("Selected change price of game.%n");
+           break;
+        case 6: System.out.format("Selected disable unit.%n");
+           break;
+        case 7: System.out.format("Selected change volume discount.%n");
+           break;
+        case 8: System.out.format("Selected change price of game.%n");
+            }
+         }    
+         }
         break;
     
     }
-    
+}
     }//end main
 }
