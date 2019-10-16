@@ -147,15 +147,7 @@ public class PurpleBox implements InterfaceAdmin, InterfaceUser{
     @Override
     public ArrayList search(String key, ArrayList<Disc> inventory) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        /* for ( int i = 0; i < inventory.size(); i++) {
-             if (inventory.contains(disc)) {
-             }    
-           }
-       
-        key = inventory.getTitle();
-        boolean result = inventory.contains(key);
-    */
-}
+    }
 
     @Override
     public void returnDisc(Disc disc, ArrayList<Disc> inventory) {       
@@ -180,21 +172,18 @@ public class PurpleBox implements InterfaceAdmin, InterfaceUser{
 
     @Override
     public void addToCart(Disc disc, ArrayList<Disc> shoppingCart, ArrayList<Disc> inventory){
-        for ( int i = 0; i <= inventory.size(); i++){
+        for ( int i = 0; i < inventory.size(); i++){
            if (inventory.get(i).getTitle().compareTo(disc.getTitle() ) == 0)
-               if (!(shoppingCart.get(i).getTitle().compareTo(disc.getTitle() ) == 0)) {
+               //if (!(shoppingCart.get(i).getTitle().compareTo(disc.getTitle() ) == 0)) {
                     shoppingCart.add(disc);
-               }           
+               //}           
            }
     }
 
     @Override
-    public void remove(Disc disc, ArrayList<Disc> shoppingCart, ArrayList<Disc> inventory) {
+    public void remove(Disc disc, ArrayList<Disc> shoppingCart) {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        for ( int i = 0; i <= shoppingCart.size(); i++){
-           if (inventory.contains(disc)) {
-               inventory.get(i).setQuantity(inventory.get(i).getQuantity()+1);
-            }
+        for ( int i = 0; i < shoppingCart.size(); i++){
            if (shoppingCart.get(i).getTitle().compareTo(disc.getTitle() ) == 0)  {
                 shoppingCart.remove(i);
            }
@@ -202,25 +191,17 @@ public class PurpleBox implements InterfaceAdmin, InterfaceUser{
     }
 
     @Override
-    public void removeAll(Disc disc, ArrayList<Disc> shoppingCart, ArrayList<Disc> inventory) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        for ( int i = 0; i < shoppingCart.size(); i++){
-            if (inventory.contains(disc)) {
-                inventory.get(i).setQuantity(inventory.get(i).getQuantity()+1);
-            }
-        }
-        shoppingCart.clear();
+    public void removeAll(ArrayList<Disc> shoppingCart) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public Boolean available(Disc disc, ArrayList<Disc> inventory) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        if( disc.getQuantity() > 0){
-            return true;
-        }
-        else {
-            return null;
-        }    
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     //end user methods
+    @Override
+    public String toString() {
+        return "PurpleBox{" + "Movies=" + Movies + ", Games=" + Games + ", ShoppingCart=" + ShoppingCart + ", promoCode=" + promoCode + '}';
+    }
 }

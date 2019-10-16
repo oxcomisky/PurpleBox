@@ -16,8 +16,8 @@ import javax.swing.table.DefaultTableModel;
 
 public class PurpleBoxGUI extends javax.swing.JFrame {
     public ArrayList<Disc> ShoppingCartList = new ArrayList<>();
-    public ArrayList<Disc> Game = new ArrayList<>();
-    public ArrayList<Disc> Movie = new ArrayList<>();
+    public ArrayList<Disc> GameList = new ArrayList<>();
+    public ArrayList<Disc> MovieList = new ArrayList<>();
     
     public DefaultTableModel CartModel;
     public DefaultTableModel GameModel; 
@@ -28,30 +28,30 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
         initComponents();
         this.MovieModel = (DefaultTableModel) MoviesTable.getModel();
         this.GameModel = (DefaultTableModel) GamesTable.getModel();
-        this.CartModel = (DefaultTableModel) GamesTable.getModel();
+        this.CartModel = (DefaultTableModel) ShoppingCartTable.getModel();
         
         PurpleBox.setEnabledAt(4, false);
         
         
         
-        Movie.add(new Disc("The Godfather", "Drama", "DVD", "1972", 98, 2, 2.99){});
-        Movie.add(new Disc("Citizen Kane","Drama","DVD","1941",100,6,2.99) {});
-        Movie.add(new Disc("Pulp Fiction","Drama","DVD","1994",92,14,2.99) {});
-        Movie.add(new Disc("Schindler's List","Drama","DVD","1993",93,11,2.99) {});
-        Movie.add(new Disc("Star Wars: Episode IV","Sci-fi","DVD","1977",93,7,2.99) {});
-        Movie.add(new Disc("The Dark Knight","Drama","DVD","2008",94,17,2.99) {});
-        Movie.add(new Disc("Taxi Driver","Mystery","DVD","1976",98,1,2.99) {});
-        Movie.add(new Disc("Apocalypse Now","Drama","DVD","1979",97,1,2.99) {});
-        Movie.add(new Disc("2001: A Space Odyssey","Fantasy","DVD","1968",93,1,2.99) {});
-        Movie.add(new Disc("The Shawshank Redemption","Drama","DVD","1994",90,1,2.99) {});
-        Movie.add(new Disc("Spider-Man: Far from Home","Sci-Fi","BluRay","2019",93,1,2.99) {});
-        Movie.add(new Disc("X-Men: Dark Phoenix","Sci-Fi","BluRay","2019",90,1,2.99) {});
-        Movie.add(new Disc("Toy Story 4","Fantasy","Bluray","2019",91,1,2.99) {});
-        Movie.add(new Disc("Avengers: Endgame","Sci-Fi","BluRay","2019",98,1,2.99) {});
-        Movie.add(new Disc("Shrek 15: The Swampening","Horror","BluRay","2019",100,1,2.99) {});
+        MovieList.add(new Disc("The Godfather", "Drama", "DVD", "1972", 98, 2, 2.99){});
+        MovieList.add(new Disc("Citizen Kane","Drama","DVD","1941",100,6,2.99) {});
+        MovieList.add(new Disc("Pulp Fiction","Drama","DVD","1994",92,14,2.99) {});
+        MovieList.add(new Disc("Schindler's List","Drama","DVD","1993",93,11,2.99) {});
+        MovieList.add(new Disc("Star Wars: Episode IV","Sci-fi","DVD","1977",93,7,2.99) {});
+        MovieList.add(new Disc("The Dark Knight","Drama","DVD","2008",94,17,2.99) {});
+        MovieList.add(new Disc("Taxi Driver","Mystery","DVD","1976",98,1,2.99) {});
+        MovieList.add(new Disc("Apocalypse Now","Drama","DVD","1979",97,1,2.99) {});
+        MovieList.add(new Disc("2001: A Space Odyssey","Fantasy","DVD","1968",93,1,2.99) {});
+        MovieList.add(new Disc("The Shawshank Redemption","Drama","DVD","1994",90,1,2.99) {});
+        MovieList.add(new Disc("Spider-Man: Far from Home","Sci-Fi","BluRay","2019",93,1,2.99) {});
+        MovieList.add(new Disc("X-Men: Dark Phoenix","Sci-Fi","BluRay","2019",90,1,2.99) {});
+        MovieList.add(new Disc("Toy Story 4","Fantasy","Bluray","2019",91,1,2.99) {});
+        MovieList.add(new Disc("Avengers: Endgame","Sci-Fi","BluRay","2019",98,1,2.99) {});
+        MovieList.add(new Disc("Shrek 15: The Swampening","Horror","BluRay","2019",100,1,2.99) {});
         
         
-        for(Disc disc : Movie){
+        for(Disc disc : MovieList){
             MovieModel.addRow(new Object[] {
                 disc.getTitle(), disc.getGenre(), disc.getType(),
                 disc.getRelease(), disc.getCriticScore(), disc.getQuantity(), disc.getPrice() });
@@ -59,19 +59,19 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
         }
         
         
-        Game.add(new Disc("Battlefield 5","Action","XboxOne","2018",89,1,2.99) {});
-        Game.add(new Disc("NBA 2K20","Sports","XboxOne","2017",76,1,2.99) {});
-        Game.add(new Disc("Destiny 2","Sci-Fi","XboxOne","2017",92,1,2.99) {});
-        Game.add(new Disc("Call of Duty: Black Ops 4","Action","XboxOne","2018",85,1,2.99) {});
-        Game.add(new Disc("BorderLands 3","Action","XboxOne","2019",79,1,2.99) {});
-        Game.add(new Disc("God of War","Fantasy","PS4","2019",95,1,2.99) {});
-        Game.add(new Disc("Tom Clancy's Ghost Recon: BreakPoint","Action","PS4","2019",98,1,2.99) {});
-        Game.add(new Disc("Star Wars: Jedi Fallen Order","Sci-Fi","PS4","2019",89,1,2.99) {});
-        Game.add(new Disc("Watchdogs","Action","PS4","2019",89,1,2.99) {});
-        Game.add(new Disc("Doom: Eternal","Action","PS4","2020",100,1,2.99) {});
+        GameList.add(new Disc("Battlefield 5","Action","XboxOne","2018",89,1,2.99) {});
+        GameList.add(new Disc("NBA 2K20","Sports","XboxOne","2017",76,1,2.99) {});
+        GameList.add(new Disc("Destiny 2","Sci-Fi","XboxOne","2017",92,1,2.99) {});
+        GameList.add(new Disc("Call of Duty: Black Ops 4","Action","XboxOne","2018",85,1,2.99) {});
+        GameList.add(new Disc("BorderLands 3","Action","XboxOne","2019",79,1,2.99) {});
+        GameList.add(new Disc("God of War","Fantasy","PS4","2019",95,1,2.99) {});
+        GameList.add(new Disc("Tom Clancy's Ghost Recon: BreakPoint","Action","PS4","2019",98,1,2.99) {});
+        GameList.add(new Disc("Star Wars: Jedi Fallen Order","Sci-Fi","PS4","2019",89,1,2.99) {});
+        GameList.add(new Disc("Watchdogs","Action","PS4","2019",89,1,2.99) {});
+        GameList.add(new Disc("Doom: Eternal","Action","PS4","2020",100,1,2.99) {});
 
         
-        for(Disc disc : Game){
+        for(Disc disc : GameList){
             GameModel.addRow(new Object[] {
                 disc.getTitle(), disc.getGenre(), disc.getType(),
                 disc.getRelease(), disc.getCriticScore(), disc.getQuantity(), disc.getPrice() });
@@ -87,8 +87,8 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
             
         }
         
-        myBox.setGames(Game);
-        myBox.setMovies(Movie);
+        myBox.setGames(GameList);
+        myBox.setMovies(MovieList);
         myBox.setShoppingCart(ShoppingCartList);
     }
 
@@ -339,18 +339,8 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        GamesTable.setColumnSelectionAllowed(true);
+        GamesTable.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jScrollPane3.setViewportView(GamesTable);
-        GamesTable.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        if (GamesTable.getColumnModel().getColumnCount() > 0) {
-            GamesTable.getColumnModel().getColumn(0).setHeaderValue("Title");
-            GamesTable.getColumnModel().getColumn(1).setHeaderValue("Genre");
-            GamesTable.getColumnModel().getColumn(2).setHeaderValue("Type");
-            GamesTable.getColumnModel().getColumn(3).setHeaderValue("Release");
-            GamesTable.getColumnModel().getColumn(4).setHeaderValue("Critic Rating");
-            GamesTable.getColumnModel().getColumn(5).setHeaderValue("Quantity");
-            GamesTable.getColumnModel().getColumn(6).setHeaderValue("Price");
-        }
 
         TextOutputGames.setColumns(20);
         TextOutputGames.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
@@ -824,13 +814,29 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_RemoveFromCartActionPerformed
 
     private void AddToCartGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddToCartGameActionPerformed
-        myBox.addToCart();
-        for(Disc disc : ShoppingCartList){
-            CartModel.addRow(new Object[] {
-                disc.getTitle(), disc.getGenre(), disc.getType(),
-                disc.getRelease(), disc.getCriticScore(), disc.getQuantity(), disc.getPrice() });
+        int[] index = GamesTable.getSelectedRows();
+        Disc temp = new Disc();
+        //for(int i = 0; i < index.length; i++){
+        for(int i = 0; i < GameList.size();i++){
+                if(GameList.get(i).getTitle().compareTo((String)GamesTable.getValueAt(GamesTable.getSelectedRow(), NORMAL))==0){
+                    temp = GameList.get(i);
+                    CartModel.addRow(new Object[] {
+                        temp.getTitle(), 
+                        temp.getGenre(), 
+                        temp.getType(),
+                        temp.getRelease(), 
+                        temp.getCriticScore(), 
+                        temp.getQuantity(), 
+                        temp.getPrice()
+                    });
+                }
             
-        }
+                    }  
+        //}
+        
+        myBox.addToCart(temp,ShoppingCartList, GameList);
+        
+        System.out.println(ShoppingCartList);
     }//GEN-LAST:event_AddToCartGameActionPerformed
 
     private void AddToCartMovieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddToCartMovieActionPerformed
