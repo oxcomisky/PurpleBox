@@ -56,7 +56,7 @@ public class PurpleBox implements InterfaceAdmin, InterfaceUser{
     
     //admin methods
      @Override
-    public void addDisc(Disc disc, ArrayList inventory) {
+    public void addDisc(Disc disc, ArrayList<Disc> inventory) {
         try{
             inventory.add(disc);
         }catch(Exception e){
@@ -65,7 +65,7 @@ public class PurpleBox implements InterfaceAdmin, InterfaceUser{
     }
 
     @Override
-    public void removeDisc(Disc disc, ArrayList inventory) {
+    public void removeDisc(Disc disc, ArrayList<Disc> inventory) {
         if(inventory.isEmpty() == false){
             inventory.remove(disc);
         }
@@ -73,23 +73,42 @@ public class PurpleBox implements InterfaceAdmin, InterfaceUser{
     }
 
     @Override
-    public void changePriceDVD(double newPrice, ArrayList inventory) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void changePriceDVD(double newPrice, ArrayList<Disc> inventory) {
+
+        for ( int i = 0; i < inventory.size(); i++){
+            if (inventory.get(i).getType().compareTo("DVD") == 0) {
+                inventory.get(i).setPrice(newPrice); 
+            }
+        }
+
     }
 
     @Override
-    public void changePriceBluRay(double newPrice, ArrayList inventory) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void changePriceBluRay(double newPrice, ArrayList<Disc> inventory) {
+        for ( int i = 0; i < inventory.size(); i++){
+            if (inventory.get(i).getType().compareTo("BluRay") == 0) {
+                inventory.get(i).setPrice(newPrice); 
+            }
+        }
     }
 
     @Override
-    public void changePriceGame(double newPrice, ArrayList inventory) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void changePriceGame(double newPrice, ArrayList<Disc> inventory) {
+    
+        for ( int i = 0; i < inventory.size(); i++){
+            if (inventory.get(i).getType().compareTo("PS4") == 0 || (inventory.get(i).getType().compareTo("XboxOne") == 0 )) {
+                inventory.get(i).setPrice(newPrice); 
+            }
+        }
+    
     }
 
     @Override
     public void volumeDiscount(int cartTotal) {
-        
+        if (cartTotal >= 3) {
+            //________ *0.9 = ___________;
+        }
+            
     }
 
     @Override
@@ -112,13 +131,18 @@ public class PurpleBox implements InterfaceAdmin, InterfaceUser{
     
     //user methods
     @Override
-    public ArrayList search(String key, ArrayList inventory) {
+    public ArrayList search(String key, ArrayList<Disc> inventory) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void returnDisc(Disc disc, ArrayList inventory) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void returnDisc(Disc disc, ArrayList<Disc> inventory) {       
+        for ( int i = 0; i < inventory.size(); i++){
+            if (inventory.contains(disc)) {
+                 //int quantity = inventory.get(i).getQuantity(); 
+                inventory.get(i).setQuantity(inventory.get(i).getQuantity()+1);
+            }
+        }
     }
 
     @Override
@@ -127,22 +151,38 @@ public class PurpleBox implements InterfaceAdmin, InterfaceUser{
     }
 
     @Override
-    public ArrayList pay(int cardNumber, ArrayList shoppingCart) {
+    public ArrayList pay(int cardNumber, ArrayList<Disc> shoppingCart) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+    }
+
+    @Override
+    public void addToCart(Disc disc, ArrayList<Disc> shoppingCart, ArrayList<Disc> inventory){
+        for ( int i = 0; i <= inventory.size(); i++){
+           if (inventory.get(i).getTitle().compareTo(disc.getTitle() ) == 0)
+               if (!(shoppingCart.get(i).getTitle().compareTo(disc.getTitle() ) == 0)) {
+                    shoppingCart.add(disc);
+               }           
+           }
+    }
+
+    @Override
+    public void remove(Disc disc, ArrayList<Disc> shoppingCart) {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        for ( int i = 0; i <= shoppingCart.size(); i++){
+           if (shoppingCart.get(i).getTitle().compareTo(disc.getTitle() ) == 0)  {
+                shoppingCart.remove(i);
+           }
+        }
+    }
+
+    @Override
+    public void removeAll(ArrayList<Disc> shoppingCart) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void remove(Disc disc, ArrayList shoppingCart) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void removeAll(ArrayList shoppingCart) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public Boolean available(Disc disc, ArrayList inventory) {
+    public Boolean available(Disc disc, ArrayList<Disc> inventory) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     //end user methods

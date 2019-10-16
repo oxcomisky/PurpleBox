@@ -21,14 +21,14 @@ public interface InterfaceUser {
      * @ensure all instances of key that match a value within inventory are added to the resulting ArrayList
      * @return an ArrayList of Disc objects that meet the specified search criteria
      */
-    public ArrayList search(String key, ArrayList inventory);
+    public ArrayList search(String key, ArrayList<Disc> inventory);
 
     /**Increases the quantity value of the returned Disc object by 1
      * @param disc the Disc object to be returned
      * @param inventory The ArrayList of Disc objects to which disc is being returned
      * @ensure disc has been added to inventory (disc.newQuantity() > disc.oldQuantity())
      */
-    public void returnDisc(Disc disc, ArrayList inventory);
+    public void returnDisc(Disc disc, ArrayList<Disc> inventory);
 
     /**Takes a promoCode and checks if its valid, returns the corresponding int value associated with the discount
      * @param code
@@ -46,20 +46,28 @@ public interface InterfaceUser {
      * @ensure result.isEmpty() == false
      * @ensure result == shoppingCart
      */
-    public ArrayList pay(int cardNumber, ArrayList shoppingCart);
+    public ArrayList pay(int cardNumber, ArrayList<Disc> shoppingCart);
 
     /**
      * @param shoppingCart the ArrayList of Disc from which the user wishes to remove disc
      * @param disc The Disc object wished to be removed
      * @ensure shoppingCart no longer contains disc
      */
-    public void remove(Disc disc, ArrayList shoppingCart);
+    public void remove(Disc disc, ArrayList<Disc> shoppingCart);
 
     /**
      * @param shoppingCart the ArrayList of Disc of which the user wishes to remove all contents
      * @ensure shoppingCart.isEmpty() == true
      */
-    public void removeAll(ArrayList shoppingCart);
+    public void removeAll(ArrayList<Disc> shoppingCart);
+    
+    /**
+     * 
+     * @param disc
+     * @param shoppingCart
+     * @param inventory 
+     */
+    public void addToCart(Disc disc, ArrayList<Disc> shoppingCart, ArrayList<Disc> inventory);
     
      /**
      * @param disc the Disc object desired to be rendered available or unavailable
@@ -67,5 +75,5 @@ public interface InterfaceUser {
      * @return true or false depending on the value of the quantity variable within the specified Disc
      * @ensure result (true || false)
      */
-    public Boolean available(Disc disc, ArrayList inventory);
+    public Boolean available(Disc disc, ArrayList<Disc> inventory);
 }
