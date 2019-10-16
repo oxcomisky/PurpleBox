@@ -18,7 +18,7 @@ public interface InterfaceAdmin {
      * @param inventory an ArrayList of disc objects: the inventory of this.purpleBox
      * @ensure inventory.append(disc)
      */
-    public void addDisc(Disc disc, ArrayList inventory);
+    public void addDisc(Disc disc, ArrayList<Disc> inventory);
 
     /**
      * @param disc the Disc object the Admin wishes to remove
@@ -26,7 +26,7 @@ public interface InterfaceAdmin {
      * @ensure disc is removed IFF purpleBox contains a disc
      * @ensure nothing is done if purpleBox.isEmpty() == true
      */
-    public void removeDisc(Disc disc, ArrayList inventory);
+    public void removeDisc(Disc disc, ArrayList<Disc> inventory);
 
     /**
      * @require newPrice > 0
@@ -34,7 +34,7 @@ public interface InterfaceAdmin {
      * @param inventory an arrayList of disc objects: the inventory of this.purpleBox
      * @ensure only Disc.getType().compareTo("DVD") == 0 && Disc.getPrice() == newPrice
      */
-    public void changePriceDVD(double newPrice, ArrayList inventory);
+    public void changePriceDVD(double newPrice, ArrayList<Disc> inventory);
 
     /**
      * @require newPrice > 0
@@ -42,7 +42,7 @@ public interface InterfaceAdmin {
      * @param inventory an arrayList of disc objects: the inventory of this.purpleBox
      * @ensure only Disc.getType().compareTo("BluRay") == 0 && Disc.getPrice() == newPrice
      */
-    public void changePriceBluRay(double newPrice, ArrayList inventory);
+    public void changePriceBluRay(double newPrice, ArrayList<Disc> inventory);
 
     /**
      * @require newPrice > 0
@@ -50,7 +50,7 @@ public interface InterfaceAdmin {
      * @param inventory an arrayList of disc objects: the inventory of this.purpleBox
      * @ensure (Disc.getType().compareTo("PS4") == 0 || Disc.getType().compareTo("XboxOne") == 0) && Disc.getPrice() == newPrice
      */
-    public void changePriceGame(double newPrice, ArrayList inventory);
+    public void changePriceGame(double newPrice, ArrayList<Disc> inventory);
 
     /**
      * @require cartTotal > 0
