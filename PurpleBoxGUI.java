@@ -15,13 +15,15 @@ import javax.swing.table.DefaultTableModel;
  */
 
 public class PurpleBoxGUI extends javax.swing.JFrame {
-    public static ArrayList<Disc> ShoppingCartList = new ArrayList<>();
-    public static ArrayList<Disc> Game = new ArrayList<>();
-    ArrayList<Disc> Movie = new ArrayList<>();
+    public ArrayList<Disc> ShoppingCartList = new ArrayList<>();
+    public ArrayList<Disc> Game = new ArrayList<>();
+    public ArrayList<Disc> Movie = new ArrayList<>();
     
     public DefaultTableModel CartModel;
     public DefaultTableModel GameModel; 
     public DefaultTableModel MovieModel;
+    
+    PurpleBox myBox = new PurpleBox();
     public PurpleBoxGUI() {
         initComponents();
         this.MovieModel = (DefaultTableModel) MoviesTable.getModel();
@@ -84,6 +86,10 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
                 disc.getRelease(), disc.getCriticScore(), disc.getQuantity(), disc.getPrice() });
             
         }
+        
+        myBox.setGames(Game);
+        myBox.setMovies(Movie);
+        myBox.setShoppingCart(ShoppingCartList);
     }
 
     /**
@@ -818,7 +824,7 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_RemoveFromCartActionPerformed
 
     private void AddToCartGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddToCartGameActionPerformed
-        
+        myBox.addToCart();
         for(Disc disc : ShoppingCartList){
             CartModel.addRow(new Object[] {
                 disc.getTitle(), disc.getGenre(), disc.getType(),
@@ -828,7 +834,13 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_AddToCartGameActionPerformed
 
     private void AddToCartMovieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddToCartMovieActionPerformed
-        // TODO add your handling code here:
+        
+         for(Disc disc : ShoppingCartList){
+            CartModel.addRow(new Object[] {
+                disc.getTitle(), disc.getGenre(), disc.getType(),
+                disc.getRelease(), disc.getCriticScore(), disc.getQuantity(), disc.getPrice() });
+            
+        }
     }//GEN-LAST:event_AddToCartMovieActionPerformed
 
     private void AdminLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminLoginActionPerformed
