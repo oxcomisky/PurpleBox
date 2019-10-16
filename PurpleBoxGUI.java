@@ -7,6 +7,7 @@ package purplebox;
 
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -14,9 +15,75 @@ import javax.swing.JOptionPane;
  */
 
 public class PurpleBoxGUI extends javax.swing.JFrame {
+    public static ArrayList<Disc> ShoppingCartList = new ArrayList<>();
+    public static ArrayList<Disc> Game = new ArrayList<>();
+    ArrayList<Disc> Movie = new ArrayList<>();
+    
+    public DefaultTableModel CartModel;
+    public DefaultTableModel GameModel; 
+    public DefaultTableModel MovieModel;
     public PurpleBoxGUI() {
         initComponents();
+        this.MovieModel = (DefaultTableModel) MoviesTable.getModel();
+        this.GameModel = (DefaultTableModel) GamesTable.getModel();
+        this.CartModel = (DefaultTableModel) GamesTable.getModel();
+        
         PurpleBox.setEnabledAt(4, false);
+        
+        
+        
+        Movie.add(new Disc("The Godfather", "Drama", "DVD", "1972", 98, 2, 2.99){});
+        Movie.add(new Disc("Citizen Kane","Drama","DVD","1941",100,6,2.99) {});
+        Movie.add(new Disc("Pulp Fiction","Drama","DVD","1994",92,14,2.99) {});
+        Movie.add(new Disc("Schindler's List","Drama","DVD","1993",93,11,2.99) {});
+        Movie.add(new Disc("Star Wars: Episode IV","Sci-fi","DVD","1977",93,7,2.99) {});
+        Movie.add(new Disc("The Dark Knight","Drama","DVD","2008",94,17,2.99) {});
+        Movie.add(new Disc("Taxi Driver","Mystery","DVD","1976",98,1,2.99) {});
+        Movie.add(new Disc("Apocalypse Now","Drama","DVD","1979",97,1,2.99) {});
+        Movie.add(new Disc("2001: A Space Odyssey","Fantasy","DVD","1968",93,1,2.99) {});
+        Movie.add(new Disc("The Shawshank Redemption","Drama","DVD","1994",90,1,2.99) {});
+        Movie.add(new Disc("Spider-Man: Far from Home","Sci-Fi","BluRay","2019",93,1,2.99) {});
+        Movie.add(new Disc("X-Men: Dark Phoenix","Sci-Fi","BluRay","2019",90,1,2.99) {});
+        Movie.add(new Disc("Toy Story 4","Fantasy","Bluray","2019",91,1,2.99) {});
+        Movie.add(new Disc("Avengers: Endgame","Sci-Fi","BluRay","2019",98,1,2.99) {});
+        Movie.add(new Disc("Shrek 15: The Swampening","Horror","BluRay","2019",100,1,2.99) {});
+        
+        
+        for(Disc disc : Movie){
+            MovieModel.addRow(new Object[] {
+                disc.getTitle(), disc.getGenre(), disc.getType(),
+                disc.getRelease(), disc.getCriticScore(), disc.getQuantity(), disc.getPrice() });
+            
+        }
+        
+        
+        Game.add(new Disc("Battlefield 5","Action","XboxOne","2018",89,1,2.99) {});
+        Game.add(new Disc("NBA 2K20","Sports","XboxOne","2017",76,1,2.99) {});
+        Game.add(new Disc("Destiny 2","Sci-Fi","XboxOne","2017",92,1,2.99) {});
+        Game.add(new Disc("Call of Duty: Black Ops 4","Action","XboxOne","2018",85,1,2.99) {});
+        Game.add(new Disc("BorderLands 3","Action","XboxOne","2019",79,1,2.99) {});
+        Game.add(new Disc("God of War","Fantasy","PS4","2019",95,1,2.99) {});
+        Game.add(new Disc("Tom Clancy's Ghost Recon: BreakPoint","Action","PS4","2019",98,1,2.99) {});
+        Game.add(new Disc("Star Wars: Jedi Fallen Order","Sci-Fi","PS4","2019",89,1,2.99) {});
+        Game.add(new Disc("Watchdogs","Action","PS4","2019",89,1,2.99) {});
+        Game.add(new Disc("Doom: Eternal","Action","PS4","2020",100,1,2.99) {});
+
+        
+        for(Disc disc : Game){
+            GameModel.addRow(new Object[] {
+                disc.getTitle(), disc.getGenre(), disc.getType(),
+                disc.getRelease(), disc.getCriticScore(), disc.getQuantity(), disc.getPrice() });
+            
+        }
+        
+        
+        
+        for(Disc disc : ShoppingCartList){
+            CartModel.addRow(new Object[] {
+                disc.getTitle(), disc.getGenre(), disc.getType(),
+                disc.getRelease(), disc.getCriticScore(), disc.getQuantity(), disc.getPrice() });
+            
+        }
     }
 
     /**
@@ -45,12 +112,14 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
         AddToCartMovie = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         TextOutputMovies = new javax.swing.JTextArea();
+        returnMovie = new javax.swing.JButton();
         Games = new java.awt.Panel();
         jScrollPane3 = new javax.swing.JScrollPane();
         GamesTable = new javax.swing.JTable();
         jScrollPane4 = new javax.swing.JScrollPane();
         TextOutputGames = new javax.swing.JTextArea();
         AddToCartGame = new javax.swing.JButton();
+        returnGame = new javax.swing.JButton();
         ShoppingCart = new java.awt.Panel();
         jScrollPane5 = new javax.swing.JScrollPane();
         ShoppingCartTable = new javax.swing.JTable();
@@ -63,6 +132,7 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
         textField9 = new java.awt.TextField();
         CodeTextField = new java.awt.TextField();
         SubmitCode = new javax.swing.JButton();
+        textField11 = new java.awt.TextField();
         ADMINPanel = new java.awt.Panel();
         textField1 = new java.awt.TextField();
         textField3 = new java.awt.TextField();
@@ -179,6 +249,7 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
         Movies.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
 
         MoviesTable.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
+
         MoviesTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -196,8 +267,9 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
             }
         });
         MoviesTable.setColumnSelectionAllowed(true);
+        MoviesTable.getTableHeader().setReorderingAllowed(false);
         jScrollPane2.setViewportView(MoviesTable);
-        MoviesTable.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        MoviesTable.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
 
         AddToCartMovie.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
         AddToCartMovie.setText("Add To Cart");
@@ -212,27 +284,32 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
         TextOutputMovies.setRows(5);
         jScrollPane1.setViewportView(TextOutputMovies);
 
+        returnMovie.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
+        returnMovie.setText("Return Movie");
+
         javax.swing.GroupLayout MoviesLayout = new javax.swing.GroupLayout(Movies);
         Movies.setLayout(MoviesLayout);
         MoviesLayout.setHorizontalGroup(
             MoviesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MoviesLayout.createSequentialGroup()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 611, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(MoviesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(MoviesLayout.createSequentialGroup()
-                        .addComponent(AddToCartMovie, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
-                        .addGap(499, 499, 499))
-                    .addGroup(MoviesLayout.createSequentialGroup()
-                        .addComponent(jScrollPane1)
-                        .addContainerGap())))
+                        .addComponent(AddToCartMovie, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)
+                        .addGap(416, 416, 416)
+                        .addComponent(returnMovie))
+                    .addComponent(jScrollPane1))
+                .addContainerGap())
         );
         MoviesLayout.setVerticalGroup(
             MoviesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MoviesLayout.createSequentialGroup()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 461, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(AddToCartMovie)
+                .addGroup(MoviesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(AddToCartMovie)
+                    .addComponent(returnMovie))
                 .addContainerGap())
             .addComponent(jScrollPane2)
         );
@@ -259,6 +336,15 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
         GamesTable.setColumnSelectionAllowed(true);
         jScrollPane3.setViewportView(GamesTable);
         GamesTable.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        if (GamesTable.getColumnModel().getColumnCount() > 0) {
+            GamesTable.getColumnModel().getColumn(0).setHeaderValue("Title");
+            GamesTable.getColumnModel().getColumn(1).setHeaderValue("Genre");
+            GamesTable.getColumnModel().getColumn(2).setHeaderValue("Type");
+            GamesTable.getColumnModel().getColumn(3).setHeaderValue("Release");
+            GamesTable.getColumnModel().getColumn(4).setHeaderValue("Critic Rating");
+            GamesTable.getColumnModel().getColumn(5).setHeaderValue("Quantity");
+            GamesTable.getColumnModel().getColumn(6).setHeaderValue("Price");
+        }
 
         TextOutputGames.setColumns(20);
         TextOutputGames.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
@@ -273,6 +359,9 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
             }
         });
 
+        returnGame.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
+        returnGame.setText("Return Game");
+
         javax.swing.GroupLayout GamesLayout = new javax.swing.GroupLayout(Games);
         Games.setLayout(GamesLayout);
         GamesLayout.setHorizontalGroup(
@@ -282,7 +371,10 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(GamesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 623, Short.MAX_VALUE)
-                    .addComponent(AddToCartGame))
+                    .addGroup(GamesLayout.createSequentialGroup()
+                        .addComponent(AddToCartGame)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(returnGame)))
                 .addContainerGap())
         );
         GamesLayout.setVerticalGroup(
@@ -290,8 +382,10 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
             .addGroup(GamesLayout.createSequentialGroup()
                 .addComponent(jScrollPane4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(AddToCartGame)
-                .addContainerGap())
+                .addGroup(GamesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(AddToCartGame)
+                    .addComponent(returnGame))
+                .addGap(10, 10, 10))
             .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 506, Short.MAX_VALUE)
         );
 
@@ -354,6 +448,8 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
 
         SubmitCode.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
         SubmitCode.setText("Submit Code");
+
+        textField11.setText("textField11");
 
         javax.swing.GroupLayout ShoppingCartLayout = new javax.swing.GroupLayout(ShoppingCart);
         ShoppingCart.setLayout(ShoppingCartLayout);
@@ -501,7 +597,6 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
 
         ChangePriceGame.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
         ChangePriceGame.setText("Change Price of Game");
-        ChangePriceGame.setActionCommand("Change Price of Game");
         ChangePriceGame.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ChangePriceGameActionPerformed(evt);
@@ -697,7 +792,7 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(PurpleBox, javax.swing.GroupLayout.DEFAULT_SIZE, 1343, Short.MAX_VALUE)
+                .addComponent(PurpleBox)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -723,7 +818,13 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_RemoveFromCartActionPerformed
 
     private void AddToCartGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddToCartGameActionPerformed
-        // TODO add your handling code here:
+        
+        for(Disc disc : ShoppingCartList){
+            CartModel.addRow(new Object[] {
+                disc.getTitle(), disc.getGenre(), disc.getType(),
+                disc.getRelease(), disc.getCriticScore(), disc.getQuantity(), disc.getPrice() });
+            
+        }
     }//GEN-LAST:event_AddToCartGameActionPerformed
 
     private void AddToCartMovieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddToCartMovieActionPerformed
@@ -820,12 +921,11 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
         
         
         //Start the PurpleBox Code Here
-        ArrayList<Disc> DVD = new ArrayList<>();
         
-        Disc godfather = new Disc("The Godfather", "Drama", "DVD", "1972", 98, 2, 1.25);
+        
         
     }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.Panel ADMINPanel;
     private javax.swing.JButton AddCode;
@@ -887,8 +987,11 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
     private javax.swing.JSpinner percentOff;
     private java.awt.PopupMenu popupMenu1;
     private java.awt.PopupMenu popupMenu2;
+    private javax.swing.JButton returnGame;
+    private javax.swing.JButton returnMovie;
     private java.awt.TextField textField1;
     private java.awt.TextField textField10;
+    private java.awt.TextField textField11;
     private java.awt.TextField textField2;
     private java.awt.TextField textField3;
     private java.awt.TextField textField4;
