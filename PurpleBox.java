@@ -14,45 +14,59 @@ import java.util.ArrayList;
 public class PurpleBox implements InterfaceAdmin, InterfaceUser{
     
     //Disc Data Members
-    public Disc disc;
+    public ArrayList<Disc> Movies;
+    public ArrayList<Disc> Games;
+    public ArrayList<Disc> ShoppingCart;
     //end Disc Data members
     
     //PromoCode Data Members
-    public PromoCode promoCode;
+    public ArrayList<PromoCode> promoCode;
     //end PromoCode Data Members
 
     public PurpleBox() {
     }
 
-    public PurpleBox(Disc disc) {
-        this.disc = disc;
-    }
-
-    public PurpleBox(PromoCode promoCode) {
+    public PurpleBox(ArrayList<Disc> Movies, ArrayList<Disc> Games, ArrayList<Disc> ShoppingCart, ArrayList<PromoCode> promoCode) {
+        this.Movies = Movies;
+        this.Games = Games;
+        this.ShoppingCart = ShoppingCart;
         this.promoCode = promoCode;
     }
 
-    public PurpleBox(Disc disc, PromoCode promoCode) {
-        this.disc = disc;
-        this.promoCode = promoCode;
+    public ArrayList<Disc> getMovies() {
+        return Movies;
     }
 
-    public Disc getDisc() {
-        return disc;
+    public void setMovies(ArrayList<Disc> Movies) {
+        this.Movies = Movies;
     }
 
-    public void setDisc(Disc disc) {
-        this.disc = disc;
+    public ArrayList<Disc> getGames() {
+        return Games;
     }
 
-    public PromoCode getPromoCode() {
+    public void setGames(ArrayList<Disc> Games) {
+        this.Games = Games;
+    }
+
+    public ArrayList<Disc> getShoppingCart() {
+        return ShoppingCart;
+    }
+
+    public void setShoppingCart(ArrayList<Disc> ShoppingCart) {
+        this.ShoppingCart = ShoppingCart;
+    }
+
+    public ArrayList<PromoCode> getPromoCode() {
         return promoCode;
     }
 
-    public void setPromoCode(PromoCode promoCode) {
+    public void setPromoCode(ArrayList<PromoCode> promoCode) {
         this.promoCode = promoCode;
     }
+
     
+   
     
     //admin methods
      @Override
