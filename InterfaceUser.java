@@ -51,15 +51,18 @@ public interface InterfaceUser {
     /**
      * @param shoppingCart the ArrayList of Disc from which the user wishes to remove disc
      * @param disc The Disc object wished to be removed
+     * @param inventory
      * @ensure shoppingCart no longer contains disc
      */
-    public void remove(Disc disc, ArrayList<Disc> shoppingCart);
+    public void remove(Disc disc, ArrayList<Disc> shoppingCart, ArrayList<Disc> inventory);
 
     /**
+     * @param disc
      * @param shoppingCart the ArrayList of Disc of which the user wishes to remove all contents
+     * @param inventory
      * @ensure shoppingCart.isEmpty() == true
      */
-    public void removeAll(ArrayList<Disc> shoppingCart);
+    public void removeAll(Disc disc, ArrayList<Disc> shoppingCart, ArrayList<Disc> inventory);
     
     /**
      * 
