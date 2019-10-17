@@ -32,12 +32,10 @@ public interface InterfaceUser {
 
     /**Takes a promoCode and checks if its valid, returns the corresponding int value associated with the discount
      * @param code
-     * @param total
-     * @param disc
      * @return returns an Int that corresponds to what kind of discount the user receives
      * @ensure 2 >= result >= 0
      */
-    public double promoCode(int code, double total, Disc disc);
+    public int promoCode(int code);
 
     /**Inputs a credit card number, checks for validity, and returns a list to be used as a receipt
      * @require cardNumber is a 16 digit value
@@ -55,7 +53,7 @@ public interface InterfaceUser {
      * @param disc The Disc object wished to be removed
      * @ensure shoppingCart no longer contains disc
      */
-    public void remove(Disc disc, ArrayList<Disc> shoppingCart);
+    public void remove(int index, ArrayList<Disc> shoppingCart);
 
     /**
      * @param shoppingCart the ArrayList of Disc of which the user wishes to remove all contents

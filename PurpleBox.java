@@ -65,7 +65,9 @@ public class PurpleBox implements InterfaceAdmin, InterfaceUser{
         this.promoCode = promoCode;
     }
 
-     
+    
+   
+    
     //admin methods
      @Override
     public void addDisc(Disc disc, ArrayList<Disc> inventory) {
@@ -81,6 +83,7 @@ public class PurpleBox implements InterfaceAdmin, InterfaceUser{
         if(inventory.isEmpty() == false){
             inventory.remove(disc);
         }
+        
     }
 
     @Override
@@ -91,6 +94,7 @@ public class PurpleBox implements InterfaceAdmin, InterfaceUser{
                 inventory.get(i).setPrice(newPrice); 
             }
         }
+
     }
 
     @Override
@@ -110,6 +114,7 @@ public class PurpleBox implements InterfaceAdmin, InterfaceUser{
                 inventory.get(i).setPrice(newPrice); 
             }
         }
+    
     }
 
     @Override
@@ -142,7 +147,6 @@ public class PurpleBox implements InterfaceAdmin, InterfaceUser{
     @Override
     public ArrayList search(String key, ArrayList<Disc> inventory) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        
     }
 
     @Override
@@ -156,24 +160,8 @@ public class PurpleBox implements InterfaceAdmin, InterfaceUser{
     }
 
     @Override
-    public double promoCode(int code, double total, Disc disc) {
-        //free dvd
-        if (code == 1){
-            if (disc.getType().compareTo("DVD") == 0){
-            total = total - disc.getPrice();
-            }
-        }
-        //free bluray
-        if (code == 2) {
-            if (disc.getType().compareTo("BluRay") == 0){
-            total = total - disc.getPrice();
-            }
-        }
-        //10% off promo
-        if (code == 3) {
-            total = total * 0.9;
-        }
-        return total;
+    public int promoCode(int code) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
@@ -184,7 +172,8 @@ public class PurpleBox implements InterfaceAdmin, InterfaceUser{
             total += disc.getPrice();
             Reciept.add(disc);
         }
-        return Reciept; 
+        
+        return Reciept;  
     }
 
     @Override
@@ -192,17 +181,21 @@ public class PurpleBox implements InterfaceAdmin, InterfaceUser{
         for ( int i = 0; i < inventory.size(); i++){
            if (inventory.get(i).getTitle().compareTo(disc.getTitle() ) == 0)
                //if (!(shoppingCart.get(i).getTitle().compareTo(disc.getTitle() ) == 0)) {
-                    shoppingCart.add(disc);          
+                    shoppingCart.add(disc);
+               //}           
            }
     }
 
     @Override
-    public void remove(Disc disc, ArrayList<Disc> shoppingCart) {
+    public void remove(int index, ArrayList<Disc> shoppingCart) {
         for (int i = 0; i<shoppingCart.size(); i++){
-            if (shoppingCart.get(i).getTitle().compareTo(disc.getTitle() ) == 0)  {
-                shoppingCart.remove(i);
+            {
+                shoppingCart.remove(index);
                 System.out.println(shoppingCart.get(i).getTitle());
+                
+  
             }
+           
         }
     }
 
@@ -211,6 +204,7 @@ public class PurpleBox implements InterfaceAdmin, InterfaceUser{
         for ( int i = 0; i < shoppingCart.size(); i++){
                 shoppingCart.remove(i);
                 System.out.println(i);
+           
         }
     }
 

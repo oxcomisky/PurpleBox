@@ -34,8 +34,8 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
         this.MovieModel = (DefaultTableModel) MoviesTable.getModel();
         this.GameModel = (DefaultTableModel) GamesTable.getModel();
         this.CartModel = (DefaultTableModel) ShoppingCartTable.getModel();
-        this.AdminMovieModel = (DefaultTableModel) MoviesTable.getModel();
-        this.AdminGameModel = (DefaultTableModel) GamesTable.getModel();
+        this.AdminMovieModel = (DefaultTableModel) AdminMovieTable1.getModel();
+        this.AdminGameModel = (DefaultTableModel) AdminGameTable1.getModel();
         
         //PurpleBox.setEnabledAt(4, false);
         
@@ -110,7 +110,6 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
             AdminGameModel.addRow(new Object[]{
                 disc.getTitle(), disc.getGenre(), disc.getType(),
                 disc.getRelease(), disc.getCriticScore(), disc.getQuantity(), disc.getPrice()});
-            
         }
         
         for (Disc disc : ShoppingCartList) {
@@ -515,10 +514,7 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
         AdminMovieTable1.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
         AdminMovieTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+
             },
             new String [] {
                 "Title", "Genre", "Type", "Release", "Critic Score", "Quantity", "Price"
@@ -537,10 +533,7 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
         AdminGameTable1.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
         AdminGameTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+
             },
             new String [] {
                 "Title", "Genre", "Type", "Release", "Critic Score", "Quantity", "Price"
@@ -801,30 +794,33 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_CheckoutButtonActionPerformed
 
     private void RemoveAllButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveAllButtonActionPerformed
-        for (int i = 0; i < ShoppingCartList.size(); i++) {
+        for (int i = 0; i < myBox.getShoppingCart().size(); i++) {
             CartModel.removeRow(i);
             System.out.println(i);
         }
-        myBox.removeAll(ShoppingCartList);
+        myBox.removeAll(myBox.getShoppingCart());
         System.out.println(ShoppingCartList);
     }//GEN-LAST:event_RemoveAllButtonActionPerformed
 
     private void RemoveFromCartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveFromCartButtonActionPerformed
         // TODO add your handling code here:
-        Disc temp = new Disc();
-        for (int i = 0; i < ShoppingCartList.size(); i++) {
-            if (ShoppingCartList.get(i).getTitle().compareTo((String) ShoppingCartTable.getValueAt(ShoppingCartTable.getSelectedRow(), NORMAL)) == 0) {
-                temp = ShoppingCartList.get(i);
+        myBox.setShoppingCart(ShoppingCartList);
+        int temp = 0;
+        for (int i = 0; i < myBox.getShoppingCart().size(); i++) {
+            if (myBox.getShoppingCart().get(i).getTitle().compareTo((String) ShoppingCartTable.getValueAt(ShoppingCartTable.getSelectedRow(), 0)) == 0) {
+                temp = i;
                 CartModel.removeRow(i);
-                System.out.println("i is: "+i);
+                System.out.println("i is: " + i);
+                break;
             }
 
         }
+        System.out.println(myBox.getShoppingCart());
 
-        //myBox.remove(temp, ShoppingCartList);
-        if(!(ShoppingCartList.isEmpty())) {
-            System.out.println(ShoppingCartList);
-        }
+        myBox.remove(temp, myBox.getShoppingCart());
+        //if(!(myBox.getShoppingCart().isEmpty())) {
+            System.out.println(myBox.getShoppingCart());
+        //}
     }//GEN-LAST:event_RemoveFromCartButtonActionPerformed
 
     private void AddToCartGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddToCartGameActionPerformed
@@ -846,10 +842,10 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
             }
 
         }
+        myBox.setShoppingCart(ShoppingCartList);
+        myBox.addToCart(temp, myBox.getShoppingCart(), GameList);
 
-        myBox.addToCart(temp, ShoppingCartList, GameList);
-
-        System.out.println(ShoppingCartList);
+        System.out.println(myBox.getShoppingCart());
     }//GEN-LAST:event_AddToCartGameActionPerformed
 
     private void AddToCartMovieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddToCartMovieActionPerformed
