@@ -5,6 +5,8 @@
  */
 package purplebox;
 
+
+
 /**
  *
  * @author Jon Comisky, Jason Bendickson
@@ -17,7 +19,7 @@ public interface InterfacePromoCode {
     
     public double getPercentOff();
 
-    public void setPercentOff(double percentOff;
+    public void setPercentOff(double percentOff);
 
     public int getCodeType();
 

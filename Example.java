@@ -7,52 +7,66 @@ package purplebox;
 
 /**
  *
- * @author uu6906bg
+ * @author Jake Anderson & Evan Cogswell
  */
 import java.util.ArrayList;
-import java.util.Scanner;
-public class Example {
-    private static int num=0;
-    private static Object InterfaceDiscs;
-    public static void main(String[] args) {
-        
-     // creating arraylist of disc for movies and games   
-     ArrayList<InterfaceDisc> discs = new ArrayList<InterfaceDisc>();    
-     discs.add(new Disc("The GodFather","Drama","DvD","1972",98,1,2.99) {});
-     discs.add(new Disc("Citizen Kane","Drama","DvD","1941",100,6,12.99) {});
-     discs.add(new Disc("Pulp Fiction","Drama","DvD","1994",92,14,2.99) {});
-     discs.add(new Disc("Schindler's List","Drama","DvD","1993",93,11,2.99) {});
-     discs.add(new Disc("Star Wars: Episode IV","Sci-fi","DvD","1977",93,7,2.99) {});
-     discs.add(new Disc("The Dark Knight","Drama","DvD","2008",94,17,2.99) {});
-     discs.add(new Disc("Taxi Driver","Mystery","DvD","1976",98,1,2.99) {});
-     discs.add(new Disc("Apocalypse Now","Drama","DvD","1979",97,1,2.99) {});
-     discs.add(new Disc("2001: A Space Odyssey","Fantasy","DvD","1968",93,1,2.99) {});
-     discs.add(new Disc("The Shawshank Redemption","Drama","DvD","1994",90,1,2.99) {});
-     discs.add(new Disc("Spider-Man: Far from Home","Sci-Fi","BluRay","2019",93,1,2.99) {});
-     discs.add(new Disc("X-Men: Dark Phoenix","Sci-Fi","BluRay","2019",90,1,2.99) {});
-     discs.add(new Disc("Toy Story 4","Fantasy","Bluray","2019",91,1,2.99) {});
-     discs.add(new Disc("Avengers: Endgame","Sci-Fi","BluRay","2019",98,1,2.99) {});
-     discs.add(new Disc("Shrek 15: The Swampening","Horror","BluRay","2019",100,1,2.99) {});
-     discs.add(new Disc("Battlefield 5","Action","XboxOne","2018",89,1,2.99) {});
-     discs.add(new Disc("NBA 2K20","Sports","XboxOne","2017",76,1,2.99) {});
-     discs.add(new Disc("Destiny 2","Sci-Fi","XboxOne","2017",92,1,2.99) {});
-     discs.add(new Disc("Call of Duty: Black Ops 4","Action","XboxOne","2018",85,1,2.99) {});
-     discs.add(new Disc("BorderLands 3","Action","XboxOne","2019",79,1,2.99) {});
-     discs.add(new Disc("God of War","Fantasy","PS4","2019",95,1,2.99) {});
-     discs.add(new Disc("Tom Clancy's Ghost Recon: BreakPoint","Action","PS4","2019",98,1,2.99) {});
-     discs.add(new Disc("Star Wars: Jedi Fallen Order","Sci-Fi","PS4","2019",89,1,2.99) {});
-     discs.add(new Disc("Watchdogs","Action","PS4","2019",89,1,2.99) {});
-     discs.add(new Disc("Doom: Eternal","Action","PS4","2020",100,1,2.99) {});
+import java.util.Scanner;  
+//TODO:
+
+
+public class Example {       
+    //Disc Data Members
+    public static Disc disc2;
+
+    //end Disc Data members
+// Jon has objects in Purplebox that are being referenced 
+    private static int num=0;                        // by a class called myBox. I need 2 arrayLists..(movies &
+                                                     // games) aswell as an inventory arrayList i believe for 
+    public static void main(String[] args) {         // checkout and payment methods. Jon & Jason has some methods
+                                                     // completed on the GitHub, can try to borrow those for our
+    // creating arraylist of 
+     //disc for movies and games               // admin functions. Our system exit doesnt exit properly. 
+                                               // Need to look at commands on different pages, seems to overlap.
+                                               // As in number 1 brings you back to main page and doesnt add a movie.
+     ArrayList<Disc> movies = new ArrayList<>();    
+     movies.add(new Disc("The GodFather","Drama","DvD","1972",98,1,2.99){} );
+     movies.add(new Disc("Citizen Kane","Drama","DvD","1941",100,6,12.99) {});
+     movies.add(new Disc("Pulp Fiction","Drama","DvD","1994",92,14,2.99) {});
+     movies.add(new Disc("Schindler's List","Drama","DvD","1993",93,11,2.99) {});
+     movies.add(new Disc("Star Wars: Episode IV","Sci-fi","DvD","1977",93,7,2.99) {});
+     movies.add(new Disc("The Dark Knight","Drama","DvD","2008",94,17,2.99) {});
+     movies.add(new Disc("Taxi Driver","Mystery","DvD","1976",98,1,2.99) {});
+     movies.add(new Disc("Apocalypse Now","Drama","DvD","1979",97,1,2.99) {});
+     movies.add(new Disc("2001: A Space Odyssey","Fantasy","DvD","1968",93,1,2.99) {});
+     movies.add(new Disc("The Shawshank Redemption","Drama","DvD","1994",90,1,2.99) {});
+     movies.add(new Disc("Spider-Man: Far from Home","Sci-Fi","BluRay","2019",93,1,2.99) {});
+     movies.add(new Disc("X-Men: Dark Phoenix","Sci-Fi","BluRay","2019",90,1,2.99) {});
+     movies.add(new Disc("Toy Story 4","Fantasy","Bluray","2019",91,1,2.99) {});
+     movies.add(new Disc("Avengers: Endgame","Sci-Fi","BluRay","2019",98,1,2.99) {});
+     movies.add(new Disc("Shrek 15: The Swampening","Horror","BluRay","2019",100,1,2.99) {});
+     
+     ArrayList<Disc> games = new ArrayList<>(); 
+     games.add(new Disc("Battlefield 5","Action","XboxOne","2018",89,1,2.99) {});
+     games.add(new Disc("NBA 2K20","Sports","XboxOne","2017",76,1,2.99) {});
+     games.add(new Disc("Destiny 2","Sci-Fi","XboxOne","2017",92,1,2.99) {});
+     games.add(new Disc("Call of Duty: Black Ops 4","Action","XboxOne","2018",85,1,2.99) {});
+     games.add(new Disc("BorderLands 3","Action","XboxOne","2019",79,1,2.99) {});
+     games.add(new Disc("God of War","Fantasy","PS4","2019",95,1,2.99) {});
+     games.add(new Disc("Tom Clancy's Ghost Recon: BreakPoint","Action","PS4","2019",98,1,2.99) {});
+     games.add(new Disc("Star Wars: Jedi Fallen Order","Sci-Fi","PS4","2019",89,1,2.99) {});
+     games.add(new Disc("Watchdogs","Action","PS4","2019",89,1,2.99) {});
+     games.add(new Disc("Doom: Eternal","Action","PS4","2020",100,1,2.99) {});
      
    /// for (InterfaceDisc Disc1: discs) {
     // System.out.println(Disc1.getTitle());
    ///  System.out.println(Disc1.getGenre());
   // }
+ // loadMovies();
   while(1==1)
 {
     Scanner input = new Scanner(System.in); //Create  a scanner object
     System.out.format("Welcome to PurpleBox, select a command to continue %n");
-    System.out.format("Select 0 to exit Application. %n");
+    System.out.format("Select 0 to exit Application. %n"); 
     System.out.format("Select 1 for the Movies tab.%n");
     System.out.format("Select 2 for the Games tab.%n");
     System.out.format("Select 3 for the Shopping Cart tab.%n");
@@ -67,13 +81,18 @@ public class Example {
             break;
         case 1: System.out.println("Here are all the possible movie selections");
         //print(moviesList); call method to print movies list
+        for(int i = 0; i < movies.size(); i++){
+            System.out.println(movies.get(i));
+        }
     System.out.println("Welcome to PurpleBox movies tab, select a command to continue");
-    System.out.println("Select 1 for the Grown-Ups movie.");
-    System.out.println("Select 2 for the Freddy Kreuger movie.");
-    System.out.println("Select 3 for the Kujo movie.");
-
+    
+    System.out.println("Select a movie number to add to your cart.");
     userInput = input.nextInt(); //read user input
     System.out.println("You selected: " + userInput);
+    
+    userInput = input.nextInt(); //read user input
+    System.out.println("You selected: " + userInput);
+    
           //  if 
     
         break;
@@ -104,7 +123,7 @@ public class Example {
     
       case 4: System.out.format("Which movie or game will you be returning %n");
         //print(shoppingCartList); call method to print shopping cart list
-            for (InterfaceDisc Disc1: discs) {
+            for (InterfaceDisc Disc1: movies) {
               num = num+ 1;
               System.out.format("Movie %d : %s\n", num, Disc1.getTitle());
             } 
@@ -120,9 +139,10 @@ public class Example {
     
     case 99: System.out.format("Please enter the Admin Passcode %n");
          userInput = input.nextInt(); //read user input check for 9999
-         if (userInput==9999) {
-               int admin=1;
-               while(admin==1) {
+         if (userInput==12345) {
+            int admin=1;
+            while(admin==1) {
+
               System.out.format("**** Welcome to PurpleBox Admin *** %n");
               System.out.format("Select 0 to leave admin.%n");
               System.out.format("Select 1 to Add Discs.%n");
@@ -133,15 +153,54 @@ public class Example {
               System.out.format("Select 6 to disable unit.%n");
               System.out.format("Select 7 to change volume discount.%n");
               System.out.format("Select 8 to change price of game.%n");
+              //not sure that we need an 8th case (we already have a change price of game)
               System.out.format("Enter selection: ");
               userInput = input.nextInt(); //read user input
               System.out.println("You selected: " + userInput);   
               switch (userInput) {
         case 0:  System.out.format("Thanks for shopping with PurpleBox %n");
             admin=0; 
-            break;
-        case 1: System.out.format("Selected Add Discs.%n");   
-           break;
+            break; 
+        case 1: System.out.format("Selected Add Discs.%n");  
+            System.out.format("Please enter Disk name.%n"); 
+         //   String stringInput= input.nextLine(); 
+        //    System.out.format("Please enter Disk genre.%n"); 
+       //     stringInput= input.nextLine(); 
+        //    System.out.format("Please enter Disk type.%n"); 
+         //   stringInput= input.nextLine(); 
+          //  System.out.format("Please enter Disk release year.%n"); 
+         //   stringInput= input.nextLine(); 
+         //   System.out.format("Please enter Disk critic Score.%n"); 
+         //   stringInput= input.nextLine(); 
+         //   System.out.format("Please enter Disk quantity.%n"); 
+          //  stringInput= input.nextLine(); 
+         //   System.out.format("Please enter Disk price.%n"); 
+         //   stringInput= input.nextLine(); 
+                     System.out.format("trying Call top%n");
+             //    disc2.getTitle();
+                          System.out.format("trying Call top%n");
+                 disc2.setCriticScore(1);
+                 System.out.format("trying Call top%n");
+               
+           // disc2.setTitle("NEW LOADED ONE");
+              System.out.format("trying Call1%n");
+         //   disc2.setCriticScore(1);
+              System.out.format("trying Call2%n");
+        //    disc2.setGenre("Drama");
+              System.out.format("trying Call3%n");
+          //  disc2.setRelease("1994");
+              System.out.format("trying Call4%n");
+         //   disc2.setPrice(2.99);
+              System.out.format("trying Call5%n");
+        //    disc2.setType("DVD");
+              System.out.format("trying Call6%n");
+        //    disc2.setQuantity(4);
+            System.out.format("trying Call%n");
+        //PurpleBox.addDisc(disc2, discs);
+        
+         //   addDisc(disc2, inventory);
+         //admin methods  
+        break;
         case 2: System.out.format("Selected Add PromoCode.%n");
            break;
         case 3: System.out.format("Selected change price of BluRay.%n");
@@ -155,12 +214,18 @@ public class Example {
         case 7: System.out.format("Selected change volume discount.%n");
            break;
         case 8: System.out.format("Selected change price of game.%n");
-            }
-         }    
+            }  
+                 }  
          }
         break;
     
     }
 }
     }//end main
+
+
+     
+      
+  
+    
 }
