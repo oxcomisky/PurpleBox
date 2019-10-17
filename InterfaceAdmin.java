@@ -53,11 +53,12 @@ public interface InterfaceAdmin {
     public void changePriceGame(double newPrice, ArrayList<Disc> inventory);
 
     /**
-     * @require cartTotal > 0
-     * @param cartTotal an Int reflecting how many items need to be in the users cart, defined by Admin
-     * @ensure the has been changed 
+     * @param totalDiscsInCart an Int reflecting how many items need to be in the users cart, defined by Admin
+     * @param total a double that represents the price of all the items in the cart
+     * @return the new total that has been discounted
+     * @ensure the total has been changed 
      */
-    public void volumeDiscount(int cartTotal);
+    public double volumeDiscount(double total, int totalDiscsInCart);
 
     /**
      * @require promoCode > 0

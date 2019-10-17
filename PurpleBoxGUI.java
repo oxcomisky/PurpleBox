@@ -13,77 +13,110 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author oxcom
  */
-
 public class PurpleBoxGUI extends javax.swing.JFrame {
+
     public ArrayList<Disc> ShoppingCartList = new ArrayList<>();
     public ArrayList<Disc> GameList = new ArrayList<>();
     public ArrayList<Disc> MovieList = new ArrayList<>();
     
     public DefaultTableModel CartModel;
-    public DefaultTableModel GameModel; 
+    public DefaultTableModel GameModel;    
     public DefaultTableModel MovieModel;
+    public DefaultTableModel AdminMovieModel;
+    public DefaultTableModel AdminGameModel;
+    
+    public int VolumeDiscount = 3;
     
     PurpleBox myBox = new PurpleBox();
+
     public PurpleBoxGUI() {
         initComponents();
         this.MovieModel = (DefaultTableModel) MoviesTable.getModel();
         this.GameModel = (DefaultTableModel) GamesTable.getModel();
         this.CartModel = (DefaultTableModel) ShoppingCartTable.getModel();
+        this.AdminMovieModel = (DefaultTableModel) MoviesTable.getModel();
+        this.AdminGameModel = (DefaultTableModel) GamesTable.getModel();
         
-        PurpleBox.setEnabledAt(4, false);
-        
-        
-        
-        MovieList.add(new Disc("The Godfather", "Drama", "DVD", "1972", 98, 2, 2.99){});
-        MovieList.add(new Disc("Citizen Kane","Drama","DVD","1941",100,6,2.99) {});
-        MovieList.add(new Disc("Pulp Fiction","Drama","DVD","1994",92,14,2.99) {});
-        MovieList.add(new Disc("Schindler's List","Drama","DVD","1993",93,11,2.99) {});
-        MovieList.add(new Disc("Star Wars: Episode IV","Sci-fi","DVD","1977",93,7,2.99) {});
-        MovieList.add(new Disc("The Dark Knight","Drama","DVD","2008",94,17,2.99) {});
-        MovieList.add(new Disc("Taxi Driver","Mystery","DVD","1976",98,1,2.99) {});
-        MovieList.add(new Disc("Apocalypse Now","Drama","DVD","1979",97,1,2.99) {});
-        MovieList.add(new Disc("2001: A Space Odyssey","Fantasy","DVD","1968",93,1,2.99) {});
-        MovieList.add(new Disc("The Shawshank Redemption","Drama","DVD","1994",90,1,2.99) {});
-        MovieList.add(new Disc("Spider-Man: Far from Home","Sci-Fi","BluRay","2019",93,1,2.99) {});
-        MovieList.add(new Disc("X-Men: Dark Phoenix","Sci-Fi","BluRay","2019",90,1,2.99) {});
-        MovieList.add(new Disc("Toy Story 4","Fantasy","Bluray","2019",91,1,2.99) {});
-        MovieList.add(new Disc("Avengers: Endgame","Sci-Fi","BluRay","2019",98,1,2.99) {});
-        MovieList.add(new Disc("Shrek 15: The Swampening","Horror","BluRay","2019",100,1,2.99) {});
+        //PurpleBox.setEnabledAt(4, false);
         
         
-        for(Disc disc : MovieList){
-            MovieModel.addRow(new Object[] {
+        
+        MovieList.add(new Disc("The Godfather", "Drama", "DVD", "1972", 98, 2, 2.99) {
+        });
+        MovieList.add(new Disc("Citizen Kane", "Drama", "DVD", "1941", 100, 6, 2.99) {
+        });
+        MovieList.add(new Disc("Pulp Fiction", "Drama", "DVD", "1994", 92, 14, 2.99) {
+        });
+        MovieList.add(new Disc("Schindler's List", "Drama", "DVD", "1993", 93, 11, 2.99) {
+        });
+        MovieList.add(new Disc("Star Wars: Episode IV", "Sci-fi", "DVD", "1977", 93, 7, 2.99) {
+        });
+        MovieList.add(new Disc("The Dark Knight", "Drama", "DVD", "2008", 94, 17, 2.99) {
+        });
+        MovieList.add(new Disc("Taxi Driver", "Mystery", "DVD", "1976", 98, 1, 2.99) {
+        });
+        MovieList.add(new Disc("Apocalypse Now", "Drama", "DVD", "1979", 97, 1, 2.99) {
+        });
+        MovieList.add(new Disc("2001: A Space Odyssey", "Fantasy", "DVD", "1968", 93, 1, 2.99) {
+        });
+        MovieList.add(new Disc("The Shawshank Redemption", "Drama", "DVD", "1994", 90, 1, 2.99) {
+        });
+        MovieList.add(new Disc("Spider-Man: Far from Home", "Sci-Fi", "BluRay", "2019", 93, 1, 2.99) {
+        });
+        MovieList.add(new Disc("X-Men: Dark Phoenix", "Sci-Fi", "BluRay", "2019", 90, 1, 2.99) {
+        });
+        MovieList.add(new Disc("Toy Story 4", "Fantasy", "Bluray", "2019", 91, 1, 2.99) {
+        });
+        MovieList.add(new Disc("Avengers: Endgame", "Sci-Fi", "BluRay", "2019", 98, 1, 2.99) {
+        });
+        MovieList.add(new Disc("Shrek 15: The Swampening", "Horror", "BluRay", "2019", 100, 1, 2.99) {
+        });
+        
+        for (Disc disc : MovieList) {
+            MovieModel.addRow(new Object[]{
                 disc.getTitle(), disc.getGenre(), disc.getType(),
-                disc.getRelease(), disc.getCriticScore(), disc.getQuantity(), disc.getPrice() });
+                disc.getRelease(), disc.getCriticScore(), disc.getQuantity(), disc.getPrice()});
+            AdminMovieModel.addRow(new Object[]{
+                disc.getTitle(), disc.getGenre(), disc.getType(),
+                disc.getRelease(), disc.getCriticScore(), disc.getQuantity(), disc.getPrice()});
             
         }
         
+        GameList.add(new Disc("Battlefield 5", "Action", "XboxOne", "2018", 89, 1, 2.99) {
+        });
+        GameList.add(new Disc("NBA 2K20", "Sports", "XboxOne", "2017", 76, 1, 2.99) {
+        });
+        GameList.add(new Disc("Destiny 2", "Sci-Fi", "XboxOne", "2017", 92, 1, 2.99) {
+        });
+        GameList.add(new Disc("Call of Duty: Black Ops 4", "Action", "XboxOne", "2018", 85, 1, 2.99) {
+        });
+        GameList.add(new Disc("BorderLands 3", "Action", "XboxOne", "2019", 79, 1, 2.99) {
+        });
+        GameList.add(new Disc("God of War", "Fantasy", "PS4", "2019", 95, 1, 2.99) {
+        });
+        GameList.add(new Disc("Tom Clancy's Ghost Recon: BreakPoint", "Action", "PS4", "2019", 98, 1, 2.99) {
+        });
+        GameList.add(new Disc("Star Wars: Jedi Fallen Order", "Sci-Fi", "PS4", "2019", 89, 1, 2.99) {
+        });
+        GameList.add(new Disc("Watchdogs", "Action", "PS4", "2019", 89, 1, 2.99) {
+        });
+        GameList.add(new Disc("Doom: Eternal", "Action", "PS4", "2020", 100, 1, 2.99) {
+        });
         
-        GameList.add(new Disc("Battlefield 5","Action","XboxOne","2018",89,1,2.99) {});
-        GameList.add(new Disc("NBA 2K20","Sports","XboxOne","2017",76,1,2.99) {});
-        GameList.add(new Disc("Destiny 2","Sci-Fi","XboxOne","2017",92,1,2.99) {});
-        GameList.add(new Disc("Call of Duty: Black Ops 4","Action","XboxOne","2018",85,1,2.99) {});
-        GameList.add(new Disc("BorderLands 3","Action","XboxOne","2019",79,1,2.99) {});
-        GameList.add(new Disc("God of War","Fantasy","PS4","2019",95,1,2.99) {});
-        GameList.add(new Disc("Tom Clancy's Ghost Recon: BreakPoint","Action","PS4","2019",98,1,2.99) {});
-        GameList.add(new Disc("Star Wars: Jedi Fallen Order","Sci-Fi","PS4","2019",89,1,2.99) {});
-        GameList.add(new Disc("Watchdogs","Action","PS4","2019",89,1,2.99) {});
-        GameList.add(new Disc("Doom: Eternal","Action","PS4","2020",100,1,2.99) {});
-
-        
-        for(Disc disc : GameList){
-            GameModel.addRow(new Object[] {
+        for (Disc disc : GameList) {
+            GameModel.addRow(new Object[]{
                 disc.getTitle(), disc.getGenre(), disc.getType(),
-                disc.getRelease(), disc.getCriticScore(), disc.getQuantity(), disc.getPrice() });
+                disc.getRelease(), disc.getCriticScore(), disc.getQuantity(), disc.getPrice()});
+            AdminGameModel.addRow(new Object[]{
+                disc.getTitle(), disc.getGenre(), disc.getType(),
+                disc.getRelease(), disc.getCriticScore(), disc.getQuantity(), disc.getPrice()});
             
         }
         
-        
-        
-        for(Disc disc : ShoppingCartList){
-            CartModel.addRow(new Object[] {
+        for (Disc disc : ShoppingCartList) {
+            CartModel.addRow(new Object[]{
                 disc.getTitle(), disc.getGenre(), disc.getType(),
-                disc.getRelease(), disc.getCriticScore(), disc.getQuantity(), disc.getPrice() });
+                disc.getRelease(), disc.getCriticScore(), disc.getQuantity(), disc.getPrice()});
             
         }
         
@@ -100,7 +133,6 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
@@ -131,50 +163,36 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
         ShoppingCartTable = new javax.swing.JTable();
         jScrollPane6 = new javax.swing.JScrollPane();
         ShoppingCartOutput = new javax.swing.JTextArea();
-        RemoveFromCart = new javax.swing.JButton();
-        RemoveAll = new javax.swing.JButton();
-        Checkout = new javax.swing.JButton();
+        RemoveFromCartButton = new javax.swing.JButton();
+        RemoveAllButton = new javax.swing.JButton();
+        CheckoutButton = new javax.swing.JButton();
         textField8 = new java.awt.TextField();
         textField9 = new java.awt.TextField();
         CodeTextField = new java.awt.TextField();
-        SubmitCode = new javax.swing.JButton();
+        SubmitCodeButton = new javax.swing.JButton();
         textField11 = new java.awt.TextField();
-        ADMINPanel = new java.awt.Panel();
-        textField1 = new java.awt.TextField();
-        textField3 = new java.awt.TextField();
-        textField5 = new java.awt.TextField();
-        textField7 = new java.awt.TextField();
-        Title = new java.awt.TextField();
-        choice1 = new java.awt.Choice();
-        jSpinner1 = new javax.swing.JSpinner();
-        Genre = new javax.swing.JSpinner();
-        Type = new javax.swing.JSpinner();
-        textField2 = new java.awt.TextField();
-        Release = new java.awt.TextField();
-        textField4 = new java.awt.TextField();
-        Price = new java.awt.TextField();
-        jSpinner2 = new javax.swing.JSpinner();
-        Remove = new javax.swing.JButton();
-        jScrollPane7 = new javax.swing.JScrollPane();
-        AdminMovieTable = new javax.swing.JTable();
-        RemoveAllAdmin = new javax.swing.JButton();
-        ChangePriceDVD = new javax.swing.JButton();
-        ChangePriceBluRay = new javax.swing.JButton();
-        ChangePriceGame = new javax.swing.JButton();
-        textField6 = new java.awt.TextField();
-        code = new java.awt.TextField();
-        percentOff = new javax.swing.JSpinner();
-        codeType = new javax.swing.JSpinner();
-        AddCode = new javax.swing.JButton();
-        CodeLabel = new javax.swing.JLabel();
-        CodeLabel1 = new javax.swing.JLabel();
-        jScrollPane9 = new javax.swing.JScrollPane();
-        AdminGameTable = new javax.swing.JTable();
-        VolumeDiscountLabel = new javax.swing.JLabel();
-        textField10 = new java.awt.TextField();
-        button1 = new java.awt.Button();
-        jButton1 = new javax.swing.JButton();
-        AddDisc = new javax.swing.JButton();
+        GetTotalButton = new javax.swing.JButton();
+        ADMINPanel = new javax.swing.JPanel();
+        jScrollPane10 = new javax.swing.JScrollPane();
+        AdminMovieTable1 = new javax.swing.JTable();
+        jScrollPane11 = new javax.swing.JScrollPane();
+        AdminGameTable1 = new javax.swing.JTable();
+        Remove1 = new javax.swing.JButton();
+        RemoveAllAdmin1 = new javax.swing.JButton();
+        ChangePriceDVD1 = new javax.swing.JButton();
+        ChangePriceBluRay1 = new javax.swing.JButton();
+        VolumeDiscountLabel1 = new javax.swing.JLabel();
+        VolumeDiscountField1 = new java.awt.TextField();
+        jButton3 = new javax.swing.JButton();
+        CodeLabel2 = new javax.swing.JLabel();
+        TitleField1 = new java.awt.TextField();
+        GenreSpinner1 = new javax.swing.JSpinner();
+        TypeSpinner1 = new javax.swing.JSpinner();
+        Release1 = new java.awt.TextField();
+        CriticScoreSpinner1 = new javax.swing.JSpinner();
+        QuantitySpinner1 = new javax.swing.JSpinner();
+        Price1 = new java.awt.TextField();
+        AddDisc1 = new javax.swing.JButton();
 
         jCheckBoxMenuItem1.setSelected(true);
         jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
@@ -272,10 +290,8 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        MoviesTable.setColumnSelectionAllowed(true);
         MoviesTable.getTableHeader().setReorderingAllowed(false);
         jScrollPane2.setViewportView(MoviesTable);
-        MoviesTable.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
 
         AddToCartMovie.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
         AddToCartMovie.setText("Add To Cart");
@@ -311,7 +327,7 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
         MoviesLayout.setVerticalGroup(
             MoviesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MoviesLayout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 461, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 463, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(MoviesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(AddToCartMovie)
@@ -382,7 +398,7 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
                     .addComponent(AddToCartGame)
                     .addComponent(returnGame))
                 .addGap(10, 10, 10))
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 506, Short.MAX_VALUE)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 508, Short.MAX_VALUE)
         );
 
         PurpleBox.addTab("Games", Games);
@@ -411,27 +427,27 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
         ShoppingCartOutput.setRows(5);
         jScrollPane6.setViewportView(ShoppingCartOutput);
 
-        RemoveFromCart.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
-        RemoveFromCart.setText("Remove From Cart");
-        RemoveFromCart.addActionListener(new java.awt.event.ActionListener() {
+        RemoveFromCartButton.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
+        RemoveFromCartButton.setText("Remove From Cart");
+        RemoveFromCartButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RemoveFromCartActionPerformed(evt);
+                RemoveFromCartButtonActionPerformed(evt);
             }
         });
 
-        RemoveAll.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
-        RemoveAll.setText("Remove All From Cart");
-        RemoveAll.addActionListener(new java.awt.event.ActionListener() {
+        RemoveAllButton.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
+        RemoveAllButton.setText("Remove All From Cart");
+        RemoveAllButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RemoveAllActionPerformed(evt);
+                RemoveAllButtonActionPerformed(evt);
             }
         });
 
-        Checkout.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
-        Checkout.setText("Checkout");
-        Checkout.addActionListener(new java.awt.event.ActionListener() {
+        CheckoutButton.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
+        CheckoutButton.setText("Checkout");
+        CheckoutButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CheckoutActionPerformed(evt);
+                CheckoutButtonActionPerformed(evt);
             }
         });
 
@@ -442,10 +458,13 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
         CodeTextField.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
         CodeTextField.setText("Enter Promo Code Here");
 
-        SubmitCode.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
-        SubmitCode.setText("Submit Code");
+        SubmitCodeButton.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
+        SubmitCodeButton.setText("Submit Code");
 
         textField11.setText("textField11");
+
+        GetTotalButton.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
+        GetTotalButton.setText("Get Total");
 
         javax.swing.GroupLayout ShoppingCartLayout = new javax.swing.GroupLayout(ShoppingCart);
         ShoppingCart.setLayout(ShoppingCartLayout);
@@ -457,31 +476,34 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
                 .addGroup(ShoppingCartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane6)
                     .addGroup(ShoppingCartLayout.createSequentialGroup()
-                        .addComponent(Checkout)
+                        .addComponent(CheckoutButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 328, Short.MAX_VALUE)
                         .addComponent(CodeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(SubmitCode))
+                        .addComponent(SubmitCodeButton))
                     .addGroup(ShoppingCartLayout.createSequentialGroup()
                         .addGroup(ShoppingCartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(RemoveFromCart)
-                            .addComponent(RemoveAll))
+                            .addComponent(RemoveAllButton)
+                            .addComponent(GetTotalButton)
+                            .addComponent(RemoveFromCartButton))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         ShoppingCartLayout.setVerticalGroup(
             ShoppingCartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 506, Short.MAX_VALUE)
+            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 508, Short.MAX_VALUE)
             .addGroup(ShoppingCartLayout.createSequentialGroup()
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 359, Short.MAX_VALUE)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 361, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(RemoveFromCart)
+                .addComponent(RemoveFromCartButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(RemoveAll)
-                .addGap(45, 45, 45)
+                .addComponent(RemoveAllButton)
+                .addGap(12, 12, 12)
+                .addComponent(GetTotalButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(ShoppingCartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(Checkout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(SubmitCode, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(CheckoutButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(SubmitCodeButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(CodeTextField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -490,294 +512,224 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
 
         ADMINPanel.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
 
-        org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, ADMINPanel, org.jdesktop.beansbinding.ELProperty.create("${visible}"), ADMINPanel, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
-        bindingGroup.addBinding(binding);
+        AdminMovieTable1.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
+        AdminMovieTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Title", "Genre", "Type", "Release", "Critic Score", "Quantity", "Price"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Double.class
+            };
 
-        textField1.setText("textField1");
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane10.setViewportView(AdminMovieTable1);
 
-        textField3.setText("textField3");
+        AdminGameTable1.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
+        AdminGameTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Title", "Genre", "Type", "Release", "Critic Score", "Quantity", "Price"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Double.class
+            };
 
-        textField5.setText("textField5");
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane11.setViewportView(AdminGameTable1);
 
-        textField7.setText("textField7");
-
-        Title.setText("Title");
-        Title.addActionListener(new java.awt.event.ActionListener() {
+        Remove1.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
+        Remove1.setText("Remove");
+        Remove1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TitleActionPerformed(evt);
+                Remove1ActionPerformed(evt);
             }
         });
 
-        jSpinner1.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
-        jSpinner1.setModel(new javax.swing.SpinnerNumberModel(0, null, 5, 1));
-        jSpinner1.setInheritsPopupMenu(true);
-        jSpinner1.setValue(10);
+        RemoveAllAdmin1.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
+        RemoveAllAdmin1.setText("Remove All");
+        RemoveAllAdmin1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RemoveAllAdmin1ActionPerformed(evt);
+            }
+        });
 
-        Genre.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
-        Genre.setModel(new javax.swing.SpinnerListModel(new String[] {"Genre", "Drama", "Action", "Comedy", "Sci-Fi", "Fantasy", "RPG", "Adventure"}));
-        Genre.addMouseListener(new java.awt.event.MouseAdapter() {
+        ChangePriceDVD1.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
+        ChangePriceDVD1.setText("Change Price of DVD");
+        ChangePriceDVD1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ChangePriceDVD1ActionPerformed(evt);
+            }
+        });
+
+        ChangePriceBluRay1.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
+        ChangePriceBluRay1.setText("Change Price of BluRay");
+        ChangePriceBluRay1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ChangePriceBluRay1ActionPerformed(evt);
+            }
+        });
+
+        VolumeDiscountLabel1.setText("Enter New Volume Discount: ");
+
+        VolumeDiscountField1.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
+        VolumeDiscountField1.setText("Enter an Integer");
+        VolumeDiscountField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                VolumeDiscountField1ActionPerformed(evt);
+            }
+        });
+
+        jButton3.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
+        jButton3.setText("Set Discount");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        CodeLabel2.setText("Enter New Disc:");
+
+        TitleField1.setText("Title");
+        TitleField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TitleField1ActionPerformed(evt);
+            }
+        });
+
+        GenreSpinner1.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
+        GenreSpinner1.setModel(new javax.swing.SpinnerListModel(new String[] {"Genre", "Drama", "Action", "Comedy", "Sci-Fi", "Fantasy", "RPG", "Adventure"}));
+        GenreSpinner1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                GenreMouseClicked(evt);
+                GenreSpinner1MouseClicked(evt);
             }
         });
 
-        Type.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
-        Type.setModel(new javax.swing.SpinnerListModel(new String[] {"DVD", "BluRay", "XboxOne", "PS4"}));
-        Type.setName("Type"); // NOI18N
+        TypeSpinner1.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
+        TypeSpinner1.setModel(new javax.swing.SpinnerListModel(new String[] {"DVD", "BluRay", "XboxOne", "PS4"}));
+        TypeSpinner1.setName("TypeSpinner"); // NOI18N
 
-        textField2.setText("textField2");
-
-        Release.setText("Release Year");
-
-        textField4.setText("textField4");
-
-        Price.setName("Price"); // NOI18N
-        Price.setText("Price");
-
-        jSpinner2.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
-        jSpinner2.setModel(new javax.swing.SpinnerNumberModel(0, 0, 100, 1));
-
-        Remove.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
-        Remove.setText("Remove");
-        Remove.addActionListener(new java.awt.event.ActionListener() {
+        Release1.setText("Release Year");
+        Release1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RemoveActionPerformed(evt);
+                Release1ActionPerformed(evt);
             }
         });
 
-        AdminMovieTable.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
-        AdminMovieTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
-            },
-            new String [] {
-                "Title", "Genre", "Type", "Release", "Critic Score", "Quantity", "Price"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Double.class
-            };
+        CriticScoreSpinner1.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
+        CriticScoreSpinner1.setModel(new javax.swing.SpinnerNumberModel(0, 0, 100, 1));
 
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        jScrollPane7.setViewportView(AdminMovieTable);
+        QuantitySpinner1.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
+        QuantitySpinner1.setModel(new javax.swing.SpinnerNumberModel(0, null, 5, 1));
+        QuantitySpinner1.setInheritsPopupMenu(true);
+        QuantitySpinner1.setValue(10);
 
-        RemoveAllAdmin.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
-        RemoveAllAdmin.setText("Remove All");
-        RemoveAllAdmin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RemoveAllAdminActionPerformed(evt);
-            }
-        });
+        Price1.setName("Price"); // NOI18N
+        Price1.setText("Price");
 
-        ChangePriceDVD.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
-        ChangePriceDVD.setText("Change Price of DVD");
-        ChangePriceDVD.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ChangePriceDVDActionPerformed(evt);
-            }
-        });
-
-        ChangePriceBluRay.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
-        ChangePriceBluRay.setText("Change Price of BluRay");
-        ChangePriceBluRay.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ChangePriceBluRayActionPerformed(evt);
-            }
-        });
-
-        ChangePriceGame.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
-        ChangePriceGame.setText("Change Price of Game");
-        ChangePriceGame.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ChangePriceGameActionPerformed(evt);
-            }
-        });
-
-        textField6.setText("textField6");
-
-        code.setText("Code");
-
-        percentOff.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
-        percentOff.setModel(new javax.swing.SpinnerNumberModel(0.1d, 0.1d, 0.3d, 0.1d));
-
-        codeType.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
-        codeType.setModel(new javax.swing.SpinnerNumberModel(1, null, 3, 1));
-
-        AddCode.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
-        AddCode.setText("Add Code");
-        AddCode.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AddCodeActionPerformed(evt);
-            }
-        });
-
-        CodeLabel.setText("Enter New Disc:");
-
-        CodeLabel1.setText("Enter New Promo Code:");
-
-        AdminGameTable.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
-        AdminGameTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
-            },
-            new String [] {
-                "Title", "Genre", "Type", "Release", "Critic Score", "Quantity", "Price"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Double.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        jScrollPane9.setViewportView(AdminGameTable);
-
-        VolumeDiscountLabel.setText("Enter New Volume Discount: ");
-
-        textField10.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
-        textField10.setText("Enter an Integer");
-        textField10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textField10ActionPerformed(evt);
-            }
-        });
-
-        button1.setLabel("button1");
-
-        jButton1.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
-        jButton1.setText("Set Discount");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        AddDisc.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
-        AddDisc.setText("Add Disc");
+        AddDisc1.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
+        AddDisc1.setText("Add Disc");
 
         javax.swing.GroupLayout ADMINPanelLayout = new javax.swing.GroupLayout(ADMINPanel);
         ADMINPanel.setLayout(ADMINPanelLayout);
         ADMINPanelLayout.setHorizontalGroup(
             ADMINPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ADMINPanelLayout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(ADMINPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(RemoveAllAdmin)
-                    .addComponent(ChangePriceDVD)
-                    .addComponent(ChangePriceBluRay)
-                    .addComponent(ChangePriceGame)
-                    .addComponent(Remove)
-                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 586, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(RemoveAllAdmin1)
+                    .addComponent(ChangePriceDVD1)
+                    .addComponent(ChangePriceBluRay1)
+                    .addComponent(Remove1)
+                    .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 586, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(ADMINPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(ADMINPanelLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane9)
-                        .addContainerGap())
+                        .addComponent(jScrollPane11))
                     .addGroup(ADMINPanelLayout.createSequentialGroup()
                         .addGap(8, 8, 8)
                         .addGroup(ADMINPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(ADMINPanelLayout.createSequentialGroup()
-                                .addComponent(VolumeDiscountLabel)
+                                .addComponent(VolumeDiscountLabel1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(textField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(VolumeDiscountField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton1)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ADMINPanelLayout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(CodeLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(code, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(percentOff, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(codeType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(AddCode)
-                                .addGap(298, 298, 298))
+                                .addComponent(jButton3))
                             .addGroup(ADMINPanelLayout.createSequentialGroup()
-                                .addComponent(CodeLabel)
+                                .addComponent(CodeLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Title, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(TitleField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Genre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(GenreSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(Type, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(TypeSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Release, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(Release1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(CriticScoreSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(QuantitySpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Price, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(Price1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(22, 22, 22)
-                                .addComponent(AddDisc)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                                .addComponent(AddDisc1)))
+                        .addGap(48, 48, 48))))
         );
         ADMINPanelLayout.setVerticalGroup(
             ADMINPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ADMINPanelLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
                 .addGroup(ADMINPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 135, Short.MAX_VALUE)
+                    .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(137, 137, 137)
                 .addGroup(ADMINPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(ADMINPanelLayout.createSequentialGroup()
-                        .addComponent(Remove)
+                        .addComponent(Remove1)
                         .addGap(18, 18, 18)
-                        .addComponent(RemoveAllAdmin)
+                        .addComponent(RemoveAllAdmin1)
                         .addGap(18, 18, 18)
-                        .addComponent(ChangePriceDVD)
+                        .addComponent(ChangePriceDVD1)
                         .addGap(18, 18, 18)
-                        .addComponent(ChangePriceBluRay)
-                        .addGap(18, 18, 18)
-                        .addComponent(ChangePriceGame)
-                        .addGap(6, 6, 6))
+                        .addComponent(ChangePriceBluRay1))
                     .addGroup(ADMINPanelLayout.createSequentialGroup()
                         .addGroup(ADMINPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton1)
+                            .addComponent(jButton3)
                             .addGroup(ADMINPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(VolumeDiscountLabel)
-                                .addComponent(textField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(VolumeDiscountLabel1)
+                                .addComponent(VolumeDiscountField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(31, 31, 31)
                         .addGroup(ADMINPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(ADMINPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(Genre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(Type, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(GenreSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(TypeSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(ADMINPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(Release, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Price, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(CriticScoreSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(QuantitySpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(Release1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Price1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(ADMINPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(CodeLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(Title, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(AddDisc))
-                        .addGap(38, 38, 38)
-                        .addGroup(ADMINPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(ADMINPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(code, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(ADMINPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(percentOff, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(codeType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(AddCode)))
-                            .addGroup(ADMINPanelLayout.createSequentialGroup()
-                                .addComponent(CodeLabel1)
-                                .addGap(6, 6, 6)))))
-                .addContainerGap())
+                                .addComponent(CodeLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(TitleField1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(AddDisc1))
+                        .addGap(14, 14, 14)))
+                .addGap(0, 75, Short.MAX_VALUE))
         );
 
         PurpleBox.addTab("ADMIN", ADMINPanel);
@@ -796,112 +748,147 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
             .addComponent(PurpleBox, javax.swing.GroupLayout.PREFERRED_SIZE, 511, Short.MAX_VALUE)
         );
 
-        bindingGroup.bind();
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void CheckoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckoutActionPerformed
+    private void Release1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Release1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_CheckoutActionPerformed
+    }//GEN-LAST:event_Release1ActionPerformed
 
-    private void RemoveAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveAllActionPerformed
+    private void GenreSpinner1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GenreSpinner1MouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_RemoveAllActionPerformed
+    }//GEN-LAST:event_GenreSpinner1MouseClicked
 
-    private void RemoveFromCartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveFromCartActionPerformed
+    private void TitleField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TitleField1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_RemoveFromCartActionPerformed
+    }//GEN-LAST:event_TitleField1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void VolumeDiscountField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VolumeDiscountField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_VolumeDiscountField1ActionPerformed
+
+    private void ChangePriceBluRay1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChangePriceBluRay1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ChangePriceBluRay1ActionPerformed
+
+    private void ChangePriceDVD1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChangePriceDVD1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ChangePriceDVD1ActionPerformed
+
+    private void RemoveAllAdmin1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveAllAdmin1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RemoveAllAdmin1ActionPerformed
+
+    private void Remove1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Remove1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Remove1ActionPerformed
+
+    private void CheckoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckoutButtonActionPerformed
+        // TODO add your handling code here:
+        String CCNumber = JOptionPane.showInputDialog(rootPane, "Please Enter A 16 Digit Credit Card Number: ");
+
+        if (CCNumber.length() == 16) {
+            myBox.pay(CCNumber, ShoppingCartList);
+            JOptionPane.showConfirmDialog(rootPane, "Would you like to recieve an Email Reciept?");
+            System.out.println(JOptionPane.showConfirmDialog(rootPane, ""));
+        } else {
+            ShoppingCartOutput.append(CCNumber + " is not a valid CC number. Try Again.");
+        }
+    }//GEN-LAST:event_CheckoutButtonActionPerformed
+
+    private void RemoveAllButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveAllButtonActionPerformed
+        for (int i = 0; i < ShoppingCartList.size(); i++) {
+            CartModel.removeRow(i);
+            System.out.println(i);
+        }
+        myBox.removeAll(ShoppingCartList);
+        System.out.println(ShoppingCartList);
+    }//GEN-LAST:event_RemoveAllButtonActionPerformed
+
+    private void RemoveFromCartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveFromCartButtonActionPerformed
+        // TODO add your handling code here:
+        Disc temp = new Disc();
+        for (int i = 0; i < ShoppingCartList.size(); i++) {
+            if (ShoppingCartList.get(i).getTitle().compareTo((String) ShoppingCartTable.getValueAt(ShoppingCartTable.getSelectedRow(), NORMAL)) == 0) {
+                temp = ShoppingCartList.get(i);
+                CartModel.removeRow(i);
+                System.out.println("i is: "+i);
+            }
+
+        }
+
+        //myBox.remove(temp, ShoppingCartList);
+        if(!(ShoppingCartList.isEmpty())) {
+            System.out.println(ShoppingCartList);
+        }
+    }//GEN-LAST:event_RemoveFromCartButtonActionPerformed
 
     private void AddToCartGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddToCartGameActionPerformed
-        int[] index = GamesTable.getSelectedRows();
+
         Disc temp = new Disc();
-        //for(int i = 0; i < index.length; i++){
-        for(int i = 0; i < GameList.size();i++){
-                if(GameList.get(i).getTitle().compareTo((String)GamesTable.getValueAt(GamesTable.getSelectedRow(), NORMAL))==0){
-                    temp = GameList.get(i);
-                    CartModel.addRow(new Object[] {
-                        temp.getTitle(), 
-                        temp.getGenre(), 
-                        temp.getType(),
-                        temp.getRelease(), 
-                        temp.getCriticScore(), 
-                        temp.getQuantity(), 
-                        temp.getPrice()
-                    });
-                }
-            
-                    }  
-        //}
-        
-        myBox.addToCart(temp,ShoppingCartList, GameList);
-        
+
+        for (int i = 0; i < GameList.size(); i++) {
+            if (GameList.get(i).getTitle().compareTo((String) GamesTable.getValueAt(GamesTable.getSelectedRow(), NORMAL)) == 0) {
+                temp = GameList.get(i);
+                CartModel.addRow(new Object[]{
+                    temp.getTitle(),
+                    temp.getGenre(),
+                    temp.getType(),
+                    temp.getRelease(),
+                    temp.getCriticScore(),
+                    0x1,
+                    temp.getPrice()
+                });
+            }
+
+        }
+
+        myBox.addToCart(temp, ShoppingCartList, GameList);
+
         System.out.println(ShoppingCartList);
     }//GEN-LAST:event_AddToCartGameActionPerformed
 
     private void AddToCartMovieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddToCartMovieActionPerformed
-        
-         for(Disc disc : ShoppingCartList){
-            CartModel.addRow(new Object[] {
-                disc.getTitle(), disc.getGenre(), disc.getType(),
-                disc.getRelease(), disc.getCriticScore(), disc.getQuantity(), disc.getPrice() });
-            
+
+        Disc temp = new Disc();
+
+        for (int i = 0; i < MovieList.size(); i++) {
+            if (MovieList.get(i).getTitle().compareTo((String) MoviesTable.getValueAt(MoviesTable.getSelectedRow(), NORMAL)) == 0) {
+                temp = MovieList.get(i);
+                CartModel.addRow(new Object[]{
+                    temp.getTitle(),
+                    temp.getGenre(),
+                    temp.getType(),
+                    temp.getRelease(),
+                    temp.getCriticScore(),
+                    0x1,
+                    temp.getPrice()
+                });
+            }
+
         }
+
+        myBox.addToCart(temp, ShoppingCartList, MovieList);
+
+        System.out.println(ShoppingCartList);
+
     }//GEN-LAST:event_AddToCartMovieActionPerformed
 
     private void AdminLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminLoginActionPerformed
         // TODO add your handling code here:
         String PassKey = JOptionPane.showInputDialog(rootPane, "Enter Your PassKey", DISPOSE_ON_CLOSE);
-        if(PassKey.equalsIgnoreCase("12345")){
+        if (PassKey.equalsIgnoreCase("12345")) {
             JOptionPane.showMessageDialog(AdminLogin, "PassKey Accepted");
-            PurpleBox.setEnabledAt(4, true);
-        }
-        else{
+            //PurpleBox.setEnabledAt(4, true);
+        } else {
             JOptionPane.showMessageDialog(AdminLogin, "Wrong PassKey");
         }
     }//GEN-LAST:event_AdminLoginActionPerformed
 
-    private void TitleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TitleActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TitleActionPerformed
-
-    private void RemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_RemoveActionPerformed
-
-    private void RemoveAllAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveAllAdminActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_RemoveAllAdminActionPerformed
-
-    private void ChangePriceDVDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChangePriceDVDActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ChangePriceDVDActionPerformed
-
-    private void ChangePriceBluRayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChangePriceBluRayActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ChangePriceBluRayActionPerformed
-
-    private void ChangePriceGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChangePriceGameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ChangePriceGameActionPerformed
-
-    private void AddCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddCodeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_AddCodeActionPerformed
-
-    private void GenreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GenreMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_GenreMouseClicked
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void textField10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textField10ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textField10ActionPerformed
-
-    
     /**
      * @param args the command line arguments
      */
@@ -936,88 +923,70 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
                 new PurpleBoxGUI().setVisible(true);
             }
         });
-        
-        
+
         //Start the PurpleBox Code Here
-        
-        
-        
     }
-    
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private java.awt.Panel ADMINPanel;
-    private javax.swing.JButton AddCode;
-    private javax.swing.JButton AddDisc;
+    private javax.swing.JPanel ADMINPanel;
+    private javax.swing.JButton AddDisc1;
     private javax.swing.JButton AddToCartGame;
     private javax.swing.JButton AddToCartMovie;
-    private javax.swing.JTable AdminGameTable;
+    private javax.swing.JTable AdminGameTable1;
     private javax.swing.JButton AdminLogin;
-    private javax.swing.JTable AdminMovieTable;
-    private javax.swing.JButton ChangePriceBluRay;
-    private javax.swing.JButton ChangePriceDVD;
-    private javax.swing.JButton ChangePriceGame;
-    private javax.swing.JButton Checkout;
-    private javax.swing.JLabel CodeLabel;
-    private javax.swing.JLabel CodeLabel1;
+    private javax.swing.JTable AdminMovieTable1;
+    private javax.swing.JButton ChangePriceBluRay1;
+    private javax.swing.JButton ChangePriceDVD1;
+    private javax.swing.JButton CheckoutButton;
+    private javax.swing.JLabel CodeLabel2;
     private java.awt.TextField CodeTextField;
+    private javax.swing.JSpinner CriticScoreSpinner1;
     private java.awt.Panel Games;
     private javax.swing.JTable GamesTable;
-    private javax.swing.JSpinner Genre;
+    private javax.swing.JSpinner GenreSpinner1;
+    private javax.swing.JButton GetTotalButton;
     private java.awt.Panel Home;
     private java.awt.Label HomeMessage;
     private java.awt.Panel Movies;
     private javax.swing.JTable MoviesTable;
-    private java.awt.TextField Price;
+    private java.awt.TextField Price1;
     private javax.swing.JTabbedPane PurpleBox;
-    private java.awt.TextField Release;
-    private javax.swing.JButton Remove;
-    private javax.swing.JButton RemoveAll;
-    private javax.swing.JButton RemoveAllAdmin;
-    private javax.swing.JButton RemoveFromCart;
+    private javax.swing.JSpinner QuantitySpinner1;
+    private java.awt.TextField Release1;
+    private javax.swing.JButton Remove1;
+    private javax.swing.JButton RemoveAllAdmin1;
+    private javax.swing.JButton RemoveAllButton;
+    private javax.swing.JButton RemoveFromCartButton;
     private java.awt.Panel ShoppingCart;
     private javax.swing.JTextArea ShoppingCartOutput;
     private javax.swing.JTable ShoppingCartTable;
-    private javax.swing.JButton SubmitCode;
+    private javax.swing.JButton SubmitCodeButton;
     private javax.swing.JTextArea TextOutputGames;
     private javax.swing.JTextArea TextOutputMovies;
-    private java.awt.TextField Title;
-    private javax.swing.JSpinner Type;
-    private javax.swing.JLabel VolumeDiscountLabel;
-    private java.awt.Button button1;
-    private java.awt.Choice choice1;
-    private java.awt.TextField code;
-    private javax.swing.JSpinner codeType;
-    private javax.swing.JButton jButton1;
+    private java.awt.TextField TitleField1;
+    private javax.swing.JSpinner TypeSpinner1;
+    private java.awt.TextField VolumeDiscountField1;
+    private javax.swing.JLabel VolumeDiscountLabel1;
+    private javax.swing.JButton jButton3;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane10;
+    private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JScrollPane jScrollPane7;
-    private javax.swing.JScrollPane jScrollPane9;
-    private javax.swing.JSpinner jSpinner1;
-    private javax.swing.JSpinner jSpinner2;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JSpinner percentOff;
     private java.awt.PopupMenu popupMenu1;
     private java.awt.PopupMenu popupMenu2;
     private javax.swing.JButton returnGame;
     private javax.swing.JButton returnMovie;
-    private java.awt.TextField textField1;
-    private java.awt.TextField textField10;
     private java.awt.TextField textField11;
-    private java.awt.TextField textField2;
-    private java.awt.TextField textField3;
-    private java.awt.TextField textField4;
-    private java.awt.TextField textField5;
-    private java.awt.TextField textField6;
-    private java.awt.TextField textField7;
     private java.awt.TextField textField8;
     private java.awt.TextField textField9;
-    private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 }

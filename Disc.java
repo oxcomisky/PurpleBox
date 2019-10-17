@@ -89,6 +89,11 @@ public class Disc implements InterfaceDisc{
         this.price = price;
     }
 
+    @Override
+    public String toString() {
+        return "Disc{" + "Title=" + Title + ", Genre=" + Genre + ", Type=" + Type + ", release=" + release + ", CriticScore=" + CriticScore + ", quantity=" + quantity + ", price=" + price + '}';
+    }
+
     
     
     

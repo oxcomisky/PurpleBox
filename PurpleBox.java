@@ -118,11 +118,11 @@ public class PurpleBox implements InterfaceAdmin, InterfaceUser{
     }
 
     @Override
-    public void volumeDiscount(int cartTotal) {
-        if (cartTotal >= 3) {
-            //________ *0.9 = ___________;
+    public double volumeDiscount(double Total, int totalDiscsInCart) {
+        if (totalDiscsInCart >= 3) {
+             Total = 0.8 *Total;
         }
-            
+            return Total;
     }
 
     @Override
@@ -165,9 +165,15 @@ public class PurpleBox implements InterfaceAdmin, InterfaceUser{
     }
 
     @Override
-    public ArrayList pay(int cardNumber, ArrayList<Disc> shoppingCart) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public ArrayList pay(String cardNumber, ArrayList<Disc> shoppingCart) {
+        double total = 0.00;
+        ArrayList<Disc> Reciept = new ArrayList<>();
+        for(Disc disc : shoppingCart){
+            total += disc.getPrice();
+            Reciept.add(disc);
+        }
         
+        return Reciept;  
     }
 
     @Override
@@ -182,17 +188,23 @@ public class PurpleBox implements InterfaceAdmin, InterfaceUser{
 
     @Override
     public void remove(Disc disc, ArrayList<Disc> shoppingCart) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        for ( int i = 0; i < shoppingCart.size(); i++){
-           if (shoppingCart.get(i).getTitle().compareTo(disc.getTitle() ) == 0)  {
+        for (int i = 0; i<shoppingCart.size(); i++){
+            if (shoppingCart.get(i).getTitle().compareTo(disc.getTitle() ) == 0)  {
                 shoppingCart.remove(i);
-           }
+                System.out.println(shoppingCart.get(i).getTitle());
+  
+            }
+           
         }
     }
 
     @Override
     public void removeAll(ArrayList<Disc> shoppingCart) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        for ( int i = 0; i < shoppingCart.size(); i++){
+                shoppingCart.remove(i);
+                System.out.println(i);
+           
+        }
     }
 
     @Override

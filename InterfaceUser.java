@@ -46,23 +46,20 @@ public interface InterfaceUser {
      * @ensure result.isEmpty() == false
      * @ensure result == shoppingCart
      */
-    public ArrayList pay(int cardNumber, ArrayList<Disc> shoppingCart);
+    public ArrayList pay(String cardNumber, ArrayList<Disc> shoppingCart);
 
     /**
      * @param shoppingCart the ArrayList of Disc from which the user wishes to remove disc
      * @param disc The Disc object wished to be removed
-     * @param inventory
      * @ensure shoppingCart no longer contains disc
      */
-    public void remove(Disc disc, ArrayList<Disc> shoppingCart, ArrayList<Disc> inventory);
+    public void remove(Disc disc, ArrayList<Disc> shoppingCart);
 
     /**
-     * @param disc
      * @param shoppingCart the ArrayList of Disc of which the user wishes to remove all contents
-     * @param inventory
      * @ensure shoppingCart.isEmpty() == true
      */
-    public void removeAll(Disc disc, ArrayList<Disc> shoppingCart, ArrayList<Disc> inventory);
+    public void removeAll(ArrayList<Disc> shoppingCart);
     
     /**
      * 
