@@ -126,7 +126,7 @@ public class PurpleBox implements InterfaceAdmin, InterfaceUser{
     }
 
     @Override
-    public void addPromoCode(ArrayList PromoCodeList, int code, double percentOff, int codeType) {
+    public void addPromoCode(ArrayList<PromoCode> PromoCodeList, int code, double percentOff, int codeType) {
         PromoCode temp = new PromoCode(code,percentOff,codeType);
         
         PromoCodeList.add(temp);
@@ -153,7 +153,6 @@ public class PurpleBox implements InterfaceAdmin, InterfaceUser{
     public void returnDisc(Disc disc, ArrayList<Disc> inventory) {       
         for ( int i = 0; i < inventory.size(); i++){
             if (inventory.contains(disc)) {
-                 //int quantity = inventory.get(i).getQuantity(); 
                 inventory.get(i).setQuantity(inventory.get(i).getQuantity()+1);
             }
         }
@@ -205,10 +204,10 @@ public class PurpleBox implements InterfaceAdmin, InterfaceUser{
 
     @Override
     public void remove(int index, ArrayList<Disc> shoppingCart) {
-        for (int i = 0; i<shoppingCart.size()-1; i++){
+        for (int i = 0; i<shoppingCart.size(); i++){
             {
+                //System.out.println(shoppingCart.get(index).getTitle());
                 shoppingCart.remove(index);
-                System.out.println(shoppingCart.get(i).getTitle());
                 
             }
            
@@ -217,17 +216,14 @@ public class PurpleBox implements InterfaceAdmin, InterfaceUser{
 
     @Override
     public void removeAll(ArrayList<Disc> shoppingCart) {
-        for ( int i = 0; i < shoppingCart.size()-1; i++){
-                shoppingCart.remove(i);
-                System.out.println(i);
-           
-        }
+        shoppingCart.clear();
     }
 
     @Override
     public Boolean available(Disc disc, ArrayList<Disc> inventory) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return true;
     }
+    
     //end user methods
     @Override
     public String toString() {

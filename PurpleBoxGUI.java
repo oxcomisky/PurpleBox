@@ -18,6 +18,7 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
     public ArrayList<Disc> ShoppingCartList = new ArrayList<>();
     public ArrayList<Disc> GameList = new ArrayList<>();
     public ArrayList<Disc> MovieList = new ArrayList<>();
+    public ArrayList<PromoCode> PromoCodeList = new ArrayList<>();
     
     public DefaultTableModel CartModel;
     public DefaultTableModel GameModel;    
@@ -37,7 +38,7 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
         this.AdminMovieModel = (DefaultTableModel) AdminMovieTable1.getModel();
         this.AdminGameModel = (DefaultTableModel) AdminGameTable1.getModel();
         
-        //PurpleBox.setEnabledAt(4, false);
+        PurpleBox.setEnabledAt(4, false);
         
         
         
@@ -122,6 +123,7 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
         myBox.setGames(GameList);
         myBox.setMovies(MovieList);
         myBox.setShoppingCart(ShoppingCartList);
+        myBox.setPromoCode(PromoCodeList);
     }
 
     /**
@@ -133,16 +135,11 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTabbedPane1 = new javax.swing.JTabbedPane();
-        jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
-        jFrame1 = new javax.swing.JFrame();
-        jDialog1 = new javax.swing.JDialog();
-        popupMenu1 = new java.awt.PopupMenu();
-        popupMenu2 = new java.awt.PopupMenu();
         PurpleBox = new javax.swing.JTabbedPane();
         Home = new java.awt.Panel();
         HomeMessage = new java.awt.Label();
         AdminLogin = new javax.swing.JButton();
+        textField1 = new java.awt.TextField();
         Movies = new java.awt.Panel();
         jScrollPane2 = new javax.swing.JScrollPane();
         MoviesTable = new javax.swing.JTable();
@@ -180,47 +177,13 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
         RemoveAllAdmin1 = new javax.swing.JButton();
         ChangePriceDVD1 = new javax.swing.JButton();
         ChangePriceBluRay1 = new javax.swing.JButton();
-        VolumeDiscountLabel1 = new javax.swing.JLabel();
-        VolumeDiscountField1 = new java.awt.TextField();
         jButton3 = new javax.swing.JButton();
         CodeLabel2 = new javax.swing.JLabel();
-        TitleField1 = new java.awt.TextField();
-        GenreSpinner1 = new javax.swing.JSpinner();
-        TypeSpinner1 = new javax.swing.JSpinner();
-        Release1 = new java.awt.TextField();
-        CriticScoreSpinner1 = new javax.swing.JSpinner();
-        QuantitySpinner1 = new javax.swing.JSpinner();
-        Price1 = new java.awt.TextField();
         AddDisc1 = new javax.swing.JButton();
-
-        jCheckBoxMenuItem1.setSelected(true);
-        jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
-
-        javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
-        jFrame1.getContentPane().setLayout(jFrame1Layout);
-        jFrame1Layout.setHorizontalGroup(
-            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        jFrame1Layout.setVerticalGroup(
-            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
-
-        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
-        jDialog1.getContentPane().setLayout(jDialog1Layout);
-        jDialog1Layout.setHorizontalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        jDialog1Layout.setVerticalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
-
-        popupMenu1.setLabel("popupMenu1");
-
-        popupMenu2.setLabel("popupMenu2");
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        jComboBox3 = new javax.swing.JComboBox<>();
+        jTextField1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(153, 0, 153));
@@ -244,17 +207,21 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
             }
         });
 
+        textField1.setText("textField1");
+
         javax.swing.GroupLayout HomeLayout = new javax.swing.GroupLayout(Home);
         Home.setLayout(HomeLayout);
         HomeLayout.setHorizontalGroup(
             HomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(HomeLayout.createSequentialGroup()
-                .addGap(105, 105, 105)
-                .addComponent(HomeMessage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(166, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HomeLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(AdminLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(HomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, HomeLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(AdminLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(HomeLayout.createSequentialGroup()
+                        .addGap(105, 105, 105)
+                        .addComponent(HomeMessage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 156, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         HomeLayout.setVerticalGroup(
@@ -313,20 +280,20 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
         MoviesLayout.setHorizontalGroup(
             MoviesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MoviesLayout.createSequentialGroup()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(MoviesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 875, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(MoviesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(MoviesLayout.createSequentialGroup()
-                        .addComponent(AddToCartMovie, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)
-                        .addGap(416, 416, 416)
+                        .addComponent(AddToCartMovie, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(returnMovie))
-                    .addComponent(jScrollPane1))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         MoviesLayout.setVerticalGroup(
             MoviesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MoviesLayout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 463, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 461, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(MoviesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(AddToCartMovie)
@@ -378,14 +345,14 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
         GamesLayout.setHorizontalGroup(
             GamesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(GamesLayout.createSequentialGroup()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 611, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 875, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(GamesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 623, Short.MAX_VALUE)
+                .addGroup(GamesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(GamesLayout.createSequentialGroup()
-                        .addComponent(AddToCartGame)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(returnGame)))
+                        .addComponent(AddToCartGame, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(returnGame))
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         GamesLayout.setVerticalGroup(
@@ -397,7 +364,7 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
                     .addComponent(AddToCartGame)
                     .addComponent(returnGame))
                 .addGap(10, 10, 10))
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 508, Short.MAX_VALUE)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 506, Short.MAX_VALUE)
         );
 
         PurpleBox.addTab("Games", Games);
@@ -470,40 +437,44 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
         ShoppingCartLayout.setHorizontalGroup(
             ShoppingCartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ShoppingCartLayout.createSequentialGroup()
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 579, Short.MAX_VALUE)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 875, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(ShoppingCartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane6)
-                    .addGroup(ShoppingCartLayout.createSequentialGroup()
-                        .addComponent(CheckoutButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 328, Short.MAX_VALUE)
-                        .addComponent(CodeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(SubmitCodeButton))
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(ShoppingCartLayout.createSequentialGroup()
                         .addGroup(ShoppingCartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(RemoveAllButton)
+                            .addComponent(RemoveFromCartButton)
                             .addComponent(GetTotalButton)
-                            .addComponent(RemoveFromCartButton))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                            .addComponent(CheckoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(ShoppingCartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(CodeTextField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(SubmitCodeButton, javax.swing.GroupLayout.Alignment.TRAILING))))
                 .addContainerGap())
         );
         ShoppingCartLayout.setVerticalGroup(
             ShoppingCartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 508, Short.MAX_VALUE)
+            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 506, Short.MAX_VALUE)
             .addGroup(ShoppingCartLayout.createSequentialGroup()
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 361, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(RemoveFromCartButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(RemoveAllButton)
-                .addGap(12, 12, 12)
-                .addComponent(GetTotalButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(ShoppingCartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(CheckoutButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(SubmitCodeButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(CodeTextField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 363, Short.MAX_VALUE)
+                .addGroup(ShoppingCartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ShoppingCartLayout.createSequentialGroup()
+                        .addGap(80, 80, 80)
+                        .addGroup(ShoppingCartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(ShoppingCartLayout.createSequentialGroup()
+                                .addGap(29, 29, 29)
+                                .addComponent(SubmitCodeButton))
+                            .addComponent(CodeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(ShoppingCartLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(RemoveFromCartButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(RemoveAllButton)
+                        .addGap(12, 12, 12)
+                        .addComponent(GetTotalButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(CheckoutButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -581,18 +552,8 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
             }
         });
 
-        VolumeDiscountLabel1.setText("Enter New Volume Discount: ");
-
-        VolumeDiscountField1.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
-        VolumeDiscountField1.setText("Enter an Integer");
-        VolumeDiscountField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                VolumeDiscountField1ActionPerformed(evt);
-            }
-        });
-
         jButton3.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
-        jButton3.setText("Set Discount");
+        jButton3.setText("Set Volume Discount");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -601,128 +562,88 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
 
         CodeLabel2.setText("Enter New Disc:");
 
-        TitleField1.setText("Title");
-        TitleField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TitleField1ActionPerformed(evt);
-            }
-        });
-
-        GenreSpinner1.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
-        GenreSpinner1.setModel(new javax.swing.SpinnerListModel(new String[] {"Genre", "Drama", "Action", "Comedy", "Sci-Fi", "Fantasy", "RPG", "Adventure"}));
-        GenreSpinner1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                GenreSpinner1MouseClicked(evt);
-            }
-        });
-
-        TypeSpinner1.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
-        TypeSpinner1.setModel(new javax.swing.SpinnerListModel(new String[] {"DVD", "BluRay", "XboxOne", "PS4"}));
-        TypeSpinner1.setName("TypeSpinner"); // NOI18N
-
-        Release1.setText("Release Year");
-        Release1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Release1ActionPerformed(evt);
-            }
-        });
-
-        CriticScoreSpinner1.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
-        CriticScoreSpinner1.setModel(new javax.swing.SpinnerNumberModel(0, 0, 100, 1));
-
-        QuantitySpinner1.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
-        QuantitySpinner1.setModel(new javax.swing.SpinnerNumberModel(0, null, 5, 1));
-        QuantitySpinner1.setInheritsPopupMenu(true);
-        QuantitySpinner1.setValue(10);
-
-        Price1.setName("Price"); // NOI18N
-        Price1.setText("Price");
-
         AddDisc1.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
         AddDisc1.setText("Add Disc");
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jTextField1.setText("jTextField1");
+        jTextField1.setNextFocusableComponent(jTextField1);
+        jTextField1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextField1MouseClicked(evt);
+            }
+        });
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout ADMINPanelLayout = new javax.swing.GroupLayout(ADMINPanel);
         ADMINPanel.setLayout(ADMINPanelLayout);
         ADMINPanelLayout.setHorizontalGroup(
             ADMINPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(ADMINPanelLayout.createSequentialGroup()
                 .addGroup(ADMINPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(RemoveAllAdmin1)
-                    .addComponent(ChangePriceDVD1)
-                    .addComponent(ChangePriceBluRay1)
-                    .addComponent(Remove1)
-                    .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 586, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 625, Short.MAX_VALUE)
+                    .addComponent(Remove1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(RemoveAllAdmin1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ChangePriceDVD1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ChangePriceBluRay1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(ADMINPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 623, Short.MAX_VALUE)
                     .addGroup(ADMINPanelLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane11))
-                    .addGroup(ADMINPanelLayout.createSequentialGroup()
-                        .addGap(8, 8, 8)
                         .addGroup(ADMINPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(ADMINPanelLayout.createSequentialGroup()
-                                .addComponent(VolumeDiscountLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(VolumeDiscountField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton3))
-                            .addGroup(ADMINPanelLayout.createSequentialGroup()
-                                .addComponent(CodeLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(TitleField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(GenreSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(102, 102, 102)
+                                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(TypeSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Release1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(CriticScoreSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(QuantitySpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Price1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(22, 22, 22)
-                                .addComponent(AddDisc1)))
-                        .addGap(48, 48, 48))))
+                                .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(CodeLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(AddDisc1, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
         ADMINPanelLayout.setVerticalGroup(
             ADMINPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ADMINPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(ADMINPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE)
+                    .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addGap(15, 15, 15)
+                .addComponent(jButton3)
                 .addGroup(ADMINPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(137, 137, 137)
-                .addGroup(ADMINPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(ADMINPanelLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(Remove1)
-                        .addGap(18, 18, 18)
-                        .addComponent(RemoveAllAdmin1)
-                        .addGap(18, 18, 18)
-                        .addComponent(ChangePriceDVD1)
-                        .addGap(18, 18, 18)
-                        .addComponent(ChangePriceBluRay1))
+                        .addGap(19, 19, 19)
+                        .addGroup(ADMINPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(RemoveAllAdmin1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(ADMINPanelLayout.createSequentialGroup()
-                        .addGroup(ADMINPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton3)
-                            .addGroup(ADMINPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(VolumeDiscountLabel1)
-                                .addComponent(VolumeDiscountField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(31, 31, 31)
-                        .addGroup(ADMINPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(ADMINPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(GenreSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(TypeSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(ADMINPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(CriticScoreSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(QuantitySpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(Release1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Price1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(ADMINPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(CodeLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(TitleField1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(AddDisc1))
-                        .addGap(14, 14, 14)))
-                .addGap(0, 75, Short.MAX_VALUE))
+                        .addGap(28, 28, 28)
+                        .addComponent(CodeLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12)
+                        .addGroup(ADMINPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(AddDisc1, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE))))
+                .addGap(18, 18, 18)
+                .addComponent(ChangePriceDVD1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(ChangePriceBluRay1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         PurpleBox.addTab("ADMIN", ADMINPanel);
@@ -743,85 +664,6 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void Release1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Release1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Release1ActionPerformed
-
-    private void GenreSpinner1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GenreSpinner1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_GenreSpinner1MouseClicked
-
-    private void TitleField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TitleField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TitleField1ActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void VolumeDiscountField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VolumeDiscountField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_VolumeDiscountField1ActionPerformed
-
-    private void ChangePriceBluRay1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChangePriceBluRay1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ChangePriceBluRay1ActionPerformed
-
-    private void ChangePriceDVD1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChangePriceDVD1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ChangePriceDVD1ActionPerformed
-
-    private void RemoveAllAdmin1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveAllAdmin1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_RemoveAllAdmin1ActionPerformed
-
-    private void Remove1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Remove1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Remove1ActionPerformed
-
-    private void CheckoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckoutButtonActionPerformed
-        // TODO add your handling code here:
-        String CCNumber = JOptionPane.showInputDialog(rootPane, "Please Enter A 16 Digit Credit Card Number: ");
-
-        if (CCNumber.length() == 16) {
-            myBox.pay(CCNumber, ShoppingCartList);
-            JOptionPane.showConfirmDialog(rootPane, "Would you like to recieve an Email Reciept?");
-            System.out.println(JOptionPane.showConfirmDialog(rootPane, ""));
-        } else {
-            ShoppingCartOutput.append(CCNumber + " is not a valid CC number. Try Again.");
-        }
-    }//GEN-LAST:event_CheckoutButtonActionPerformed
-
-    private void RemoveAllButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveAllButtonActionPerformed
-        for (int i = 0; i < myBox.getShoppingCart().size(); i++) {
-            CartModel.removeRow(i);
-            System.out.println(i);
-        }
-        myBox.removeAll(myBox.getShoppingCart());
-        System.out.println(ShoppingCartList);
-    }//GEN-LAST:event_RemoveAllButtonActionPerformed
-
-    private void RemoveFromCartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveFromCartButtonActionPerformed
-        // TODO add your handling code here:
-        myBox.setShoppingCart(ShoppingCartList);
-        int temp = 0;
-        for (int i = 0; i < myBox.getShoppingCart().size(); i++) {
-            if (myBox.getShoppingCart().get(i).getTitle().compareTo((String) ShoppingCartTable.getValueAt(ShoppingCartTable.getSelectedRow(), 0)) == 0) {
-                temp = i;
-                CartModel.removeRow(i);
-                System.out.println("i is: " + i);
-                break;
-            }
-
-        }
-        System.out.println(myBox.getShoppingCart());
-
-        myBox.remove(temp, myBox.getShoppingCart());
-        //if(!(myBox.getShoppingCart().isEmpty())) {
-            System.out.println(myBox.getShoppingCart());
-        //}
-    }//GEN-LAST:event_RemoveFromCartButtonActionPerformed
 
     private void AddToCartGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddToCartGameActionPerformed
 
@@ -877,13 +719,89 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
     private void AdminLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminLoginActionPerformed
         // TODO add your handling code here:
         String PassKey = JOptionPane.showInputDialog(rootPane, "Enter Your PassKey", DISPOSE_ON_CLOSE);
-        if (PassKey.equalsIgnoreCase("12345")) {
-            JOptionPane.showMessageDialog(AdminLogin, "PassKey Accepted");
-            //PurpleBox.setEnabledAt(4, true);
+        if (PassKey.equalsIgnoreCase("12345")) {                                                        //passkey is 12345
+            JOptionPane.showMessageDialog(AdminLogin, "PassKey Accepted");                              //display a message to the user
+            PurpleBox.setEnabledAt(4, true);                                                            //enable ADMIN pane
+            PurpleBox.setSelectedIndex(4);                                                              //take user to the ADMIN pane
         } else {
-            JOptionPane.showMessageDialog(AdminLogin, "Wrong PassKey");
+            JOptionPane.showMessageDialog(AdminLogin, "Wrong PassKey");                                 //display a message to the user
         }
     }//GEN-LAST:event_AdminLoginActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        //String title = TitleField.getText();
+        //String releaseYear = ReleaseYearField.getText();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void ChangePriceBluRay1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChangePriceBluRay1ActionPerformed
+        // TODO add your handling code here:
+        myBox.changePriceBluRay(ERROR, myBox.getMovies());
+    }//GEN-LAST:event_ChangePriceBluRay1ActionPerformed
+
+    private void ChangePriceDVD1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChangePriceDVD1ActionPerformed
+        // TODO add your handling code here:
+        myBox.changePriceDVD(ERROR, myBox.getMovies());
+    }//GEN-LAST:event_ChangePriceDVD1ActionPerformed
+
+    private void RemoveAllAdmin1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveAllAdmin1ActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_RemoveAllAdmin1ActionPerformed
+
+    private void Remove1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Remove1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Remove1ActionPerformed
+
+    private void CheckoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckoutButtonActionPerformed
+        // TODO add your handling code here:
+        String CCNumber = JOptionPane.showInputDialog(rootPane, "Please Enter A 16 Digit Credit Card Number: ");
+
+        if (CCNumber.length() == 16) {
+            myBox.pay(CCNumber, ShoppingCartList);
+            JOptionPane.showConfirmDialog(rootPane, "Would you like to recieve an Email Reciept?");
+            System.out.println(JOptionPane.showConfirmDialog(rootPane, ""));
+        } else {
+            ShoppingCartOutput.append(CCNumber + " is not a valid CC number. Try Again.");
+        }
+    }//GEN-LAST:event_CheckoutButtonActionPerformed
+
+    private void RemoveAllButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveAllButtonActionPerformed
+        myBox.setShoppingCart(ShoppingCartList);
+        CartModel.setRowCount(0);
+        myBox.removeAll(myBox.getShoppingCart());
+        System.out.println(myBox.getShoppingCart());
+    }//GEN-LAST:event_RemoveAllButtonActionPerformed
+
+    private void RemoveFromCartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveFromCartButtonActionPerformed
+        // TODO add your handling code here:
+        myBox.setShoppingCart(ShoppingCartList);
+        int temp = 0;
+        try{for (int i = 0; i < myBox.getShoppingCart().size(); i++) {
+            if (myBox.getShoppingCart().get(i).getTitle().compareTo((String) ShoppingCartTable.getValueAt(ShoppingCartTable.getSelectedRow(), 0)) == 0) {
+                temp = i;
+                CartModel.removeRow(i);
+                //System.out.println("i is: " + i);
+                break;
+            }
+        }
+        }catch(ArrayIndexOutOfBoundsException e){
+            //there's nothing to remove
+        }
+        System.out.println(myBox.getShoppingCart());
+
+        myBox.remove(temp, myBox.getShoppingCart());
+        //if(!(myBox.getShoppingCart().isEmpty())) {
+            //    System.out.println(myBox.getShoppingCart());
+            //}
+    }//GEN-LAST:event_RemoveFromCartButtonActionPerformed
+
+    private void jTextField1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField1MouseClicked
+        
+    }//GEN-LAST:event_jTextField1MouseClicked
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -937,19 +855,14 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
     private javax.swing.JButton CheckoutButton;
     private javax.swing.JLabel CodeLabel2;
     private java.awt.TextField CodeTextField;
-    private javax.swing.JSpinner CriticScoreSpinner1;
     private java.awt.Panel Games;
     private javax.swing.JTable GamesTable;
-    private javax.swing.JSpinner GenreSpinner1;
     private javax.swing.JButton GetTotalButton;
     private java.awt.Panel Home;
     private java.awt.Label HomeMessage;
     private java.awt.Panel Movies;
     private javax.swing.JTable MoviesTable;
-    private java.awt.TextField Price1;
     private javax.swing.JTabbedPane PurpleBox;
-    private javax.swing.JSpinner QuantitySpinner1;
-    private java.awt.TextField Release1;
     private javax.swing.JButton Remove1;
     private javax.swing.JButton RemoveAllAdmin1;
     private javax.swing.JButton RemoveAllButton;
@@ -960,14 +873,10 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
     private javax.swing.JButton SubmitCodeButton;
     private javax.swing.JTextArea TextOutputGames;
     private javax.swing.JTextArea TextOutputMovies;
-    private java.awt.TextField TitleField1;
-    private javax.swing.JSpinner TypeSpinner1;
-    private java.awt.TextField VolumeDiscountField1;
-    private javax.swing.JLabel VolumeDiscountLabel1;
     private javax.swing.JButton jButton3;
-    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
-    private javax.swing.JDialog jDialog1;
-    private javax.swing.JFrame jFrame1;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
@@ -976,11 +885,10 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JTabbedPane jTabbedPane1;
-    private java.awt.PopupMenu popupMenu1;
-    private java.awt.PopupMenu popupMenu2;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JButton returnGame;
     private javax.swing.JButton returnMovie;
+    private java.awt.TextField textField1;
     private java.awt.TextField textField11;
     private java.awt.TextField textField8;
     private java.awt.TextField textField9;

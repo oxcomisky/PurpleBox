@@ -34,10 +34,11 @@ public interface InterfaceUser {
      * @param disc
      * @param total
      * @param code
-     * @return returns an Int that corresponds to what kind of discount the user receives
-     * @ensure 2 >= result >= 0
+     * @return returns a double that is the updated price the user is to pay
+     * @ensure result < total
      */
     public double promoCode(int code, double total, Disc disc);
+
 
     /**Inputs a credit card number, checks for validity, and returns a list to be used as a receipt
      * @require cardNumber is a 16 digit value
