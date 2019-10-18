@@ -31,11 +31,13 @@ public interface InterfaceUser {
     public void returnDisc(Disc disc, ArrayList<Disc> inventory);
 
     /**Takes a promoCode and checks if its valid, returns the corresponding int value associated with the discount
+     * @param disc
+     * @param total
      * @param code
      * @return returns an Int that corresponds to what kind of discount the user receives
      * @ensure 2 >= result >= 0
      */
-    public int promoCode(int code);
+    public double promoCode(int code, double total, Disc disc);
 
     /**Inputs a credit card number, checks for validity, and returns a list to be used as a receipt
      * @require cardNumber is a 16 digit value

@@ -160,9 +160,26 @@ public class PurpleBox implements InterfaceAdmin, InterfaceUser{
     }
 
     @Override
-    public int promoCode(int code) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        public double promoCode(int code, double total, Disc disc) {
+        //free dvd
+        if (code == 1){
+            if (disc.getType().compareTo("DVD") == 0){
+            total = total - disc.getPrice();
+            }
+        }
+        //free bluray
+        if (code == 2) {
+            if (disc.getType().compareTo("BluRay") == 0){
+            total = total - disc.getPrice();
+            }
+        }
+        //10% off promo
+        if (code == 3) {
+            total = total * 0.9;
+        }
+        return total;
     }
+
 
     @Override
     public ArrayList pay(String cardNumber, ArrayList<Disc> shoppingCart) {
@@ -188,12 +205,11 @@ public class PurpleBox implements InterfaceAdmin, InterfaceUser{
 
     @Override
     public void remove(int index, ArrayList<Disc> shoppingCart) {
-        for (int i = 0; i<shoppingCart.size(); i++){
+        for (int i = 0; i<shoppingCart.size()-1; i++){
             {
                 shoppingCart.remove(index);
                 System.out.println(shoppingCart.get(i).getTitle());
                 
-  
             }
            
         }
@@ -201,7 +217,7 @@ public class PurpleBox implements InterfaceAdmin, InterfaceUser{
 
     @Override
     public void removeAll(ArrayList<Disc> shoppingCart) {
-        for ( int i = 0; i < shoppingCart.size(); i++){
+        for ( int i = 0; i < shoppingCart.size()-1; i++){
                 shoppingCart.remove(i);
                 System.out.println(i);
            
