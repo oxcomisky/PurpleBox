@@ -835,6 +835,7 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
                         0x1,
                         temp.getPrice()
                     });
+                    TextOutputGames.append(myBox.getGames().get(i).getTitle()+ " has been added to your cart. \n ");
                 }
             }
 
@@ -862,6 +863,7 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
                         0x1,
                         temp.getPrice()
                     });
+                    TextOutputMovies.append(myBox.getMovies().get(i).getTitle()+ " has been added to your cart. \n ");
                 }
             }
 
@@ -869,7 +871,7 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
 
         myBox.addToCart(temp, myBox.getShoppingCart(), myBox.getMovies());
 
-        System.out.println(myBox.getShoppingCart());
+        
 
     }//GEN-LAST:event_AddToCartMovieActionPerformed
 
@@ -974,12 +976,23 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
 
     private void CheckoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckoutButtonActionPerformed
         // TODO add your handling code here:
-        String CCNumber = JOptionPane.showInputDialog(rootPane, "Please Enter A 16 Digit Credit Card Number: ");
+        if(total == 0){
+            for(Disc disc : myBox.getShoppingCart()){
+                total += disc.getPrice();
+            }
+        }
+        String CCNumber = JOptionPane.showInputDialog(rootPane, String.format("Your Total is: $%.2f %nPlease Enter A 16 Digit Credit Card Number: ",total));
 
         if (CCNumber.length() == 16) {
             myBox.pay(CCNumber, ShoppingCartList);
             JOptionPane.showConfirmDialog(rootPane, "Would you like to recieve an Email Reciept?");
-            System.out.println(JOptionPane.showConfirmDialog(rootPane, ""));
+            JOptionPane.showInputDialog("Enter Your Email Address: ");
+            CartModel.setRowCount(0);
+            myBox.removeAll(myBox.getShoppingCart());
+            total = 0.0;
+            TextOutputMovies.setText("");
+            TextOutputGames.setText("");
+            ShoppingCartOutput.setText("");
         } else {
             ShoppingCartOutput.append(CCNumber + " is not a valid CC number. Try Again.");
         }
@@ -989,6 +1002,8 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
         myBox.setShoppingCart(ShoppingCartList);
         CartModel.setRowCount(0);
         myBox.removeAll(myBox.getShoppingCart());
+        ShoppingCartOutput.append("All Discs have been removed from your cart. \n");
+        total = 0.0;
     }//GEN-LAST:event_RemoveAllButtonActionPerformed
 
     private void RemoveFromCartButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RemoveFromCartButtonActionPerformed
@@ -1009,10 +1024,14 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
         System.out.println(myBox.getShoppingCart());
 
         myBox.remove(temp, myBox.getShoppingCart());
-        //if(!(myBox.getShoppingCart().isEmpty())) {
-            //    System.out.println(myBox.getShoppingCart());
-            //}
+        
         ShoppingCartOutput.append(myBox.getShoppingCart().get(temp).getTitle() + " has been removed from your cart. \n");
+        total = 0.0;
+        if(total == 0){
+            for(Disc disc : myBox.getShoppingCart()){
+                total += disc.getPrice();
+            }
+        }
     }//GEN-LAST:event_RemoveFromCartButtonActionPerformed
 
     private void TitleFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TitleFieldMouseClicked
@@ -1125,7 +1144,7 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
                 total += disc.getPrice();
             }
         }
-        ShoppingCartOutput.append("Your total is : $" + total + "\n");
+        ShoppingCartOutput.append("Your total is : " + String.format("$%.2f", total) + "\n");
     }//GEN-LAST:event_GetTotalButtonActionPerformed
 
     private void SubmitCodeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitCodeButtonActionPerformed
@@ -1140,7 +1159,7 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
 
                 double newTotal = myBox.promoCode(code.getCodeType(), total);
                 total = newTotal;
-                ShoppingCartOutput.append("Your new total is : $" + total + "\n");
+                ShoppingCartOutput.append("Your new total is : " + String.format("$%.2f", total)+ "\n");
 
                 SubmitCodeButton.setEnabled(false);
             }
