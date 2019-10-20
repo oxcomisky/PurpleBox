@@ -11,16 +11,14 @@ package purplebox;
  */
 public class PromoCode implements InterfacePromoCode{
     public int code;
-    public double percentOff;
     public int codeType;
 
     
     public PromoCode(){
     }
 
-    public PromoCode(int code, double percentOff, int codeType) {
+    public PromoCode(int code, int codeType) {
         this.code = code;
-        this.percentOff = percentOff;
         this.codeType = codeType;
     }
 
@@ -34,15 +32,6 @@ public class PromoCode implements InterfacePromoCode{
         this.code = code;
     }
 
-    @Override
-    public double getPercentOff() {
-        return percentOff;
-    }
-
-    @Override
-    public void setPercentOff(double percentOff) {
-        this.percentOff = percentOff;
-    }
 
     @Override
     public int getCodeType() {

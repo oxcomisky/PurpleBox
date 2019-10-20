@@ -26,6 +26,8 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
     public DefaultTableModel AdminMovieModel;
     public DefaultTableModel AdminGameModel;
     
+    public double total = 0.0;
+    
     public int VolumeDiscount = 3;
     
     PurpleBox myBox = new PurpleBox();
@@ -41,6 +43,10 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
         
         PurpleBox.setEnabledAt(4, false);
         
+        PromoCodeList.add(new PromoCode(12345,2));
+        PromoCodeList.add(new PromoCode(123,1));
+        PromoCodeList.add(new PromoCode(1111,3));
+        PromoCodeList.add(new PromoCode(999,2));
         
         
         MovieList.add(new Disc("The Godfather", "Drama", "DVD", "1972", 98, 0, 2.99) {
@@ -94,7 +100,7 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
         });
         GameList.add(new Disc("BorderLands 3", "Action", "XboxOne", "2019", 79, 1, 2.99) {
         });
-        GameList.add(new Disc("God of War", "Fantasy", "PS4", "2019", 95, 0, 2.99) {
+        GameList.add(new Disc("God of War", "Fantasy", "PS4", "2019", 95, 1, 2.99) {
         });
         GameList.add(new Disc("Tom Clancy's Ghost Recon: BreakPoint", "Action", "PS4", "2019", 98, 1, 2.99) {
         });
@@ -439,11 +445,21 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
 
         SubmitCodeButton.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
         SubmitCodeButton.setText("Submit Code");
+        SubmitCodeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SubmitCodeButtonActionPerformed(evt);
+            }
+        });
 
         textField11.setText("textField11");
 
         GetTotalButton.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
         GetTotalButton.setText("Get Total");
+        GetTotalButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                GetTotalButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout ShoppingCartLayout = new javax.swing.GroupLayout(ShoppingCart);
         ShoppingCart.setLayout(ShoppingCartLayout);
@@ -763,23 +779,25 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
 
         Disc temp = new Disc();
 
-        for (int i = 0; i < GameList.size(); i++) {
-            if (GameList.get(i).getTitle().compareTo((String) GamesTable.getValueAt(GamesTable.getSelectedRow(), NORMAL)) == 0) {
-                temp = GameList.get(i);
-                CartModel.addRow(new Object[]{
-                    temp.getTitle(),
-                    temp.getGenre(),
-                    temp.getType(),
-                    temp.getRelease(),
-                    temp.getCriticScore(),
-                    0x1,
-                    temp.getPrice()
-                });
+        for (int i = 0; i < myBox.getGames().size(); i++) {
+            if (myBox.getGames().get(i).getTitle().compareTo((String) GamesTable.getValueAt(GamesTable.getSelectedRow(), NORMAL)) == 0) {
+                temp = myBox.getGames().get(i);
+                if(myBox.getGames().get(i).getQuantity() > 0){
+                    CartModel.addRow(new Object[]{
+                        temp.getTitle(),
+                        temp.getGenre(),
+                        temp.getType(),
+                        temp.getRelease(),
+                        temp.getCriticScore(),
+                        0x1,
+                        temp.getPrice()
+                    });
+                }
             }
 
         }
-        myBox.setShoppingCart(myBox.getShoppingCart());
-        myBox.addToCart(temp, myBox.getShoppingCart(), GameList);
+        //myBox.setShoppingCart(myBox.getShoppingCart());
+        myBox.addToCart(temp, myBox.getShoppingCart(), myBox.getGames());
         
         //System.out.println(myBox.getShoppingCart());
     }//GEN-LAST:event_AddToCartGameActionPerformed
@@ -788,25 +806,27 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
 
         Disc temp = new Disc();
 
-        for (int i = 0; i < MovieList.size(); i++) {
-            if (MovieList.get(i).getTitle().compareTo((String) MoviesTable.getValueAt(MoviesTable.getSelectedRow(), NORMAL)) == 0) {
-                temp = MovieList.get(i);
-                CartModel.addRow(new Object[]{
-                    temp.getTitle(),
-                    temp.getGenre(),
-                    temp.getType(),
-                    temp.getRelease(),
-                    temp.getCriticScore(),
-                    0x1,
-                    temp.getPrice()
-                });
+        for (int i = 0; i < myBox.getMovies().size(); i++) {
+            if (myBox.getMovies().get(i).getTitle().compareTo((String) MoviesTable.getValueAt(MoviesTable.getSelectedRow(), NORMAL)) == 0) {
+                temp = myBox.getMovies().get(i);
+                if(myBox.getMovies().get(i).getQuantity() > 0){
+                    CartModel.addRow(new Object[]{
+                        temp.getTitle(),
+                        temp.getGenre(),
+                        temp.getType(),
+                        temp.getRelease(),
+                        temp.getCriticScore(),
+                        0x1,
+                        temp.getPrice()
+                    });
+                }
             }
 
         }
 
-        myBox.addToCart(temp, ShoppingCartList, MovieList);
+        myBox.addToCart(temp, myBox.getShoppingCart(), myBox.getMovies());
 
-        //System.out.println(ShoppingCartList);
+        System.out.println(myBox.getShoppingCart());
 
     }//GEN-LAST:event_AddToCartMovieActionPerformed
 
@@ -949,6 +969,7 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
         //if(!(myBox.getShoppingCart().isEmpty())) {
             //    System.out.println(myBox.getShoppingCart());
             //}
+        ShoppingCartOutput.append(myBox.getShoppingCart().get(temp).getTitle() + " has been removed from your cart. \n");
     }//GEN-LAST:event_RemoveFromCartButtonActionPerformed
 
     private void TitleFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TitleFieldMouseClicked
@@ -1053,6 +1074,35 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         QuantityField.selectAll();
     }//GEN-LAST:event_QuantityFieldMouseClicked
+
+    private void GetTotalButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GetTotalButtonActionPerformed
+        // TODO add your handling code here:
+        if(total == 0){
+            for(Disc disc : myBox.getShoppingCart()){
+                total += disc.getPrice();
+            }
+        }
+        ShoppingCartOutput.append("Your total is : $" + total + "\n");
+    }//GEN-LAST:event_GetTotalButtonActionPerformed
+
+    private void SubmitCodeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitCodeButtonActionPerformed
+        // TODO add your handling code here:
+        for(PromoCode code : myBox.getPromoCode()){
+            if(code.getCode() == Integer.parseInt(CodeTextField.getText())){
+                if(total == 0){
+                    for(Disc disc: myBox.getShoppingCart()){
+                        total += disc.getPrice();
+                    }
+                }
+
+                double newTotal = myBox.promoCode(code.getCodeType(), total);
+                total = newTotal;
+                ShoppingCartOutput.append("Your new total is : $" + total + "\n");
+
+                SubmitCodeButton.setEnabled(false);
+            }
+        }
+    }//GEN-LAST:event_SubmitCodeButtonActionPerformed
 
     /**
      * @param args the command line arguments

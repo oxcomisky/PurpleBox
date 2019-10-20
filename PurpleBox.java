@@ -64,7 +64,6 @@ public class PurpleBox implements InterfaceAdmin, InterfaceUser{
     public void setPromoCode(ArrayList<PromoCode> promoCode) {
         this.promoCode = promoCode;
     }
-
     
    
     
@@ -126,8 +125,8 @@ public class PurpleBox implements InterfaceAdmin, InterfaceUser{
     }
 
     @Override
-    public void addPromoCode(ArrayList<PromoCode> PromoCodeList, int code, double percentOff, int codeType) {
-        PromoCode temp = new PromoCode(code,percentOff,codeType);
+    public void addPromoCode(ArrayList<PromoCode> PromoCodeList, int code, int codeType) {
+        PromoCode temp = new PromoCode(code, codeType);
         PromoCodeList.add(temp);
     }
 
@@ -164,17 +163,17 @@ public class PurpleBox implements InterfaceAdmin, InterfaceUser{
     }
 
     @Override
-        public double promoCode(int code, double total) {
+        public double promoCode(int codeType, double total) {
         //$2 off total
-        if (code == 1){
+        if (codeType == 1){
             total = total - 2;
         }
         //$3 off total
-        if (code == 2) {
+        if (codeType == 2) {
             total = total - 3;
         }
         //10% off promo
-        if (code == 3) {
+        if (codeType == 3) {
             total = total * 0.9;
         }
         //Prevents Negative Balance Due

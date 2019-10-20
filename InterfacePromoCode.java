@@ -23,18 +23,7 @@ public interface InterfacePromoCode {
      */
     public void setCode(int code);
     
-    /**
-     *
-     * @return
-     */
-    public double getPercentOff();
-
-    /**
-     *
-     * @param percentOff
-     */
-    public void setPercentOff(double percentOff);
-
+    
     /**
      *
      * @return
