@@ -43,7 +43,7 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
         
         
         
-        MovieList.add(new Disc("The Godfather", "Drama", "DVD", "1972", 98, 2, 2.99) {
+        MovieList.add(new Disc("The Godfather", "Drama", "DVD", "1972", 98, 0, 2.99) {
         });
         MovieList.add(new Disc("Citizen Kane", "Drama", "DVD", "1941", 100, 6, 2.99) {
         });
@@ -94,7 +94,7 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
         });
         GameList.add(new Disc("BorderLands 3", "Action", "XboxOne", "2019", 79, 1, 2.99) {
         });
-        GameList.add(new Disc("God of War", "Fantasy", "PS4", "2019", 95, 1, 2.99) {
+        GameList.add(new Disc("God of War", "Fantasy", "PS4", "2019", 95, 0, 2.99) {
         });
         GameList.add(new Disc("Tom Clancy's Ghost Recon: BreakPoint", "Action", "PS4", "2019", 98, 1, 2.99) {
         });
