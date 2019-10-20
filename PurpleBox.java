@@ -145,7 +145,13 @@ public class PurpleBox implements InterfaceAdmin, InterfaceUser{
     //user methods
     @Override
     public ArrayList search(String key, ArrayList<Disc> inventory) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+      ArrayList<String> results = new ArrayList<>();
+        for ( int i = 0; i<inventory.size(); i++){
+         if (inventory.get(i).getTitle().contains(key)) {
+             results.add(inventory.get(i).getTitle());
+         }
+      }
+        return results;
     }
 
     @Override
@@ -187,7 +193,7 @@ public class PurpleBox implements InterfaceAdmin, InterfaceUser{
             total += disc.getPrice();
             Reciept.add(disc);
         }
-        
+        System.out.println("Your total is: " + total);
         return Reciept;  
     }
 
