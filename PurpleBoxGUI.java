@@ -199,6 +199,10 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
         ReleaseYearField = new java.awt.TextField();
         CriticScoreField = new java.awt.TextField();
         QuantityField = new java.awt.TextField();
+        label1 = new java.awt.Label();
+        addPromoCodeField = new java.awt.TextField();
+        codeTypeCombo = new javax.swing.JComboBox<>();
+        AddPromoCodeButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(153, 0, 153));
@@ -312,7 +316,7 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
         MoviesLayout.setVerticalGroup(
             MoviesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MoviesLayout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 461, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 463, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(MoviesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(AddToCartMovie)
@@ -383,7 +387,7 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
                     .addComponent(AddToCartGame)
                     .addComponent(returnGame))
                 .addGap(10, 10, 10))
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 506, Short.MAX_VALUE)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 508, Short.MAX_VALUE)
         );
 
         PurpleBox.addTab("Games", Games);
@@ -442,6 +446,11 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
 
         CodeTextField.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
         CodeTextField.setText("Enter Promo Code Here");
+        CodeTextField.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CodeTextFieldMouseClicked(evt);
+            }
+        });
 
         SubmitCodeButton.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
         SubmitCodeButton.setText("Submit Code");
@@ -484,9 +493,9 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
         );
         ShoppingCartLayout.setVerticalGroup(
             ShoppingCartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 506, Short.MAX_VALUE)
+            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 508, Short.MAX_VALUE)
             .addGroup(ShoppingCartLayout.createSequentialGroup()
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 363, Short.MAX_VALUE)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 364, Short.MAX_VALUE)
                 .addGroup(ShoppingCartLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(ShoppingCartLayout.createSequentialGroup()
                         .addGap(80, 80, 80)
@@ -666,6 +675,25 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
             }
         });
 
+        label1.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
+        label1.setText("Enter new Promo Code:");
+
+        addPromoCodeField.setText("Promo Code");
+        addPromoCodeField.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addPromoCodeFieldMouseClicked(evt);
+            }
+        });
+
+        codeTypeCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3" }));
+
+        AddPromoCodeButton.setText("Add PromoCode");
+        AddPromoCodeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddPromoCodeButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout ADMINPanelLayout = new javax.swing.GroupLayout(ADMINPanel);
         ADMINPanel.setLayout(ADMINPanelLayout);
         ADMINPanelLayout.setHorizontalGroup(
@@ -673,7 +701,7 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
             .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(ADMINPanelLayout.createSequentialGroup()
                 .addGroup(ADMINPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 616, Short.MAX_VALUE)
+                    .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 614, Short.MAX_VALUE)
                     .addComponent(Remove1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(RemoveAllAdmin1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(ChangePriceDVD1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -701,13 +729,22 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
                                         .addGroup(ADMINPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(ADMINPanelLayout.createSequentialGroup()
                                                 .addComponent(QuantityField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
                                                 .addComponent(PriceCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addComponent(GenreCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                                 .addGap(10, 10, 10)
                                 .addComponent(AddDiscButton, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(ChangePriceGameButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addContainerGap())))
+                        .addContainerGap())
+                    .addGroup(ADMINPanelLayout.createSequentialGroup()
+                        .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(2, 2, 2)
+                        .addComponent(addPromoCodeField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(codeTypeCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(AddPromoCodeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         ADMINPanelLayout.setVerticalGroup(
             ADMINPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -748,7 +785,13 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
                             .addComponent(TypeCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(PriceCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(18, 18, 18)
-                .addComponent(ChangePriceDVD1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(ADMINPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(ChangePriceDVD1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(addPromoCodeField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(ADMINPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(codeTypeCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(AddPromoCodeButton)))
                 .addGap(18, 18, 18)
                 .addGroup(ADMINPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ChangePriceBluRay1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1104,6 +1147,23 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_SubmitCodeButtonActionPerformed
 
+    private void addPromoCodeFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addPromoCodeFieldMouseClicked
+        // TODO add your handling code here:
+        addPromoCodeField.selectAll();
+    }//GEN-LAST:event_addPromoCodeFieldMouseClicked
+
+    private void CodeTextFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CodeTextFieldMouseClicked
+        // TODO add your handling code here:
+        CodeTextField.selectAll();
+    }//GEN-LAST:event_CodeTextFieldMouseClicked
+
+    private void AddPromoCodeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddPromoCodeButtonActionPerformed
+        // TODO add your handling code here:
+        int code = Integer.parseInt(addPromoCodeField.getText());
+        int codeType = Integer.parseInt((String)codeTypeCombo.getSelectedItem());
+        myBox.getPromoCode().add(new PromoCode(code,codeType));
+    }//GEN-LAST:event_AddPromoCodeButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1146,6 +1206,7 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel ADMINPanel;
     private javax.swing.JButton AddDiscButton;
+    private javax.swing.JButton AddPromoCodeButton;
     private javax.swing.JButton AddToCartGame;
     private javax.swing.JButton AddToCartMovie;
     private javax.swing.JTable AdminGameTable1;
@@ -1182,6 +1243,8 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
     private javax.swing.JTextArea TextOutputMovies;
     private javax.swing.JTextField TitleField;
     private javax.swing.JComboBox<String> TypeCombo;
+    private java.awt.TextField addPromoCodeField;
+    private javax.swing.JComboBox<String> codeTypeCombo;
     private javax.swing.JButton jButton3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
@@ -1191,6 +1254,7 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
+    private java.awt.Label label1;
     private javax.swing.JButton returnGame;
     private javax.swing.JButton returnMovie;
     private java.awt.TextField textField1;
