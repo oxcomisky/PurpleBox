@@ -191,6 +191,8 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
         TitleField = new javax.swing.JTextField();
         ChangePriceGameButton = new javax.swing.JButton();
         ReleaseYearField = new java.awt.TextField();
+        CriticScoreField = new java.awt.TextField();
+        QuantityField = new java.awt.TextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(153, 0, 153));
@@ -593,9 +595,9 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
         TypeCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "DVD", "BluRay", "PS4", "XboxOne" }));
 
         PriceCombo.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
-        PriceCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "$0.99", "$ 1.99", "$ 2.99", "$ 3.99", "$4.99" }));
+        PriceCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0.99", "1.99", "2.99", "3.99", "4.99" }));
 
-        TitleField.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
+        TitleField.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         TitleField.setText("Title");
         TitleField.setNextFocusableComponent(TitleField);
         TitleField.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -617,7 +619,6 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
             }
         });
 
-        ReleaseYearField.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
         ReleaseYearField.setText("Release Year");
         ReleaseYearField.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -630,6 +631,25 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
             }
         });
 
+        CriticScoreField.setText("Critic Score");
+        CriticScoreField.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CriticScoreFieldMouseClicked(evt);
+            }
+        });
+        CriticScoreField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CriticScoreFieldActionPerformed(evt);
+            }
+        });
+
+        QuantityField.setText("Quantity");
+        QuantityField.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                QuantityFieldMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout ADMINPanelLayout = new javax.swing.GroupLayout(ADMINPanel);
         ADMINPanel.setLayout(ADMINPanelLayout);
         ADMINPanelLayout.setHorizontalGroup(
@@ -637,7 +657,7 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
             .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(ADMINPanelLayout.createSequentialGroup()
                 .addGroup(ADMINPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 623, Short.MAX_VALUE)
+                    .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 616, Short.MAX_VALUE)
                     .addComponent(Remove1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(RemoveAllAdmin1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(ChangePriceDVD1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -658,11 +678,14 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
                                             .addGroup(ADMINPanelLayout.createSequentialGroup()
                                                 .addComponent(TypeCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(ReleaseYearField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addComponent(ReleaseYearField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(CriticScoreField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(ADMINPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(ADMINPanelLayout.createSequentialGroup()
-                                                .addGap(0, 81, Short.MAX_VALUE)
+                                                .addComponent(QuantityField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                                                 .addComponent(PriceCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addComponent(GenreCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                                 .addGap(10, 10, 10)
@@ -689,9 +712,17 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
                                 .addGroup(ADMINPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(TitleField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(GenreCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(6, 6, 6)
-                                .addComponent(ReleaseYearField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(AddDiscButton, javax.swing.GroupLayout.DEFAULT_SIZE, 49, Short.MAX_VALUE)))
+                                .addGroup(ADMINPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(ADMINPanelLayout.createSequentialGroup()
+                                        .addGap(6, 6, 6)
+                                        .addComponent(ReleaseYearField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ADMINPanelLayout.createSequentialGroup()
+                                        .addGap(7, 7, 7)
+                                        .addComponent(CriticScoreField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ADMINPanelLayout.createSequentialGroup()
+                                        .addGap(7, 7, 7)
+                                        .addComponent(QuantityField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(AddDiscButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(ADMINPanelLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(Remove1)
@@ -967,12 +998,61 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
 
     private void AddDiscButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddDiscButtonActionPerformed
         // TODO add your handling code here:
-        TitleField.getText();
-        GenreCombo.getSelectedItem();
-        TypeCombo.getSelectedItem();
-        ReleaseYearField.getText();
+        String title = TitleField.getText();
+        String genre = (String)GenreCombo.getSelectedItem();
+        String type = (String)TypeCombo.getSelectedItem();
+        String releaseYear = ReleaseYearField.getText();
+        int criticScore = Integer.parseInt(CriticScoreField.getText());
+        int quantity = Integer.parseInt(QuantityField.getText());
+        double price = Double.parseDouble((String)PriceCombo.getSelectedItem());
+        
+        if (type.equalsIgnoreCase("DVD")||type.equalsIgnoreCase("BluRay")){
+            myBox.getMovies().add(new Disc(title,genre,type,releaseYear,criticScore,quantity,price));
+            MovieModel.setRowCount(0);
+            AdminMovieModel.setRowCount(0);
+
+            for (Disc disc : MovieList) {
+                MovieModel.addRow(new Object[]{
+                    disc.getTitle(), disc.getGenre(), disc.getType(),
+                    disc.getRelease(), disc.getCriticScore(), disc.getQuantity(), disc.getPrice()});
+                AdminMovieModel.addRow(new Object[]{
+                    disc.getTitle(), disc.getGenre(), disc.getType(),
+                    disc.getRelease(), disc.getCriticScore(), disc.getQuantity(), disc.getPrice()});
+
+            }
+        }else if(type.equalsIgnoreCase("PS4")||type.equalsIgnoreCase("XboxOne")){
+            myBox.getGames().add(new Disc(title,genre,type,releaseYear,criticScore,quantity,price));
+            GameModel.setRowCount(0);
+            AdminGameModel.setRowCount(0);
+
+            for (Disc disc : GameList) {
+                GameModel.addRow(new Object[]{
+                    disc.getTitle(), disc.getGenre(), disc.getType(),
+                    disc.getRelease(), disc.getCriticScore(), disc.getQuantity(), disc.getPrice()});
+                AdminGameModel.addRow(new Object[]{
+                    disc.getTitle(), disc.getGenre(), disc.getType(),
+                    disc.getRelease(), disc.getCriticScore(), disc.getQuantity(), disc.getPrice()});
+
+            }
+        }
+        
         
     }//GEN-LAST:event_AddDiscButtonActionPerformed
+
+    private void CriticScoreFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CriticScoreFieldActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_CriticScoreFieldActionPerformed
+
+    private void CriticScoreFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CriticScoreFieldMouseClicked
+        // TODO add your handling code here:
+        CriticScoreField.selectAll();
+    }//GEN-LAST:event_CriticScoreFieldMouseClicked
+
+    private void QuantityFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_QuantityFieldMouseClicked
+        // TODO add your handling code here:
+        QuantityField.selectAll();
+    }//GEN-LAST:event_QuantityFieldMouseClicked
 
     /**
      * @param args the command line arguments
@@ -1027,6 +1107,7 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
     private javax.swing.JButton CheckoutButton;
     private javax.swing.JLabel CodeLabel2;
     private java.awt.TextField CodeTextField;
+    private java.awt.TextField CriticScoreField;
     private java.awt.Panel Games;
     private javax.swing.JTable GamesTable;
     private javax.swing.JComboBox<String> GenreCombo;
@@ -1037,6 +1118,7 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
     private javax.swing.JTable MoviesTable;
     private javax.swing.JComboBox<String> PriceCombo;
     private javax.swing.JTabbedPane PurpleBox;
+    private java.awt.TextField QuantityField;
     private java.awt.TextField ReleaseYearField;
     private javax.swing.JButton Remove1;
     private javax.swing.JButton RemoveAllAdmin1;
