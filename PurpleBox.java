@@ -131,13 +131,13 @@ public class PurpleBox implements InterfaceAdmin, InterfaceUser{
     }
 
     @Override
-    public void disableUnit() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean disableUnit() {
+        return false;
     }
 
     @Override
-    public void EnableUnit() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean EnableUnit() {
+        return true;
     }
     //end admin methods 
     

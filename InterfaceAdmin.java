@@ -71,14 +71,16 @@ public interface InterfaceAdmin {
     public void addPromoCode(ArrayList<PromoCode> PromoCodeList, int code, int codeType);
 
     /**
+     * @return 
      * @require unit is enabled
      * @ensure unit has been disabled
      */
-    public void disableUnit();
+    public boolean disableUnit();
 
     /**
+     * @return 
      * @require unit is disabled
      * @ensure unit has been enabled
      */
-    public void EnableUnit();
+    public boolean EnableUnit();
 }
