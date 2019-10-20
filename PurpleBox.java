@@ -128,7 +128,6 @@ public class PurpleBox implements InterfaceAdmin, InterfaceUser{
     @Override
     public void addPromoCode(ArrayList<PromoCode> PromoCodeList, int code, double percentOff, int codeType) {
         PromoCode temp = new PromoCode(code,percentOff,codeType);
-        
         PromoCodeList.add(temp);
     }
 
@@ -204,14 +203,14 @@ public class PurpleBox implements InterfaceAdmin, InterfaceUser{
 
     @Override
     public void remove(int index, ArrayList<Disc> shoppingCart) {
-        for (int i = 0; i<shoppingCart.size(); i++){
-            {
+        //for (int i = 0; i<shoppingCart.size()-1; i++){
+          //  {
                 //System.out.println(shoppingCart.get(index).getTitle());
                 shoppingCart.remove(index);
                 
-            }
+            //}
            
-        }
+        //}
     }
 
     @Override
