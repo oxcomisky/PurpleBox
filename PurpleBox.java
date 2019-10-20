@@ -164,22 +164,22 @@ public class PurpleBox implements InterfaceAdmin, InterfaceUser{
     }
 
     @Override
-        public double promoCode(int code, double total, Disc disc) {
-        //free dvd
+        public double promoCode(int code, double total) {
+        //$2 off total
         if (code == 1){
-            if (disc.getType().compareTo("DVD") == 0){
-            total = total - disc.getPrice();
-            }
+            total = total - 2;
         }
-        //free bluray
+        //$3 off total
         if (code == 2) {
-            if (disc.getType().compareTo("BluRay") == 0){
-            total = total - disc.getPrice();
-            }
+            total = total - 3;
         }
         //10% off promo
         if (code == 3) {
             total = total * 0.9;
+        }
+        //Prevents Negative Balance Due
+        if( total < 0){
+            total = 0.0;
         }
         return total;
     }
@@ -193,20 +193,20 @@ public class PurpleBox implements InterfaceAdmin, InterfaceUser{
             total += disc.getPrice();
             Reciept.add(disc);
         }
-        System.out.println("Your total is: " + total);
         return Reciept;  
     }
 
     @Override
     public void addToCart(Disc disc, ArrayList<Disc> shoppingCart, ArrayList<Disc> inventory){
         for ( int i = 0; i < inventory.size(); i++){
-           if (inventory.get(i).getTitle().compareTo(disc.getTitle() ) == 0)
+           if (inventory.get(i).getTitle().compareTo(disc.getTitle() ) == 0) {
+               if(disc.getQuantity() > 0){
                //if (!(shoppingCart.get(i).getTitle().compareTo(disc.getTitle() ) == 0)) {
                     shoppingCart.add(disc);
-               //}           
+               }           
            }
+        }
     }
-
     @Override
     public void remove(int index, ArrayList<Disc> shoppingCart) {
         //for (int i = 0; i<shoppingCart.size()-1; i++){
@@ -226,6 +226,11 @@ public class PurpleBox implements InterfaceAdmin, InterfaceUser{
 
     @Override
     public Boolean available(Disc disc, ArrayList<Disc> inventory) {
+        for (int i = 0; i<inventory.size(); i++){
+            if (disc.getQuantity() <= 0){
+                return false;
+            }
+        }
         return true;
     }
     
