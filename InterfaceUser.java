@@ -31,11 +31,13 @@ public interface InterfaceUser {
     public void returnDisc(Disc disc, ArrayList<Disc> inventory);
 
     /**Takes a promoCode and checks if its valid, returns the corresponding int value associated with the discount
+     * @param total
      * @param code
-     * @return returns an Int that corresponds to what kind of discount the user receives
-     * @ensure 2 >= result >= 0
+     * @return returns a double that is the updated price the user is to pay
+     * @ensure result < total
      */
-    public int promoCode(int code);
+    public double promoCode(int code, double total);
+
 
     /**Inputs a credit card number, checks for validity, and returns a list to be used as a receipt
      * @require cardNumber is a 16 digit value
@@ -46,20 +48,28 @@ public interface InterfaceUser {
      * @ensure result.isEmpty() == false
      * @ensure result == shoppingCart
      */
-    public ArrayList pay(int cardNumber, ArrayList<Disc> shoppingCart);
+    public ArrayList pay(String cardNumber, ArrayList<Disc> shoppingCart);
 
     /**
+     * @param index
      * @param shoppingCart the ArrayList of Disc from which the user wishes to remove disc
-     * @param disc The Disc object wished to be removed
      * @ensure shoppingCart no longer contains disc
      */
-    public void remove(Disc disc, ArrayList<Disc> shoppingCart);
+    public void remove(int index, ArrayList<Disc> shoppingCart);
 
     /**
      * @param shoppingCart the ArrayList of Disc of which the user wishes to remove all contents
      * @ensure shoppingCart.isEmpty() == true
      */
     public void removeAll(ArrayList<Disc> shoppingCart);
+    
+    /**
+     * 
+     * @param disc
+     * @param shoppingCart
+     * @param inventory 
+     */
+    public void addToCart(Disc disc, ArrayList<Disc> shoppingCart, ArrayList<Disc> inventory);
     
      /**
      * @param disc the Disc object desired to be rendered available or unavailable
