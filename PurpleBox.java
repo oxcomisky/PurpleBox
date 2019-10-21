@@ -19,10 +19,7 @@ public class PurpleBox implements InterfaceAdmin, InterfaceUser {
     public ArrayList<Disc> Games;
     public ArrayList<Disc> ShoppingCart;
     //end Disc Data members
-   
-    //public String getType;
-    // public String getTitle;
-    //PromoCode Data Members
+    PurpleBox myBox = new PurpleBox();
     public ArrayList<PromoCode> promoCode;
     //end PromoCode Data Members
     
@@ -35,6 +32,7 @@ public class PurpleBox implements InterfaceAdmin, InterfaceUser {
         this.Games = Games;
         this.ShoppingCart = ShoppingCart;
         this.promoCode = promoCode;
+       
     }
 
     public ArrayList<Disc> getMovies() {
@@ -73,7 +71,7 @@ public class PurpleBox implements InterfaceAdmin, InterfaceUser {
    
     
     //admin methods
-    //@Override
+    @Override
     public void addDisc(Disc disc, ArrayList<Disc> inventory) {
         try{
             inventory.add(disc);
@@ -121,29 +119,28 @@ public class PurpleBox implements InterfaceAdmin, InterfaceUser {
     
     }
 
-    @Override
-    public void volumeDiscount(int cartTotal) {
-        if (cartTotal >= 3) {
-            //________ *0.9 = ___________;
+   @Override
+    public double volumeDiscount(double Total, int totalDiscsInCart) {
+        if (totalDiscsInCart >= 3) {
+             Total = 0.8 *Total;
         }
-            
+            return Total;
     }
 
     @Override
-    public void addPromoCode(ArrayList PromoCodeList, int code, double percentOff, int codeType) {
-        PromoCode temp = new PromoCode(code,percentOff,codeType);
-        
+    public void addPromoCode(ArrayList<PromoCode> PromoCodeList, int code, int codeType) {
+        PromoCode temp = new PromoCode(code, codeType);
         PromoCodeList.add(temp);
     }
 
     @Override
-    public void disableUnit() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean disableUnit() {
+        return false;
     }
 
     @Override
-    public void EnableUnit() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean EnableUnit() {
+        return true;
     }
     //end admin methods 
     
@@ -165,23 +162,39 @@ public class PurpleBox implements InterfaceAdmin, InterfaceUser {
     }
 
     @Override
-    public int promoCode(int code) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        public double promoCode(int codeType, double total) {
+        //$2 off total
+        if (codeType == 1){
+            total = total - 2;
+        }
+        //$3 off total
+        if (codeType == 2) {
+            total = total - 3;
+        }
+        //10% off promo
+        if (codeType == 3) {
+            total = total * 0.9;
+        }
+        //Prevents Negative Balance Due
+        if( total < 0){
+            total = 0.0;
+        }
+        return total;
     }
 
+
     @Override
-    public ArrayList pay(int cardNumber, ArrayList<Disc> shoppingCart) {
+    public ArrayList pay(String cardNumber, ArrayList<Disc> shoppingCart) {
         double total = 0.00;
         ArrayList<Disc> Reciept = new ArrayList<>();
-        for(var disc : shoppingCart){
+        for(Disc disc : shoppingCart){
             total += disc.getPrice();
             Reciept.add(disc);
         }
-        
-        return Reciept; 
+        return Reciept;  
     }
 
-    ///@Override
+    @Override
     public void addToCart(Disc disc, ArrayList<Disc> shoppingCart, ArrayList<Disc> inventory){
         for ( int i = 0; i < inventory.size(); i++){
            if (inventory.get(i).getTitle().compareTo(disc.getTitle() ) == 0)
@@ -191,15 +204,14 @@ public class PurpleBox implements InterfaceAdmin, InterfaceUser {
            }
     }
 
-    @Override
-    public void remove(Disc disc, ArrayList<Disc> shoppingCart) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        for ( int i = 0; i < shoppingCart.size(); i++){
-           if (shoppingCart.get(i).getTitle().compareTo(disc.getTitle() ) == 0)  {
-                shoppingCart.remove(i);
-           }
-        }
-    }
+     @Override
+    public void remove(int index, ArrayList<Disc> shoppingCart) {
+        //for (int i = 0; i<shoppingCart.size()-1; i++){
+          //  {
+                //System.out.println(shoppingCart.get(index).getTitle());
+                shoppingCart.remove(index);
+                
+            }
 
     @Override
     public void removeAll(ArrayList shoppingCart) {

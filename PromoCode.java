@@ -24,6 +24,10 @@ public class PromoCode implements InterfacePromoCode{
         this.codeType = codeType;
     }
 
+    PromoCode(int code, int codeType) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     @Override
     public int getCode() {
         return code;

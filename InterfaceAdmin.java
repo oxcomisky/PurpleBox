@@ -18,7 +18,7 @@ public interface InterfaceAdmin {
      * @param inventory an ArrayList of disc objects: the inventory of this.purpleBox
      * @ensure inventory.append(disc)
      */
-    public static void addDisc(Disc disc, ArrayList<Disc> inventory){};
+    public void addDisc(Disc disc, ArrayList<Disc> inventory);
 
     /**
      * @param disc the Disc object the Admin wishes to remove
@@ -26,8 +26,8 @@ public interface InterfaceAdmin {
      * @ensure disc is removed IFF purpleBox contains a disc
      * @ensure nothing is done if purpleBox.isEmpty() == true
      */
-    
     public void removeDisc(Disc disc, ArrayList<Disc> inventory);
+
     /**
      * @require newPrice > 0
      * @param newPrice a double defined by the Admin setting the new price
@@ -53,33 +53,34 @@ public interface InterfaceAdmin {
     public void changePriceGame(double newPrice, ArrayList<Disc> inventory);
 
     /**
-     * @require cartTotal > 0
-     * @param cartTotal an Int reflecting how many items need to be in the users cart, defined by Admin
-     * @ensure the has been changed 
+     * @param totalDiscsInCart an Int reflecting how many items need to be in the users cart, defined by Admin
+     * @param total a double that represents the price of all the items in the cart
+     * @return the new total that has been discounted
+     * @ensure the total has been changed 
      */
-    
-    public void volumeDiscount(int cartTotal);
+    public double volumeDiscount(double total, int totalDiscsInCart);
 
     /**
      * @require promoCode > 0
      * @require 0 < percentOff <= 1 
      * @param PromoCodeList an ArrayList of promoCode of which to add the code to
      * @param code an Int defined by the Admin representing a new promotional code
-     * @param percentOff a double decimal value to be added with the code to the PromoCodeList
      * @param codeType an Int defined by the Admin representing the type of code
      * @ensure a new promoCode object has been created using the input and added to PromoCodeList
      */
-    public void addPromoCode(ArrayList<PromoCode> PromoCodeList, int code, double percentOff, int codeType);
+    public void addPromoCode(ArrayList<PromoCode> PromoCodeList, int code, int codeType);
 
     /**
+     * @return true
      * @require unit is enabled
      * @ensure unit has been disabled
      */
-    public void disableUnit();
+    public boolean disableUnit();
 
     /**
+     * @return false
      * @require unit is disabled
      * @ensure unit has been enabled
      */
-    public void EnableUnit();
+    public boolean EnableUnit();
 }

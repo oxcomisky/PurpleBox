@@ -19,15 +19,11 @@ public class Example {
     public static Disc disc2;
 
     //end Disc Data members
-// Jon has objects in Purplebox that are being referenced 
-    private static int num=0;                        // by a class called myBox. I need 2 arrayLists..(movies &
-                                                     // games) aswell as an inventory arrayList i believe for 
-    public static void main(String[] args) {         // checkout and payment methods. Jon & Jason has some methods
-                                                     // completed on the GitHub, can try to borrow those for our
-    // creating arraylist of 
-     //disc for movies and games               // admin functions. Our system exit doesnt exit properly. 
-                                               // Need to look at commands on different pages, seems to overlap.
-                                               // As in number 1 brings you back to main page and doesnt add a movie.
+                                                          
+    private static int num=0;                        
+                                                     
+    public static void main(String[] args) {       
+                                                    
      ArrayList<Disc> movies = new ArrayList<>();    
      movies.add(new Disc("The GodFather","Drama","DvD","1972",98,1,2.99){} );
      movies.add(new Disc("Citizen Kane","Drama","DvD","1941",100,6,12.99) {});
@@ -56,6 +52,8 @@ public class Example {
      games.add(new Disc("Star Wars: Jedi Fallen Order","Sci-Fi","PS4","2019",89,1,2.99) {});
      games.add(new Disc("Watchdogs","Action","PS4","2019",89,1,2.99) {});
      games.add(new Disc("Doom: Eternal","Action","PS4","2020",100,1,2.99) {});
+ 
+   
      
    /// for (InterfaceDisc Disc1: discs) {
     // System.out.println(Disc1.getTitle());
@@ -94,24 +92,26 @@ public class Example {
     System.out.println("You selected: " + userInput);
     
           //  if 
-    
         break;
-        
         case 2: System.out.println("Here are all the possible game selections");
+          for(int i = 0; i < games.size(); i++){
+            System.out.println(games.get(i));
+        }        
         //print(gamesList); call method to print games list
-             //games(discs);
-              System.out.println("Welcome to PurpleBox games tab, select a command to continue");
-    //System.out.println("Select 1 for the Halo game.");
+        System.out.println("Welcome to PurpleBox games tab, select a command to continue");
+    
+//System.out.println("Select 1 for the Halo game.");
     //System.out.println("Select 2 for the Call of Duty game.");
     //System.out.println("Select 3 for the Destiny game.");
     userInput = input.nextInt(); //read user input
     System.out.println("You selected: " + userInput);
          //   if
-                    
+          
         break;
         
         case 3: System.out.println("Here is your shopping cart list");
         //print(shoppingCartList); call method to print shopping cart list
+        
          System.out.println("Welcome to your purple box shopping cart list, select a command to continue");
     System.out.println("Select 1 to keep shopping.");
     System.out.println("Select 2 to checkout your shopping cart.");
@@ -121,13 +121,13 @@ public class Example {
         
         break;
     
-      case 4: System.out.format("Which movie or game will you be returning %n");
+      case 4: System.out.format("Which movie or game will you be returning? %n");
         //print(shoppingCartList); call method to print shopping cart list
             for (InterfaceDisc Disc1: movies) {
               num = num+ 1;
               System.out.format("Movie %d : %s\n", num, Disc1.getTitle());
             } 
-         System.out.println("Please select the movie number to return");
+         System.out.println("Please select the movie's associated number to return it.");
          userInput = input.nextInt(); //read user input and validate to  add
          
          System.out.println("You selected: " + userInput);
@@ -138,7 +138,7 @@ public class Example {
     
     
     case 99: System.out.format("Please enter the Admin Passcode %n");
-         userInput = input.nextInt(); //read user input check for 9999
+         userInput = input.nextInt(); //read user input check for 99
          if (userInput==12345) {
             int admin=1;
             while(admin==1) {
@@ -156,47 +156,39 @@ public class Example {
               //not sure that we need an 8th case (we already have a change price of game)
               System.out.format("Enter selection: ");
               userInput = input.nextInt(); //read user input
+              input.nextLine();
               System.out.println("You selected: " + userInput);   
               switch (userInput) {
         case 0:  System.out.format("Thanks for shopping with PurpleBox %n");
             admin=0; 
             break; 
-        case 1: System.out.format("Selected Add Discs.%n");  
+        case 1: System.out.format("Selected Add Discs.%n%n");  
             System.out.format("Please enter Disk name.%n"); 
-         //   String stringInput= input.nextLine(); 
-        //    System.out.format("Please enter Disk genre.%n"); 
-       //     stringInput= input.nextLine(); 
-        //    System.out.format("Please enter Disk type.%n"); 
-         //   stringInput= input.nextLine(); 
-          //  System.out.format("Please enter Disk release year.%n"); 
-         //   stringInput= input.nextLine(); 
-         //   System.out.format("Please enter Disk critic Score.%n"); 
-         //   stringInput= input.nextLine(); 
-         //   System.out.format("Please enter Disk quantity.%n"); 
-          //  stringInput= input.nextLine(); 
-         //   System.out.format("Please enter Disk price.%n"); 
-         //   stringInput= input.nextLine(); 
-                     System.out.format("trying Call top%n");
-             //    disc2.getTitle();
-                          System.out.format("trying Call top%n");
-                 disc2.setCriticScore(1);
-                 System.out.format("trying Call top%n");
-               
-           // disc2.setTitle("NEW LOADED ONE");
-              System.out.format("trying Call1%n");
-         //   disc2.setCriticScore(1);
-              System.out.format("trying Call2%n");
-        //    disc2.setGenre("Drama");
-              System.out.format("trying Call3%n");
-          //  disc2.setRelease("1994");
-              System.out.format("trying Call4%n");
-         //   disc2.setPrice(2.99);
-              System.out.format("trying Call5%n");
-        //    disc2.setType("DVD");
-              System.out.format("trying Call6%n");
-        //    disc2.setQuantity(4);
-            System.out.format("trying Call%n");
-        //PurpleBox.addDisc(disc2, discs);
+            String title = input.nextLine();
+            System.out.format("Please enter Disk genre.%n"); 
+            String genre = input.nextLine(); 
+            System.out.format("Please enter Disk type.%n"); 
+            String type= input.nextLine(); 
+            System.out.format("Please enter Disk release year.%n"); 
+            String releaseYear= input.nextLine(); 
+            System.out.format("Please enter Disk critic Score.%n"); 
+            int criticScore = input.nextInt(); 
+            System.out.format("Please enter Disk quantity.%n"); 
+            int quantity= input.nextInt(); 
+            System.out.format("Please enter Disk price.%n"); 
+            double price= input.nextDouble(); 
+          
+            ////addded code
+      if (type.equalsIgnoreCase("DVD")||type.equalsIgnoreCase("BluRay")){   
+            movies.add(new Disc(title,genre,type,releaseYear,criticScore,quantity,price) {});
+      }  else if (type.equalsIgnoreCase("PS4")||type.equalsIgnoreCase("XboxOne")) {
+            games.add(new Disc(title,genre,type,releaseYear,criticScore,quantity,price) {});  
+      }  else {
+          System.out.format("Invalid movie Disk Type"); 
+      }
+                   
+        ///     Need to use this from Jon code ?  addDisc(disc, discs);
+       
         
          //   addDisc(disc2, inventory);
          //admin methods  
