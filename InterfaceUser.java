@@ -20,6 +20,7 @@ public interface InterfaceUser {
      * @param inventory the ArrayList of Disc which to be searched for the user specified string
      * @ensure all instances of key that match a value within inventory are added to the resulting ArrayList
      * @return an ArrayList of Disc objects that meet the specified search criteria
+     * @throws(ArrayListOutOfBoundsException)
      */
     public ArrayList search(String key, ArrayList<Disc> inventory);
 
@@ -27,6 +28,7 @@ public interface InterfaceUser {
      * @param disc the Disc object to be returned
      * @param inventory The ArrayList of Disc objects to which disc is being returned
      * @ensure disc has been added to inventory (disc.newQuantity() > disc.oldQuantity())
+     * @throws(ArrayListOutOfBoundsException)
      */
     public void returnDisc(Disc disc, ArrayList<Disc> inventory);
 
@@ -46,6 +48,7 @@ public interface InterfaceUser {
      * @return an ArrayList with the contents of the shopping cart
      * @ensure result.isEmpty() == false
      * @ensure result == shoppingCart
+     * @throws(ArrayListOutOfBoundsException)
      */
     public ArrayList pay(String cardNumber, ArrayList<Disc> shoppingCart);
 
@@ -53,12 +56,14 @@ public interface InterfaceUser {
      * @param index
      * @param shoppingCart the ArrayList of Disc from which the user wishes to remove disc
      * @ensure shoppingCart no longer contains disc
+     * @throws(ArrayListOutOfBoundsException)
      */
     public void remove(int index, ArrayList<Disc> shoppingCart);
 
     /**
      * @param shoppingCart the ArrayList of Disc of which the user wishes to remove all contents
      * @ensure shoppingCart.isEmpty() == true
+     * @throws(ArrayListOutOfBoundsException)
      */
     public void removeAll(ArrayList<Disc> shoppingCart);
     
@@ -67,6 +72,7 @@ public interface InterfaceUser {
      * @param disc
      * @param shoppingCart
      * @param inventory 
+     * @throws(ArrayListOutOfBoundsException)
      */
     public void addToCart(Disc disc, ArrayList<Disc> shoppingCart, ArrayList<Disc> inventory);
     
@@ -75,6 +81,7 @@ public interface InterfaceUser {
      * @param inventory an ArrayList of Disc that contains the inventory of this.purpleBox
      * @return true or false depending on the value of the quantity variable within the specified Disc
      * @ensure result (true || false)
+     * @throws(ArrayListOutOfBoundsException)
      */
     public Boolean available(Disc disc, ArrayList<Disc> inventory);
 }

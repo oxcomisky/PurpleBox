@@ -258,22 +258,15 @@ public class PurpleBox implements InterfaceAdmin, InterfaceUser{
         for ( int i = 0; i < inventory.size(); i++){
            if (inventory.get(i).getTitle().compareTo(disc.getTitle() ) == 0) {
                if(disc.getQuantity() > 0){
-               //if (!(shoppingCart.get(i).getTitle().compareTo(disc.getTitle() ) == 0)) {
-                    shoppingCart.add(disc);
+                     shoppingCart.add(disc);
                }           
            }
         }
     }
     @Override
     public void remove(int index, ArrayList<Disc> shoppingCart) {
-        //for (int i = 0; i<shoppingCart.size()-1; i++){
-          //  {
-                //System.out.println(shoppingCart.get(index).getTitle());
-                shoppingCart.remove(index);
-                
-            //}
-           
-        //}
+        shoppingCart.remove(index);
+        
     }
 
     @Override

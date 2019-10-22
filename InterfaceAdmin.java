@@ -17,6 +17,7 @@ public interface InterfaceAdmin {
      * @param disc the Disc object the Admin wishes to add
      * @param inventory an ArrayList of disc objects: the inventory of this.purpleBox
      * @ensure inventory.add(disc)
+     * @throws(ArrayListOutOfBoundsException)
      */
     public void addDisc(Disc disc, ArrayList<Disc> inventory);
 
@@ -25,6 +26,7 @@ public interface InterfaceAdmin {
      * @param inventory an ArrayList of disc objects: the inventory of this.purpleBox
      * @ensure disc is removed IFF purpleBox contains a disc
      * @ensure nothing is done if purpleBox.isEmpty() == true
+     * @throws(ArrayListOutOfBoundsException)
      */
     public void removeDisc(Disc disc, ArrayList<Disc> inventory);
 
@@ -32,6 +34,7 @@ public interface InterfaceAdmin {
      * @param newPrice a double defined by the Admin setting the new price
      * @param inventory an arrayList of disc objects: the inventory of this.purpleBox
      * @ensure only Disc.getType().compareTo("DVD") == 0 && Disc.getPrice() == newPrice
+     * @throws(ArrayListOutOfBoundsException)
      */
     public void changePriceDVD(double newPrice, ArrayList<Disc> inventory);
 
@@ -39,6 +42,7 @@ public interface InterfaceAdmin {
      * @param newPrice a double defined by the Admin setting the new price
      * @param inventory an arrayList of disc objects: the inventory of this.purpleBox
      * @ensure only Disc.getType().compareTo("BluRay") == 0 && Disc.getPrice() == newPrice
+     * @throws(ArrayListOutOfBoundsException)
      */
     public void changePriceBluRay(double newPrice, ArrayList<Disc> inventory);
 
@@ -46,6 +50,7 @@ public interface InterfaceAdmin {
      * @param newPrice a double defined by the Admin setting the new price
      * @param inventory an arrayList of disc objects: the inventory of this.purpleBox
      * @ensure (Disc.getType().compareTo("PS4") == 0 || Disc.getType().compareTo("XboxOne") == 0) && Disc.getPrice() == newPrice
+     * @throws(ArrayListOutOfBoundsException)
      */
     public void changePriceGame(double newPrice, ArrayList<Disc> inventory);
 
@@ -53,6 +58,7 @@ public interface InterfaceAdmin {
      * @param totalDiscsInCart an Int reflecting how many items need to be in the users cart, defined by Admin
      * @param total a double that represents the price of all the items in the cart
      * @return the new total that has been discounted or the same total if requirements aren't met
+     * @throws(ArrayListOutOfBoundsException)
      */
     public double volumeDiscount(double total, int totalDiscsInCart);
 
@@ -61,6 +67,7 @@ public interface InterfaceAdmin {
      * @param code an Int defined by the Admin representing a new promotional code
      * @param codeType an Int defined by the Admin representing the type of code
      * @ensure a new promoCode object has been created using the input and added to PromoCodeList
+     * @throws(ArrayListOutOfBoundsException)
      */
     public void addPromoCode(ArrayList<PromoCode> PromoCodeList, int code, int codeType);
 

@@ -1,64 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
-  <NonVisualComponents>
-    <Container class="javax.swing.JTabbedPane" name="jTabbedPane1">
-
-      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
-    </Container>
-    <Component class="javax.swing.JCheckBoxMenuItem" name="jCheckBoxMenuItem1">
-      <Properties>
-        <Property name="selected" type="boolean" value="true"/>
-        <Property name="text" type="java.lang.String" value="jCheckBoxMenuItem1"/>
-      </Properties>
-    </Component>
-    <Container class="javax.swing.JFrame" name="jFrame1">
-
-      <Layout>
-        <DimensionLayout dim="0">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="400" max="32767" attributes="0"/>
-          </Group>
-        </DimensionLayout>
-        <DimensionLayout dim="1">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="300" max="32767" attributes="0"/>
-          </Group>
-        </DimensionLayout>
-      </Layout>
-    </Container>
-    <Container class="javax.swing.JDialog" name="jDialog1">
-
-      <Layout>
-        <DimensionLayout dim="0">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="400" max="32767" attributes="0"/>
-          </Group>
-        </DimensionLayout>
-        <DimensionLayout dim="1">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="300" max="32767" attributes="0"/>
-          </Group>
-        </DimensionLayout>
-      </Layout>
-    </Container>
-    <Menu class="java.awt.PopupMenu" name="popupMenu1">
-      <Properties>
-        <Property name="label" type="java.lang.String" value="popupMenu1"/>
-      </Properties>
-    </Menu>
-    <Menu class="java.awt.PopupMenu" name="popupMenu2">
-      <Properties>
-        <Property name="label" type="java.lang.String" value="popupMenu2"/>
-      </Properties>
-    </Menu>
-  </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
       <Color blue="99" green="0" red="99" type="rgb"/>
     </Property>
-    <Property name="focusableWindowState" type="boolean" value="false"/>
     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
       <Font name="Dialog" size="11" style="0"/>
     </Property>
@@ -85,7 +32,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="PurpleBox" pref="1343" max="32767" attributes="0"/>
+              <Component id="PurpleBox" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -107,6 +54,9 @@
           <Font name="Dialog" size="11" style="0"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="PurpleBoxMouseClicked"/>
+      </Events>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
       <SubComponents>
@@ -122,14 +72,18 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="105" max="-2" attributes="0"/>
-                      <Component id="HomeMessage" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="166" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="AdminLogin" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="AdminLogin" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="105" max="-2" attributes="0"/>
+                              <Component id="HomeMessage" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="156" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -169,6 +123,11 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AdminLoginActionPerformed"/>
               </Events>
             </Component>
+            <Component class="java.awt.TextField" name="textField1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="textField1"/>
+              </Properties>
+            </Component>
           </SubComponents>
         </Container>
         <Container class="java.awt.Panel" name="Movies">
@@ -189,27 +148,29 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="jScrollPane2" pref="611" max="32767" attributes="0"/>
-                      <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jScrollPane2" min="-2" pref="875" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="AddToCartMovie" pref="134" max="32767" attributes="0"/>
-                              <EmptySpace min="-2" pref="499" max="-2" attributes="0"/>
+                              <Component id="AddToCartMovie" max="32767" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="returnMovie" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="jScrollPane1" max="32767" attributes="0"/>
-                              <EmptySpace min="-2" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="jScrollPane1" min="-2" pref="359" max="-2" attributes="0"/>
                       </Group>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="jScrollPane1" pref="461" max="32767" attributes="0"/>
+                      <Component id="jScrollPane1" pref="463" max="32767" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="AddToCartMovie" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="AddToCartMovie" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="returnMovie" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
                   <Component id="jScrollPane2" max="32767" attributes="0"/>
@@ -229,7 +190,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Dialog" size="11" style="0"/>
                     </Property>
-                    <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                    <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor" preCode="&#xa;">
                       <Table columnCount="7" rowCount="0">
                         <Column editable="true" title="Title" type="java.lang.String"/>
                         <Column editable="true" title="Genre" type="java.lang.String"/>
@@ -241,7 +202,7 @@
                       </Table>
                     </Property>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
-                      <TableColumnModel selectionModel="1">
+                      <TableColumnModel selectionModel="0">
                         <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                           <Title/>
                           <Editor/>
@@ -279,9 +240,8 @@
                         </Column>
                       </TableColumnModel>
                     </Property>
-                    <Property name="columnSelectionAllowed" type="boolean" value="true"/>
                     <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
-                      <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+                      <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
                     </Property>
                   </Properties>
                 </Component>
@@ -316,6 +276,14 @@
                 </Component>
               </SubComponents>
             </Container>
+            <Component class="javax.swing.JButton" name="returnMovie">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Dialog" size="11" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Return Movie"/>
+              </Properties>
+            </Component>
           </SubComponents>
         </Container>
         <Container class="java.awt.Panel" name="Games">
@@ -331,11 +299,15 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="jScrollPane3" pref="611" max="32767" attributes="0"/>
-                      <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jScrollPane4" pref="623" max="32767" attributes="0"/>
-                          <Component id="AddToCartGame" min="-2" max="-2" attributes="0"/>
+                      <Component id="jScrollPane3" pref="875" max="32767" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="AddToCartGame" min="-2" pref="254" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="returnGame" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="jScrollPane4" min="-2" pref="359" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -346,10 +318,13 @@
                   <Group type="102" attributes="0">
                       <Component id="jScrollPane4" max="32767" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="AddToCartGame" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="AddToCartGame" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="returnGame" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="jScrollPane3" pref="506" max="32767" attributes="0"/>
+                  <Component id="jScrollPane3" pref="508" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -378,7 +353,7 @@
                       </Table>
                     </Property>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
-                      <TableColumnModel selectionModel="1">
+                      <TableColumnModel selectionModel="0">
                         <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                           <Title/>
                           <Editor/>
@@ -416,7 +391,9 @@
                         </Column>
                       </TableColumnModel>
                     </Property>
-                    <Property name="columnSelectionAllowed" type="boolean" value="true"/>
+                    <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                      <Color id="Default Cursor"/>
+                    </Property>
                     <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                       <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                     </Property>
@@ -453,6 +430,14 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AddToCartGameActionPerformed"/>
               </Events>
             </Component>
+            <Component class="javax.swing.JButton" name="returnGame">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Dialog" size="11" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Return Game"/>
+              </Properties>
+            </Component>
           </SubComponents>
         </Container>
         <Container class="java.awt.Panel" name="ShoppingCart">
@@ -468,23 +453,22 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="jScrollPane5" pref="579" max="32767" attributes="0"/>
-                      <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
+                      <Component id="jScrollPane5" pref="875" max="32767" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jScrollPane6" alignment="0" max="32767" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="Checkout" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="328" max="32767" attributes="0"/>
-                              <Component id="CodeTextField" min="-2" pref="147" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="SubmitCode" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="jScrollPane6" min="-2" pref="359" max="-2" attributes="0"/>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="RemoveFromCart" min="-2" max="-2" attributes="0"/>
-                                  <Component id="RemoveAll" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="RemoveAllButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="RemoveFromCartButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="GetTotalButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="CheckoutButton" min="-2" pref="256" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="CodeTextField" alignment="1" min="-2" pref="93" max="-2" attributes="0"/>
+                                  <Component id="SubmitCodeButton" alignment="1" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -493,18 +477,30 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jScrollPane5" pref="506" max="32767" attributes="0"/>
+                  <Component id="jScrollPane5" pref="508" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
-                      <Component id="jScrollPane6" pref="359" max="32767" attributes="0"/>
-                      <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
-                      <Component id="RemoveFromCart" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
-                      <Component id="RemoveAll" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="Checkout" max="32767" attributes="0"/>
-                          <Component id="SubmitCode" alignment="0" max="32767" attributes="0"/>
-                          <Component id="CodeTextField" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jScrollPane6" pref="364" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                                      <Component id="SubmitCodeButton" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="CodeTextField" min="-2" pref="23" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="RemoveFromCartButton" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
+                              <Component id="RemoveAllButton" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                              <Component id="GetTotalButton" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="CheckoutButton" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -599,7 +595,7 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JButton" name="RemoveFromCart">
+            <Component class="javax.swing.JButton" name="RemoveFromCartButton">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Dialog" size="11" style="0"/>
@@ -607,10 +603,10 @@
                 <Property name="text" type="java.lang.String" value="Remove From Cart"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RemoveFromCartActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RemoveFromCartButtonActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="RemoveAll">
+            <Component class="javax.swing.JButton" name="RemoveAllButton">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Dialog" size="11" style="0"/>
@@ -618,10 +614,10 @@
                 <Property name="text" type="java.lang.String" value="Remove All From Cart"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RemoveAllActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RemoveAllButtonActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="Checkout">
+            <Component class="javax.swing.JButton" name="CheckoutButton">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Dialog" size="11" style="0"/>
@@ -629,7 +625,7 @@
                 <Property name="text" type="java.lang.String" value="Checkout"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CheckoutActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CheckoutButtonActionPerformed"/>
               </Events>
             </Component>
             <Component class="java.awt.TextField" name="textField8">
@@ -649,26 +645,45 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Enter Promo Code Here"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="CodeTextFieldMouseClicked"/>
+              </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="SubmitCode">
+            <Component class="javax.swing.JButton" name="SubmitCodeButton">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Dialog" size="11" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Submit Code"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SubmitCodeButtonActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="java.awt.TextField" name="textField11">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="textField11"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="GetTotalButton">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Dialog" size="11" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Get Total"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="GetTotalButtonActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
-        <Container class="java.awt.Panel" name="ADMINPanel">
+        <Container class="javax.swing.JPanel" name="ADMINPanel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="11" style="0"/>
             </Property>
           </Properties>
-          <BindingProperties>
-            <BindingProperty name="enabled" source="ADMINPanel" sourcePath="${visible}" target="ADMINPanel" targetPath="enabled" updateStrategy="0" immediately="false"/>
-          </BindingProperties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
               <JTabbedPaneConstraints tabName="ADMIN">
@@ -680,67 +695,70 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="SetVolumeDiscountButton" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jScrollPane10" pref="614" max="32767" attributes="0"/>
+                          <Component id="Remove1" max="32767" attributes="0"/>
+                          <Component id="RemoveAllAdmin1" max="32767" attributes="0"/>
+                          <Component id="ChangePriceDVD1" max="32767" attributes="0"/>
+                          <Component id="ChangePriceBluRay1" alignment="1" max="32767" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="DisableButton" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="EnableButton" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="RemoveAllAdmin" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="ChangePriceDVD" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="ChangePriceBluRay" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="ChangePriceGame" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="Remove" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jScrollPane7" min="-2" pref="586" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jScrollPane11" alignment="0" max="32767" attributes="0"/>
                           <Group type="102" attributes="0">
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jScrollPane9" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <Component id="CodeLabel2" min="-2" pref="92" max="-2" attributes="0"/>
+                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="TitleField" min="-2" pref="214" max="-2" attributes="0"/>
+                                                  <Group type="102" attributes="0">
+                                                      <Component id="TypeCombo" min="-2" pref="55" max="-2" attributes="0"/>
+                                                      <EmptySpace max="-2" attributes="0"/>
+                                                      <Component id="ReleaseYearField" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace max="-2" attributes="0"/>
+                                                      <Component id="CriticScoreField" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <Component id="QuantityField" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace pref="15" max="32767" attributes="0"/>
+                                                      <Component id="PriceCombo" min="-2" pref="68" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Component id="GenreCombo" max="32767" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                                      <Component id="AddDiscButton" min="-2" pref="236" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="ChangePriceGameButton" alignment="0" max="32767" attributes="0"/>
+                              </Group>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="VolumeDiscountLabel" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="textField10" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                      <Component id="CodeLabel1" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="code" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="percentOff" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="codeType" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="AddCode" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="298" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="CodeLabel" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="Title" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="Genre" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="Type" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="Release" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jSpinner2" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="jSpinner1" min="-2" pref="52" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="Price" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                                      <Component id="AddDisc" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
+                              <Component id="label1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                              <Component id="addPromoCodeField" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="codeTypeCombo" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="AddPromoCodeButton" min="-2" pref="364" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -749,67 +767,72 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jScrollPane7" min="-2" pref="148" max="-2" attributes="0"/>
-                          <Component id="jScrollPane9" min="-2" pref="148" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="jScrollPane10" pref="257" max="32767" attributes="0"/>
+                          <Component id="jScrollPane11" pref="0" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="135" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="Remove" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="RemoveAllAdmin" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="ChangePriceDVD" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="ChangePriceBluRay" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="ChangePriceGame" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="jButton1" min="-2" max="-2" attributes="0"/>
-                                  <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                                      <Component id="VolumeDiscountLabel" min="-2" max="-2" attributes="0"/>
-                                      <Component id="textField10" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Group type="103" alignment="1" groupAlignment="3" attributes="0">
-                                      <Component id="Genre" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="Type" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="103" alignment="1" groupAlignment="3" attributes="0">
-                                      <Component id="jSpinner2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jSpinner1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="Release" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="Price" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="CodeLabel" alignment="1" max="32767" attributes="0"/>
-                                      <Component id="Title" alignment="1" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Component id="AddDisc" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                                      <Component id="code" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                      <Component id="SetVolumeDiscountButton" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                              <Component id="CodeLabel2" min="-2" pref="18" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="percentOff" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="codeType" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="AddCode" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="TitleField" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="GenreCombo" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                                              <Component id="ReleaseYearField" max="32767" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+                                              <Component id="CriticScoreField" max="32767" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+                                              <Component id="QuantityField" max="32767" attributes="0"/>
+                                          </Group>
                                       </Group>
                                   </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Component id="CodeLabel1" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="AddDiscButton" max="32767" attributes="0"/>
                               </Group>
                           </Group>
+                          <Group type="102" attributes="0">
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="DisableButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="EnableButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="Remove1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="RemoveAllAdmin1" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                                  <Component id="TypeCombo" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="PriceCombo" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="ChangePriceDVD1" min="-2" pref="23" max="-2" attributes="0"/>
+                          <Component id="label1" min="-2" max="-2" attributes="0"/>
+                          <Component id="addPromoCodeField" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="codeTypeCombo" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="AddPromoCodeButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="ChangePriceBluRay1" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                          <Component id="ChangePriceGameButton" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -817,120 +840,148 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="java.awt.TextField" name="textField1">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="textField1"/>
-              </Properties>
-            </Component>
-            <Component class="java.awt.TextField" name="textField3">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="textField3"/>
-              </Properties>
-            </Component>
-            <Component class="java.awt.TextField" name="textField5">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="textField5"/>
-              </Properties>
-            </Component>
-            <Component class="java.awt.TextField" name="textField7">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="textField7"/>
-              </Properties>
-            </Component>
-            <Component class="java.awt.TextField" name="Title">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Title"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TitleActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="java.awt.Choice" name="choice1">
-            </Component>
-            <Component class="javax.swing.JSpinner" name="jSpinner1">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Dialog" size="11" style="0"/>
-                </Property>
-                <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
-                  <SpinnerModel initial="0" maximum="5" numberType="java.lang.Integer" stepSize="1" type="number"/>
-                </Property>
-                <Property name="inheritsPopupMenu" type="boolean" value="true"/>
-                <Property name="value" type="java.lang.Object" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                  <Connection code="10" type="code"/>
-                </Property>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JSpinner" name="Genre">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Dialog" size="11" style="0"/>
-                </Property>
-                <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
-                  <SpinnerModel type="list">
-                    <ListItem value="Genre"/>
-                    <ListItem value="Drama"/>
-                    <ListItem value="Action"/>
-                    <ListItem value="Comedy"/>
-                    <ListItem value="Sci-Fi"/>
-                    <ListItem value="Fantasy"/>
-                    <ListItem value="RPG"/>
-                    <ListItem value="Adventure"/>
-                  </SpinnerModel>
-                </Property>
-              </Properties>
-              <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="GenreMouseClicked"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JSpinner" name="Type">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Dialog" size="11" style="0"/>
-                </Property>
-                <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
-                  <SpinnerModel type="list">
-                    <ListItem value="DVD"/>
-                    <ListItem value="BluRay"/>
-                    <ListItem value="XboxOne"/>
-                    <ListItem value="PS4"/>
-                  </SpinnerModel>
-                </Property>
-                <Property name="name" type="java.lang.String" value="Type" noResource="true"/>
-              </Properties>
-            </Component>
-            <Component class="java.awt.TextField" name="textField2">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="textField2"/>
-              </Properties>
-            </Component>
-            <Component class="java.awt.TextField" name="Release">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Release Year"/>
-              </Properties>
-            </Component>
-            <Component class="java.awt.TextField" name="textField4">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="textField4"/>
-              </Properties>
-            </Component>
-            <Component class="java.awt.TextField" name="Price">
-              <Properties>
-                <Property name="name" type="java.lang.String" value="Price" noResource="true"/>
-                <Property name="text" type="java.lang.String" value="Price"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JSpinner" name="jSpinner2">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Dialog" size="11" style="0"/>
-                </Property>
-                <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
-                  <SpinnerModel initial="0" maximum="100" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
-                </Property>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JButton" name="Remove">
+            <Container class="javax.swing.JScrollPane" name="jScrollPane10">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JTable" name="AdminMovieTable1">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Dialog" size="11" style="0"/>
+                    </Property>
+                    <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                      <Table columnCount="7" rowCount="0">
+                        <Column editable="true" title="Title" type="java.lang.String"/>
+                        <Column editable="true" title="Genre" type="java.lang.String"/>
+                        <Column editable="true" title="Type" type="java.lang.String"/>
+                        <Column editable="true" title="Release" type="java.lang.String"/>
+                        <Column editable="true" title="Critic Score" type="java.lang.Integer"/>
+                        <Column editable="true" title="Quantity" type="java.lang.Integer"/>
+                        <Column editable="true" title="Price" type="java.lang.Double"/>
+                      </Table>
+                    </Property>
+                    <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                      <TableColumnModel selectionModel="0">
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                      </TableColumnModel>
+                    </Property>
+                    <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+                      <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="AdminMovieTable1MouseClicked"/>
+                  </Events>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Container class="javax.swing.JScrollPane" name="jScrollPane11">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JTable" name="AdminGameTable1">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Dialog" size="11" style="0"/>
+                    </Property>
+                    <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                      <Table columnCount="7" rowCount="0">
+                        <Column editable="true" title="Title" type="java.lang.String"/>
+                        <Column editable="true" title="Genre" type="java.lang.String"/>
+                        <Column editable="true" title="Type" type="java.lang.String"/>
+                        <Column editable="true" title="Release" type="java.lang.String"/>
+                        <Column editable="true" title="Critic Score" type="java.lang.Integer"/>
+                        <Column editable="true" title="Quantity" type="java.lang.Integer"/>
+                        <Column editable="true" title="Price" type="java.lang.Double"/>
+                      </Table>
+                    </Property>
+                    <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                      <TableColumnModel selectionModel="0">
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                      </TableColumnModel>
+                    </Property>
+                    <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+                      <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+                    </Property>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Component class="javax.swing.JButton" name="Remove1">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Dialog" size="11" style="0"/>
@@ -938,79 +989,10 @@
                 <Property name="text" type="java.lang.String" value="Remove"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RemoveActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Remove1ActionPerformed"/>
               </Events>
             </Component>
-            <Container class="javax.swing.JScrollPane" name="jScrollPane7">
-              <AuxValues>
-                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-              </AuxValues>
-
-              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-              <SubComponents>
-                <Component class="javax.swing.JTable" name="AdminMovieTable">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Dialog" size="11" style="0"/>
-                    </Property>
-                    <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="7" rowCount="4">
-                        <Column editable="true" title="Title" type="java.lang.String"/>
-                        <Column editable="true" title="Genre" type="java.lang.String"/>
-                        <Column editable="true" title="Type" type="java.lang.String"/>
-                        <Column editable="true" title="Release" type="java.lang.String"/>
-                        <Column editable="true" title="Critic Score" type="java.lang.Integer"/>
-                        <Column editable="true" title="Quantity" type="java.lang.Integer"/>
-                        <Column editable="true" title="Price" type="java.lang.Double"/>
-                      </Table>
-                    </Property>
-                    <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
-                      <TableColumnModel selectionModel="0">
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                          <Title/>
-                          <Editor/>
-                          <Renderer/>
-                        </Column>
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                          <Title/>
-                          <Editor/>
-                          <Renderer/>
-                        </Column>
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                          <Title/>
-                          <Editor/>
-                          <Renderer/>
-                        </Column>
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                          <Title/>
-                          <Editor/>
-                          <Renderer/>
-                        </Column>
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                          <Title/>
-                          <Editor/>
-                          <Renderer/>
-                        </Column>
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                          <Title/>
-                          <Editor/>
-                          <Renderer/>
-                        </Column>
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                          <Title/>
-                          <Editor/>
-                          <Renderer/>
-                        </Column>
-                      </TableColumnModel>
-                    </Property>
-                    <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
-                      <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
-                    </Property>
-                  </Properties>
-                </Component>
-              </SubComponents>
-            </Container>
-            <Component class="javax.swing.JButton" name="RemoveAllAdmin">
+            <Component class="javax.swing.JButton" name="RemoveAllAdmin1">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Dialog" size="11" style="0"/>
@@ -1018,10 +1000,10 @@
                 <Property name="text" type="java.lang.String" value="Remove All"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RemoveAllAdminActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RemoveAllAdmin1ActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="ChangePriceDVD">
+            <Component class="javax.swing.JButton" name="ChangePriceDVD1">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Dialog" size="11" style="0"/>
@@ -1029,10 +1011,10 @@
                 <Property name="text" type="java.lang.String" value="Change Price of DVD"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ChangePriceDVDActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ChangePriceDVD1ActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="ChangePriceBluRay">
+            <Component class="javax.swing.JButton" name="ChangePriceBluRay1">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Dialog" size="11" style="0"/>
@@ -1040,180 +1022,198 @@
                 <Property name="text" type="java.lang.String" value="Change Price of BluRay"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ChangePriceBluRayActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ChangePriceBluRay1ActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="ChangePriceGame">
+            <Component class="javax.swing.JButton" name="SetVolumeDiscountButton">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Dialog" size="11" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Change Price of Game"/>
-                <Property name="actionCommand" type="java.lang.String" value="Change Price of Game"/>
+                <Property name="text" type="java.lang.String" value="Set Volume Discount"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ChangePriceGameActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SetVolumeDiscountButtonActionPerformed"/>
               </Events>
             </Component>
-            <Component class="java.awt.TextField" name="textField6">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="textField6"/>
-              </Properties>
-            </Component>
-            <Component class="java.awt.TextField" name="code">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Code"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JSpinner" name="percentOff">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Dialog" size="11" style="0"/>
-                </Property>
-                <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
-                  <SpinnerModel initial="0.1" maximum="0.3" minimum="0.1" numberType="java.lang.Double" stepSize="0.1" type="number"/>
-                </Property>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JSpinner" name="codeType">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Dialog" size="11" style="0"/>
-                </Property>
-                <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
-                  <SpinnerModel initial="1" maximum="3" numberType="java.lang.Integer" stepSize="1" type="number"/>
-                </Property>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JButton" name="AddCode">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Dialog" size="11" style="0"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Add Code"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AddCodeActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JLabel" name="CodeLabel">
+            <Component class="javax.swing.JLabel" name="CodeLabel2">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Enter New Disc:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="CodeLabel1">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Enter New Promo Code:"/>
-              </Properties>
-            </Component>
-            <Container class="javax.swing.JScrollPane" name="jScrollPane9">
-              <AuxValues>
-                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-              </AuxValues>
-
-              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-              <SubComponents>
-                <Component class="javax.swing.JTable" name="AdminGameTable">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Dialog" size="11" style="0"/>
-                    </Property>
-                    <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="7" rowCount="4">
-                        <Column editable="true" title="Title" type="java.lang.String"/>
-                        <Column editable="true" title="Genre" type="java.lang.String"/>
-                        <Column editable="true" title="Type" type="java.lang.String"/>
-                        <Column editable="true" title="Release" type="java.lang.String"/>
-                        <Column editable="true" title="Critic Score" type="java.lang.Integer"/>
-                        <Column editable="true" title="Quantity" type="java.lang.Integer"/>
-                        <Column editable="true" title="Price" type="java.lang.Double"/>
-                      </Table>
-                    </Property>
-                    <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
-                      <TableColumnModel selectionModel="0">
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                          <Title/>
-                          <Editor/>
-                          <Renderer/>
-                        </Column>
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                          <Title/>
-                          <Editor/>
-                          <Renderer/>
-                        </Column>
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                          <Title/>
-                          <Editor/>
-                          <Renderer/>
-                        </Column>
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                          <Title/>
-                          <Editor/>
-                          <Renderer/>
-                        </Column>
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                          <Title/>
-                          <Editor/>
-                          <Renderer/>
-                        </Column>
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                          <Title/>
-                          <Editor/>
-                          <Renderer/>
-                        </Column>
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                          <Title/>
-                          <Editor/>
-                          <Renderer/>
-                        </Column>
-                      </TableColumnModel>
-                    </Property>
-                    <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
-                      <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
-                    </Property>
-                  </Properties>
-                </Component>
-              </SubComponents>
-            </Container>
-            <Component class="javax.swing.JLabel" name="VolumeDiscountLabel">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Enter New Volume Discount: "/>
-              </Properties>
-            </Component>
-            <Component class="java.awt.TextField" name="textField10">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Dialog" size="11" style="0"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Enter an Integer"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textField10ActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="java.awt.Button" name="button1">
-              <Properties>
-                <Property name="label" type="java.lang.String" value="button1"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JButton" name="jButton1">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Dialog" size="11" style="0"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Set Discount"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="AddDisc">
+            <Component class="javax.swing.JButton" name="AddDiscButton">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Dialog" size="11" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Add Disc"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AddDiscButtonActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="GenreCombo">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Dialog" size="11" style="0"/>
+                </Property>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="6">
+                    <StringItem index="0" value="Action"/>
+                    <StringItem index="1" value="Horror"/>
+                    <StringItem index="2" value="Comedy"/>
+                    <StringItem index="3" value="Sci-Fi"/>
+                    <StringItem index="4" value="Fantasy"/>
+                    <StringItem index="5" value="Drama"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="TypeCombo">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Dialog" size="11" style="0"/>
+                </Property>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="4">
+                    <StringItem index="0" value="DVD"/>
+                    <StringItem index="1" value="BluRay"/>
+                    <StringItem index="2" value="PS4"/>
+                    <StringItem index="3" value="XboxOne"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="PriceCombo">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Dialog" size="11" style="0"/>
+                </Property>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="5">
+                    <StringItem index="0" value="0.99"/>
+                    <StringItem index="1" value="1.99"/>
+                    <StringItem index="2" value="2.99"/>
+                    <StringItem index="3" value="3.99"/>
+                    <StringItem index="4" value="4.99"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JTextField" name="TitleField">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Dialog" size="12" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Title"/>
+                <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                  <ComponentRef name="TitleField"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="TitleFieldMouseClicked"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TitleFieldActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="ChangePriceGameButton">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Dialog" size="11" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Change Price of Games"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ChangePriceGameButtonActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="java.awt.TextField" name="ReleaseYearField">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Release Year"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="ReleaseYearFieldMouseClicked"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ReleaseYearFieldActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="java.awt.TextField" name="CriticScoreField">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Critic Score"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="CriticScoreFieldMouseClicked"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CriticScoreFieldActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="java.awt.TextField" name="QuantityField">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Quantity"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="QuantityFieldMouseClicked"/>
+              </Events>
+            </Component>
+            <Component class="java.awt.Label" name="label1">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Dialog" size="11" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Enter new Promo Code:"/>
+              </Properties>
+            </Component>
+            <Component class="java.awt.TextField" name="addPromoCodeField">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Promo Code"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="addPromoCodeFieldMouseClicked"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="codeTypeCombo">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="3">
+                    <StringItem index="0" value="1"/>
+                    <StringItem index="1" value="2"/>
+                    <StringItem index="2" value="3"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JButton" name="AddPromoCodeButton">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Add PromoCode"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AddPromoCodeButtonActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="DisableButton">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Disable Unit"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DisableButtonActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="EnableButton">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Enable Unit"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="EnableButtonActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

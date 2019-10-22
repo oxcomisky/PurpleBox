@@ -1219,7 +1219,10 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         PBenabled = myBox.disableUnit();
         if (!PBenabled){
-            
+            PurpleBox.setEnabledAt(0, PBenabled);
+            PurpleBox.setEnabledAt(1, PBenabled);
+            PurpleBox.setEnabledAt(2, PBenabled);
+            PurpleBox.setEnabledAt(3, PBenabled);
         }
     }//GEN-LAST:event_DisableButtonActionPerformed
 
@@ -1227,7 +1230,10 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         PBenabled = myBox.EnableUnit();
         if (PBenabled){
-            
+            PurpleBox.setEnabledAt(0,PBenabled);
+            PurpleBox.setEnabledAt(1, PBenabled);
+            PurpleBox.setEnabledAt(2, PBenabled);
+            PurpleBox.setEnabledAt(3, PBenabled); 
         }
     }//GEN-LAST:event_EnableButtonActionPerformed
 
