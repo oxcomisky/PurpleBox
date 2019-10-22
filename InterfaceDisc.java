@@ -12,85 +12,85 @@ package purplebox;
 public interface InterfaceDisc {
 
     /**
-     *
-     * @return
+     * getter for String Title
+     * @return title
      */
     public String getTitle();
 
     /**
-     *
+     *  setter for string title
      * @param title
      */
     public void setTitle(String title);
 
     /**
-     *
-     * @return
+     * getter for String genre
+     * @return genre
      */
     public String getGenre();
 
     /**
-     *
+     *  setter for String genre
      * @param genre
      */
     public void setGenre(String genre);
 
     /**
-     *
-     * @return
+     * getter for String type
+     * @return type
      */
     public String getType();
 
     /**
-     *
+     *  setter for String type
      * @param type
      */
     public void setType(String type);
     
     /**
-     *
-     * @return
+     * getter for String release
+     * @return release
      */
     public String getRelease();
 
     /**
-     *
+     * setter for String release
      * @param release
      */
     public void setRelease(String release);
 
     /**
-     *
-     * @return
+     * getter for int criticScore
+     * @return criticScore
      */
     public int getCriticScore();
     
     /**
-     *
+     * setter for int criticScore
      * @param criticScore
      */
     public void setCriticScore(int criticScore);
 
     /**
-     *
-     * @return
+     * getter for int quantity
+     * @return quantity
      */
     public int getQuantity();
 
     /**
-     *
+     * setter for int quantity
      * @param quantity
      */
     public void setQuantity(int quantity);
 
     /**
-     *
-     * @return
+     * getter for double price
+     * @return price
      */
     public double getPrice();
 
     /**
-     *
+     * setter for double price
      * @param price
      */
     public void setPrice(double price);

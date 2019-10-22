@@ -12,26 +12,26 @@ package purplebox;
 public interface InterfacePromoCode {
     
     /**
-     *
-     * @return
+     *  getter for int Code
+     * @return Code
      */
     public int getCode();
 
     /**
-     *
+     *  setter for int Code
      * @param code
      */
     public void setCode(int code);
     
     
     /**
-     *
-     * @return
+     *  getter for int codeType
+     * @return CodeType
      */
     public int getCodeType();
 
     /**
-     *
+     * setter for int codeType
      * @param codeType
      */
     public void setCodeType(int codeType);

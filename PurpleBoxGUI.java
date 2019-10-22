@@ -11,45 +11,48 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author oxcom
+ * @author Jon Comisky, Jason Bendickson
  */
 public class PurpleBoxGUI extends javax.swing.JFrame {
 
-    public ArrayList<Disc> ShoppingCartList = new ArrayList<>();
-    public ArrayList<Disc> GameList = new ArrayList<>();
-    public ArrayList<Disc> MovieList = new ArrayList<>();
-    public ArrayList<PromoCode> PromoCodeList = new ArrayList<>();
+    public ArrayList<Disc> ShoppingCartList = new ArrayList<>();                //Arraylist for shopping cart
+    public ArrayList<Disc> GameList = new ArrayList<>();                        //ArrayList for Video Games
+    public ArrayList<Disc> MovieList = new ArrayList<>();                       //ArrayList for Movies
+    public ArrayList<PromoCode> PromoCodeList = new ArrayList<>();              //ArrayList for Promo Codes
     
-    public DefaultTableModel CartModel;
-    public DefaultTableModel GameModel;    
-    public DefaultTableModel MovieModel;
-    public DefaultTableModel AdminMovieModel;
-    public DefaultTableModel AdminGameModel;
+    public DefaultTableModel CartModel;                                         //create the TableModel for Shopping Cart table
+    public DefaultTableModel GameModel;                                         //create the TableModel for Game table
+    public DefaultTableModel MovieModel;                                        //create the TableModel for Movie table 
+    public DefaultTableModel AdminMovieModel;                                   //create the TableModel for Admin Movie table
+    public DefaultTableModel AdminGameModel;                                    //create the TableModel for Admin game table
     
-    public double total = 0.0;
+    public double total = 0.0;                                                  //We overlooked this variable when designing the program
+                                                                                //and did not have the time to do a rework to add it in
     
-    public int VolumeDiscount = 3;
+    public int VolumeDiscount = 3;                                              //Same as above for this variable
     
-    PurpleBox myBox = new PurpleBox();
+    public boolean PBenabled = true;                                            //the flag used to turn user controls on and off
+    
+    PurpleBox myBox = new PurpleBox();                                          //create a new purpleBox object
     
 
     public PurpleBoxGUI() {
         initComponents();
-        this.MovieModel = (DefaultTableModel) MoviesTable.getModel();
-        this.GameModel = (DefaultTableModel) GamesTable.getModel();
-        this.CartModel = (DefaultTableModel) ShoppingCartTable.getModel();
-        this.AdminMovieModel = (DefaultTableModel) AdminMovieTable1.getModel();
-        this.AdminGameModel = (DefaultTableModel) AdminGameTable1.getModel();
+        this.MovieModel = (DefaultTableModel) MoviesTable.getModel();           //give values to the table models
+        this.GameModel = (DefaultTableModel) GamesTable.getModel();             
+        this.CartModel = (DefaultTableModel) ShoppingCartTable.getModel();      
+        this.AdminMovieModel = (DefaultTableModel) AdminMovieTable1.getModel(); 
+        this.AdminGameModel = (DefaultTableModel) AdminGameTable1.getModel();       
         
-        PurpleBox.setEnabledAt(4, false);
+        PurpleBox.setEnabledAt(4, false);                                       //set the Admin pane to be disabled, passkey is 12345
         
-        PromoCodeList.add(new PromoCode(12345,2));
+        PromoCodeList.add(new PromoCode(12345,2));                              //add promocodes to the promocodelist
         PromoCodeList.add(new PromoCode(123,1));
         PromoCodeList.add(new PromoCode(1111,3));
         PromoCodeList.add(new PromoCode(999,2));
         
         
-        MovieList.add(new Disc("The Godfather", "Drama", "DVD", "1972", 98, 0, 2.99) {
+        MovieList.add(new Disc("The Godfather", "Drama", "DVD", "1972", 98, 0, 2.99) {              //create movies and add to the movies list
         });
         MovieList.add(new Disc("Citizen Kane", "Drama", "DVD", "1941", 100, 6, 2.99) {
         });
@@ -80,7 +83,7 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
         MovieList.add(new Disc("Shrek 15: The Swampening", "Horror", "BluRay", "2019", 100, 1, 2.99) {
         });
         
-        for (Disc disc : MovieList) {
+        for (Disc disc : MovieList) {                                                                   //populate the tables in the GUI with the given info
             MovieModel.addRow(new Object[]{
                 disc.getTitle(), disc.getGenre(), disc.getType(),
                 disc.getRelease(), disc.getCriticScore(), disc.getQuantity(), disc.getPrice()});
@@ -90,7 +93,7 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
             
         }
         
-        GameList.add(new Disc("Battlefield 5", "Action", "XboxOne", "2018", 89, 1, 2.99) {
+        GameList.add(new Disc("Battlefield 5", "Action", "XboxOne", "2018", 89, 1, 2.99) {                  //create and add games to the GameList
         });
         GameList.add(new Disc("NBA 2K20", "Sports", "XboxOne", "2017", 76, 1, 2.99) {
         });
@@ -111,7 +114,7 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
         GameList.add(new Disc("Doom: Eternal", "Action", "PS4", "2020", 100, 1, 2.99) {
         });
         
-        for (Disc disc : GameList) {
+        for (Disc disc : GameList) {                                                                     //populate the table in the GUI
             GameModel.addRow(new Object[]{
                 disc.getTitle(), disc.getGenre(), disc.getType(),
                 disc.getRelease(), disc.getCriticScore(), disc.getQuantity(), disc.getPrice()});
@@ -120,21 +123,17 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
                 disc.getRelease(), disc.getCriticScore(), disc.getQuantity(), disc.getPrice()});
         }
         
-        for (Disc disc : ShoppingCartList) {
+        for (Disc disc : ShoppingCartList) {                                                            //populate the table in the GUI
             CartModel.addRow(new Object[]{
                 disc.getTitle(), disc.getGenre(), disc.getType(),
                 disc.getRelease(), disc.getCriticScore(), disc.getQuantity(), disc.getPrice()});
             
         }
         
-        myBox.setGames(GameList);
+        myBox.setGames(GameList);                                               //add the ArrayLists to the instance of PurpleBox object called myBox
         myBox.setMovies(MovieList);
         myBox.setShoppingCart(ShoppingCartList);
         myBox.setPromoCode(PromoCodeList);
-        MovieModel.addTableModelListener(MoviesTable);
-        GameModel.addTableModelListener(GamesTable);
-        AdminGameModel.addTableModelListener(AdminGameTable1);
-        AdminMovieModel.addTableModelListener(AdminMovieTable1);
     }
 
     /**
@@ -188,7 +187,7 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
         RemoveAllAdmin1 = new javax.swing.JButton();
         ChangePriceDVD1 = new javax.swing.JButton();
         ChangePriceBluRay1 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        SetVolumeDiscountButton = new javax.swing.JButton();
         CodeLabel2 = new javax.swing.JLabel();
         AddDiscButton = new javax.swing.JButton();
         GenreCombo = new javax.swing.JComboBox<>();
@@ -203,6 +202,8 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
         addPromoCodeField = new java.awt.TextField();
         codeTypeCombo = new javax.swing.JComboBox<>();
         AddPromoCodeButton = new javax.swing.JButton();
+        DisableButton = new javax.swing.JButton();
+        EnableButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(153, 0, 153));
@@ -595,11 +596,11 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
-        jButton3.setText("Set Volume Discount");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        SetVolumeDiscountButton.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
+        SetVolumeDiscountButton.setText("Set Volume Discount");
+        SetVolumeDiscountButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                SetVolumeDiscountButtonActionPerformed(evt);
             }
         });
 
@@ -694,18 +695,37 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
             }
         });
 
+        DisableButton.setText("Disable Unit");
+        DisableButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DisableButtonActionPerformed(evt);
+            }
+        });
+
+        EnableButton.setText("Enable Unit");
+        EnableButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EnableButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout ADMINPanelLayout = new javax.swing.GroupLayout(ADMINPanel);
         ADMINPanel.setLayout(ADMINPanelLayout);
         ADMINPanelLayout.setHorizontalGroup(
             ADMINPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(SetVolumeDiscountButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(ADMINPanelLayout.createSequentialGroup()
                 .addGroup(ADMINPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 614, Short.MAX_VALUE)
                     .addComponent(Remove1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(RemoveAllAdmin1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(ChangePriceDVD1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(ChangePriceBluRay1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(ChangePriceBluRay1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(ADMINPanelLayout.createSequentialGroup()
+                        .addComponent(DisableButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(EnableButton)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(ADMINPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane11)
@@ -754,7 +774,7 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
                     .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE)
                     .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addGap(15, 15, 15)
-                .addComponent(jButton3)
+                .addComponent(SetVolumeDiscountButton)
                 .addGroup(ADMINPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(ADMINPanelLayout.createSequentialGroup()
                         .addGap(28, 28, 28)
@@ -777,6 +797,10 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
                                         .addComponent(QuantityField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                             .addComponent(AddDiscButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(ADMINPanelLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(ADMINPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(DisableButton)
+                            .addComponent(EnableButton))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(Remove1)
                         .addGap(19, 19, 19)
@@ -819,7 +843,9 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void AddToCartGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddToCartGameActionPerformed
-
+        //creates a temp Disc to store the values of the table in th GUI and 
+        //adds them to the shopping cart
+        //then the temp is passed to the instance of PurpleBox and added to the ShoppingCartList w/in myBox
         Disc temp = new Disc();
 
         for (int i = 0; i < myBox.getGames().size(); i++) {
@@ -847,7 +873,9 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_AddToCartGameActionPerformed
 
     private void AddToCartMovieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddToCartMovieActionPerformed
-
+         //creates a temp Disc to store the values of the table in th GUI and 
+        //adds them to the shopping cart
+        //then the temp is passed to the instance of PurpleBox and added to the ShoppingCartList w/in myBox
         Disc temp = new Disc();
 
         for (int i = 0; i < myBox.getMovies().size(); i++) {
@@ -877,6 +905,7 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
 
     private void AdminLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminLoginActionPerformed
         // TODO add your handling code here:
+        //shows a message box that accepts a passkey to login to the admin controls
         String PassKey = JOptionPane.showInputDialog(rootPane, "Enter Your PassKey", DISPOSE_ON_CLOSE);
         if (PassKey.equalsIgnoreCase("12345")) {                                                        //passkey is 12345
             JOptionPane.showMessageDialog(AdminLogin, "PassKey Accepted");                              //display a message to the user
@@ -887,10 +916,11 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_AdminLoginActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        //String title = TitleField.getText();
-        //String releaseYear = ReleaseYearField.getText();
-    }//GEN-LAST:event_jButton3ActionPerformed
+    //shows a message box that accepts a value to be set as the new volume discount
+    private void SetVolumeDiscountButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SetVolumeDiscountButtonActionPerformed
+        String newDiscount = JOptionPane.showInputDialog("Enter a new value for the Volume discount, Current value is " + VolumeDiscount);
+        VolumeDiscount = Integer.parseInt(newDiscount);
+    }//GEN-LAST:event_SetVolumeDiscountButtonActionPerformed
 
     private void ChangePriceBluRay1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChangePriceBluRay1ActionPerformed
         // TODO add your handling code here:
@@ -977,14 +1007,16 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
     private void CheckoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckoutButtonActionPerformed
         // TODO add your handling code here:
         if(total == 0){
-            for(Disc disc : myBox.getShoppingCart()){
+           for(Disc disc : myBox.getShoppingCart()){
                 total += disc.getPrice();
-            }
+           }  
+        }
+        if(myBox.getShoppingCart().size() >= VolumeDiscount){
+             total = total * 0.8;
         }
         String CCNumber = JOptionPane.showInputDialog(rootPane, String.format("Your Total is: $%.2f %nPlease Enter A 16 Digit Credit Card Number: ",total));
-
         if (CCNumber.length() == 16) {
-            myBox.pay(CCNumber, ShoppingCartList);
+            myBox.pay(CCNumber, myBox.getShoppingCart());
             JOptionPane.showConfirmDialog(rootPane, "Would you like to recieve an Email Reciept?");
             JOptionPane.showInputDialog("Enter Your Email Address: ");
             CartModel.setRowCount(0);
@@ -1183,6 +1215,22 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
         myBox.getPromoCode().add(new PromoCode(code,codeType));
     }//GEN-LAST:event_AddPromoCodeButtonActionPerformed
 
+    private void DisableButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DisableButtonActionPerformed
+        // TODO add your handling code here:
+        PBenabled = myBox.disableUnit();
+        if (!PBenabled){
+            
+        }
+    }//GEN-LAST:event_DisableButtonActionPerformed
+
+    private void EnableButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EnableButtonActionPerformed
+        // TODO add your handling code here:
+        PBenabled = myBox.EnableUnit();
+        if (PBenabled){
+            
+        }
+    }//GEN-LAST:event_EnableButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1238,6 +1286,8 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
     private javax.swing.JLabel CodeLabel2;
     private java.awt.TextField CodeTextField;
     private java.awt.TextField CriticScoreField;
+    private javax.swing.JButton DisableButton;
+    private javax.swing.JButton EnableButton;
     private java.awt.Panel Games;
     private javax.swing.JTable GamesTable;
     private javax.swing.JComboBox<String> GenreCombo;
@@ -1254,6 +1304,7 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
     private javax.swing.JButton RemoveAllAdmin1;
     private javax.swing.JButton RemoveAllButton;
     private javax.swing.JButton RemoveFromCartButton;
+    private javax.swing.JButton SetVolumeDiscountButton;
     private java.awt.Panel ShoppingCart;
     private javax.swing.JTextArea ShoppingCartOutput;
     private javax.swing.JTable ShoppingCartTable;
@@ -1264,7 +1315,6 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> TypeCombo;
     private java.awt.TextField addPromoCodeField;
     private javax.swing.JComboBox<String> codeTypeCombo;
-    private javax.swing.JButton jButton3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;

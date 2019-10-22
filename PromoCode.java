@@ -7,16 +7,31 @@ package purplebox;
 
 /**
  *
- * @author Jon Comisky, 
+ * @author Jon Comisky, Jason Bendickson
  */
 public class PromoCode implements InterfacePromoCode{
+
+    /**
+     *
+     */
     public int code;
+
+    /**
+     *
+     */
     public int codeType;
 
-    
+    /**
+     * Constructs a Generic PromoCode Object
+     */
     public PromoCode(){
     }
 
+    /**
+     * Constructs a PromoCode Object
+     * @param code
+     * @param codeType
+     */
     public PromoCode(int code, int codeType) {
         this.code = code;
         this.codeType = codeType;

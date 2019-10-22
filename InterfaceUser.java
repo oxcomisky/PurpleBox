@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Jon Comisky, 
+ * @author Jon Comisky, Jason Bendickson
  */
 public interface InterfaceUser {
     
@@ -41,7 +41,6 @@ public interface InterfaceUser {
 
     /**Inputs a credit card number, checks for validity, and returns a list to be used as a receipt
      * @require cardNumber is a 16 digit value
-     * @throws InvalidCardNumberException 
      * @param cardNumber
      * @param shoppingCart
      * @return an ArrayList with the contents of the shopping cart

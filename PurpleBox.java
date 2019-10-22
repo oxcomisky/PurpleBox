@@ -9,23 +9,49 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Jon Comisky
+ * @author Jon Comisky, Jason Bendickson
  */
 public class PurpleBox implements InterfaceAdmin, InterfaceUser{
     
     //Disc Data Members
+
+    /**
+     *
+     */
     public ArrayList<Disc> Movies;
+
+    /**
+     *
+     */
     public ArrayList<Disc> Games;
+
+    /**
+     *
+     */
     public ArrayList<Disc> ShoppingCart;
     //end Disc Data members
     
     //PromoCode Data Members
+
+    /**
+     *
+     */
     public ArrayList<PromoCode> promoCode;
     //end PromoCode Data Members
 
+    /**
+     *
+     */
     public PurpleBox() {
     }
 
+    /**
+     *
+     * @param Movies
+     * @param Games
+     * @param ShoppingCart
+     * @param promoCode
+     */
     public PurpleBox(ArrayList<Disc> Movies, ArrayList<Disc> Games, ArrayList<Disc> ShoppingCart, ArrayList<PromoCode> promoCode) {
         this.Movies = Movies;
         this.Games = Games;
@@ -33,34 +59,66 @@ public class PurpleBox implements InterfaceAdmin, InterfaceUser{
         this.promoCode = promoCode;
     }
 
+    /**
+     *  getter for Movies ArrayList
+     * @return Movies
+     */
     public ArrayList<Disc> getMovies() {
         return Movies;
     }
 
+    /**
+     *  setter for Movies ArrayList
+     * @param Movies
+     */
     public void setMovies(ArrayList<Disc> Movies) {
         this.Movies = Movies;
     }
 
+    /**
+     * getter for Games ArrayList
+     * @return Games
+     */
     public ArrayList<Disc> getGames() {
         return Games;
     }
 
+    /**
+     *  setter for Games ArrayList
+     * @param Games
+     */
     public void setGames(ArrayList<Disc> Games) {
         this.Games = Games;
     }
 
+    /**
+     *  getter for ShoppingCart ArrayList
+     * @return ShoppingCart
+     */
     public ArrayList<Disc> getShoppingCart() {
         return ShoppingCart;
     }
 
+    /**
+     *  setter for ShoppingCart ArrayList
+     * @param ShoppingCart
+     */
     public void setShoppingCart(ArrayList<Disc> ShoppingCart) {
         this.ShoppingCart = ShoppingCart;
     }
 
+    /**
+     *  getter for PromoCode ArrayList
+     * @return promoCode
+     */
     public ArrayList<PromoCode> getPromoCode() {
         return promoCode;
     }
 
+    /**
+     *  setter for PromoCode ArrayList
+     * @param promoCode
+     */
     public void setPromoCode(ArrayList<PromoCode> promoCode) {
         this.promoCode = promoCode;
     }
