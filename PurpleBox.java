@@ -9,23 +9,49 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Jon Comisky
+ * @author Jon Comisky, Jason Bendickson
  */
 public class PurpleBox implements InterfaceAdmin, InterfaceUser{
     
     //Disc Data Members
+
+    /**
+     *
+     */
     public ArrayList<Disc> Movies;
+
+    /**
+     *
+     */
     public ArrayList<Disc> Games;
+
+    /**
+     *
+     */
     public ArrayList<Disc> ShoppingCart;
     //end Disc Data members
     
     //PromoCode Data Members
+
+    /**
+     *
+     */
     public ArrayList<PromoCode> promoCode;
     //end PromoCode Data Members
 
+    /**
+     *
+     */
     public PurpleBox() {
     }
 
+    /**
+     *
+     * @param Movies
+     * @param Games
+     * @param ShoppingCart
+     * @param promoCode
+     */
     public PurpleBox(ArrayList<Disc> Movies, ArrayList<Disc> Games, ArrayList<Disc> ShoppingCart, ArrayList<PromoCode> promoCode) {
         this.Movies = Movies;
         this.Games = Games;
@@ -33,38 +59,69 @@ public class PurpleBox implements InterfaceAdmin, InterfaceUser{
         this.promoCode = promoCode;
     }
 
+    /**
+     *  getter for Movies ArrayList
+     * @return Movies
+     */
     public ArrayList<Disc> getMovies() {
         return Movies;
     }
 
+    /**
+     *  setter for Movies ArrayList
+     * @param Movies
+     */
     public void setMovies(ArrayList<Disc> Movies) {
         this.Movies = Movies;
     }
 
+    /**
+     * getter for Games ArrayList
+     * @return Games
+     */
     public ArrayList<Disc> getGames() {
         return Games;
     }
 
+    /**
+     *  setter for Games ArrayList
+     * @param Games
+     */
     public void setGames(ArrayList<Disc> Games) {
         this.Games = Games;
     }
 
+    /**
+     *  getter for ShoppingCart ArrayList
+     * @return ShoppingCart
+     */
     public ArrayList<Disc> getShoppingCart() {
         return ShoppingCart;
     }
 
+    /**
+     *  setter for ShoppingCart ArrayList
+     * @param ShoppingCart
+     */
     public void setShoppingCart(ArrayList<Disc> ShoppingCart) {
         this.ShoppingCart = ShoppingCart;
     }
 
+    /**
+     *  getter for PromoCode ArrayList
+     * @return promoCode
+     */
     public ArrayList<PromoCode> getPromoCode() {
         return promoCode;
     }
 
+    /**
+     *  setter for PromoCode ArrayList
+     * @param promoCode
+     */
     public void setPromoCode(ArrayList<PromoCode> promoCode) {
         this.promoCode = promoCode;
     }
-
     
    
     
@@ -126,19 +183,19 @@ public class PurpleBox implements InterfaceAdmin, InterfaceUser{
     }
 
     @Override
-    public void addPromoCode(ArrayList<PromoCode> PromoCodeList, int code, double percentOff, int codeType) {
-        PromoCode temp = new PromoCode(code,percentOff,codeType);
+    public void addPromoCode(ArrayList<PromoCode> PromoCodeList, int code, int codeType) {
+        PromoCode temp = new PromoCode(code, codeType);
         PromoCodeList.add(temp);
     }
 
     @Override
-    public void disableUnit() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean disableUnit() {
+        return false;
     }
 
     @Override
-    public void EnableUnit() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean EnableUnit() {
+        return true;
     }
     //end admin methods 
     
@@ -164,17 +221,17 @@ public class PurpleBox implements InterfaceAdmin, InterfaceUser{
     }
 
     @Override
-        public double promoCode(int code, double total) {
+        public double promoCode(int codeType, double total) {
         //$2 off total
-        if (code == 1){
+        if (codeType == 1){
             total = total - 2;
         }
         //$3 off total
-        if (code == 2) {
+        if (codeType == 2) {
             total = total - 3;
         }
         //10% off promo
-        if (code == 3) {
+        if (codeType == 3) {
             total = total * 0.9;
         }
         //Prevents Negative Balance Due
@@ -201,22 +258,15 @@ public class PurpleBox implements InterfaceAdmin, InterfaceUser{
         for ( int i = 0; i < inventory.size(); i++){
            if (inventory.get(i).getTitle().compareTo(disc.getTitle() ) == 0) {
                if(disc.getQuantity() > 0){
-               //if (!(shoppingCart.get(i).getTitle().compareTo(disc.getTitle() ) == 0)) {
-                    shoppingCart.add(disc);
+                     shoppingCart.add(disc);
                }           
            }
         }
     }
     @Override
     public void remove(int index, ArrayList<Disc> shoppingCart) {
-        //for (int i = 0; i<shoppingCart.size()-1; i++){
-          //  {
-                //System.out.println(shoppingCart.get(index).getTitle());
-                shoppingCart.remove(index);
-                
-            //}
-           
-        //}
+        shoppingCart.remove(index);
+        
     }
 
     @Override
