@@ -19,11 +19,15 @@ public class Example {
     public static Disc disc2;
 
     //end Disc Data members
-                                                          
-    private static int num=0;                        
-                                                     
-    public static void main(String[] args) {       
-                                                    
+                                                                // Jon has objects in Purplebox that are being referenced 
+    private static int num=0;                        // by a class called myBox. I need 2 arrayLists..(movies &
+                                                     // games) aswell as an inventory arrayList i believe for 
+    public static void main(String[] args) {         // checkout and payment methods. Jon & Jason has some methods
+                                                     // completed on the GitHub, can try to borrow those for our
+    // creating arraylist of 
+     //disc for movies and games               // admin functions. Our system exit doesnt exit properly. 
+                                               // Need to look at commands on different pages, seems to overlap.
+                                               // As in number 1 brings you back to main page and doesnt add a movie.
      ArrayList<Disc> movies = new ArrayList<>();    
      movies.add(new Disc("The GodFather","Drama","DvD","1972",98,1,2.99){} );
      movies.add(new Disc("Citizen Kane","Drama","DvD","1941",100,6,12.99) {});
@@ -181,13 +185,13 @@ public class Example {
             ////addded code
       if (type.equalsIgnoreCase("DVD")||type.equalsIgnoreCase("BluRay")){   
             movies.add(new Disc(title,genre,type,releaseYear,criticScore,quantity,price) {});
-      }  else if (type.equalsIgnoreCase("PS4")||type.equalsIgnoreCase("XboxOne")) {
-            games.add(new Disc(title,genre,type,releaseYear,criticScore,quantity,price) {});  
-      }  else {
-          System.out.format("Invalid movie Disk Type"); 
-      }
-                   
-        ///     Need to use this from Jon code ?  addDisc(disc, discs);
+            if else (type.equalsIgnoreCase("PS4")||type.equalsIgnoreCase("XboxOne"));  
+            movies.add(new Disc(title,genre,type,releaseYear,criticScore,quantity,price) {});
+      }   
+         
+            ////End added code      
+        
+        ///     Need to use this from Jon code   addDisc(disc, discs);
        
         
          //   addDisc(disc2, inventory);
