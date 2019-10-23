@@ -6,28 +6,23 @@
 package purplebox;
 
 /**
- *
  * @author Jake Anderson & Evan Cogswell
  */
 import java.util.ArrayList;
 import java.util.Scanner;  
-//TODO:
 
 
 public class Example {       
     //Disc Data Members
     public static Disc disc2;
-
+   
     //end Disc Data members
-                                                                // Jon has objects in Purplebox that are being referenced 
-    private static int num=0;                        // by a class called myBox. I need 2 arrayLists..(movies &
-                                                     // games) aswell as an inventory arrayList i believe for 
-    public static void main(String[] args) {         // checkout and payment methods. Jon & Jason has some methods
-                                                     // completed on the GitHub, can try to borrow those for our
-    // creating arraylist of 
-     //disc for movies and games               // admin functions. Our system exit doesnt exit properly. 
-                                               // Need to look at commands on different pages, seems to overlap.
-                                               // As in number 1 brings you back to main page and doesnt add a movie.
+    public static int userInput=1;                                                
+    private static int num=0;                     
+  
+    public static void main(String[] args) {         
+    PurpleBox  myBox = new PurpleBox();             
+    
      ArrayList<Disc> movies = new ArrayList<>();    
      movies.add(new Disc("The GodFather","Drama","DvD","1972",98,1,2.99){} );
      movies.add(new Disc("Citizen Kane","Drama","DvD","1941",100,6,12.99) {});
@@ -56,16 +51,10 @@ public class Example {
      games.add(new Disc("Star Wars: Jedi Fallen Order","Sci-Fi","PS4","2019",89,1,2.99) {});
      games.add(new Disc("Watchdogs","Action","PS4","2019",89,1,2.99) {});
      games.add(new Disc("Doom: Eternal","Action","PS4","2020",100,1,2.99) {});
- 
-   
      
-   /// for (InterfaceDisc Disc1: discs) {
-    // System.out.println(Disc1.getTitle());
-   ///  System.out.println(Disc1.getGenre());
-  // }
- // loadMovies();
-  while(1==1)
-{
+    //loadMovies();
+    while(userInput != 0) {
+
     Scanner input = new Scanner(System.in); //Create  a scanner object
     System.out.format("Welcome to PurpleBox, select a command to continue %n");
     System.out.format("Select 0 to exit Application. %n"); 
@@ -75,14 +64,14 @@ public class Example {
     System.out.format("Select 4 to return a movie or game %n");
     System.out.format("Select 99 for Admin Module %n-->");
     System.out.format("Enter selection: ");
-    int userInput = input.nextInt(); //read user input
+    userInput = input.nextInt(); //read user input
     System.out.println("You selected: " + userInput);
     
     switch (userInput) {
         case 0:  System.out.println("Thanks for shopping with PurpleBox"); 
             break;
         case 1: System.out.println("Here are all the possible movie selections");
-        //print(moviesList); call method to print movies list
+       // print(moviesList); //call method to print movies list
         for(int i = 0; i < movies.size(); i++){
             System.out.println(movies.get(i));
         }
@@ -91,36 +80,31 @@ public class Example {
     System.out.println("Select a movie number to add to your cart.");
     userInput = input.nextInt(); //read user input
     System.out.println("You selected: " + userInput);
-    
-    userInput = input.nextInt(); //read user input
-    System.out.println("You selected: " + userInput);
-    
-          //  if 
+
+          //  add code to load movie to shopping cart
         break;
         case 2: System.out.println("Here are all the possible game selections");
           for(int i = 0; i < games.size(); i++){
             System.out.println(games.get(i));
         }        
         //print(gamesList); call method to print games list
-        System.out.println("Welcome to PurpleBox games tab, select a command to continue");
-    
-//System.out.println("Select 1 for the Halo game.");
-    //System.out.println("Select 2 for the Call of Duty game.");
-    //System.out.println("Select 3 for the Destiny game.");
-    userInput = input.nextInt(); //read user input
-    System.out.println("You selected: " + userInput);
-         //   if
+        System.out.println("Welcome to PurpleBox games tab, select a game you with to checkout");
+        userInput = input.nextInt(); //read user input
+        System.out.println("You selected: " + userInput);
+         //   add code to call methods from user interface
           
         break;
         
         case 3: System.out.println("Here is your shopping cart list");
-        //print(shoppingCartList); call method to print shopping cart list
+        //print(shoppingCartList);
+        ArrayList<Disc> ShoppingCart;
+        //call method to print shopping cart list
         
          System.out.println("Welcome to your purple box shopping cart list, select a command to continue");
-    System.out.println("Select 1 to keep shopping.");
-    System.out.println("Select 2 to checkout your shopping cart.");
-    userInput = input.nextInt(); //read user input
-    System.out.println("You selected: " + userInput);
+         System.out.println("Select 1 to keep shopping.");
+         System.out.println("Select 2 to checkout your shopping cart.");
+         userInput = input.nextInt(); //read user input
+         System.out.println("You selected: " + userInput);
 
         
         break;
@@ -164,7 +148,8 @@ public class Example {
               System.out.println("You selected: " + userInput);   
               switch (userInput) {
         case 0:  System.out.format("Thanks for shopping with PurpleBox %n");
-            admin=0; 
+            admin=0;
+            userInput=98;
             break; 
         case 1: System.out.format("Selected Add Discs.%n%n");  
             System.out.format("Please enter Disk name.%n"); 
@@ -182,22 +167,17 @@ public class Example {
             System.out.format("Please enter Disk price.%n"); 
             double price= input.nextDouble(); 
           
-            ////addded code
+           
       if (type.equalsIgnoreCase("DVD")||type.equalsIgnoreCase("BluRay")){   
             movies.add(new Disc(title,genre,type,releaseYear,criticScore,quantity,price) {});
-            if else (type.equalsIgnoreCase("PS4")||type.equalsIgnoreCase("XboxOne"));  
-            movies.add(new Disc(title,genre,type,releaseYear,criticScore,quantity,price) {});
       }   
-         
-            ////End added code      
         
-        ///     Need to use this from Jon code   addDisc(disc, discs);
-       
-        
+        ///   Need to use   addDisc(disc, discs);    
          //   addDisc(disc2, inventory);
          //admin methods  
         break;
         case 2: System.out.format("Selected Add PromoCode.%n");
+        
            break;
         case 3: System.out.format("Selected change price of BluRay.%n");
            break;
