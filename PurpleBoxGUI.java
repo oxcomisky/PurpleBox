@@ -298,6 +298,11 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
 
         returnMovie.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
         returnMovie.setText("Return Movie");
+        returnMovie.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                returnMovieActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout MoviesLayout = new javax.swing.GroupLayout(Movies);
         Movies.setLayout(MoviesLayout);
@@ -363,6 +368,11 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
 
         returnGame.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
         returnGame.setText("Return Game");
+        returnGame.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                returnGameActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout GamesLayout = new javax.swing.GroupLayout(Games);
         Games.setLayout(GamesLayout);
@@ -1126,7 +1136,7 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
             MovieModel.setRowCount(0);
             AdminMovieModel.setRowCount(0);
 
-            for (Disc disc : MovieList) {
+            for (Disc disc : myBox.getMovies()) {
                 MovieModel.addRow(new Object[]{
                     disc.getTitle(), disc.getGenre(), disc.getType(),
                     disc.getRelease(), disc.getCriticScore(), disc.getQuantity(), disc.getPrice()});
@@ -1140,7 +1150,7 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
             GameModel.setRowCount(0);
             AdminGameModel.setRowCount(0);
 
-            for (Disc disc : GameList) {
+            for (Disc disc : myBox.getGames()) {
                 GameModel.addRow(new Object[]{
                     disc.getTitle(), disc.getGenre(), disc.getType(),
                     disc.getRelease(), disc.getCriticScore(), disc.getQuantity(), disc.getPrice()});
@@ -1236,6 +1246,46 @@ public class PurpleBoxGUI extends javax.swing.JFrame {
             PurpleBox.setEnabledAt(3, PBenabled); 
         }
     }//GEN-LAST:event_EnableButtonActionPerformed
+
+    private void returnGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnGameActionPerformed
+        // TODO add your handling code here:m
+        Disc temp = new Disc();
+
+        for (int i = 0; i < myBox.getGames().size(); i++) {
+            if (myBox.getGames().get(i).getTitle().compareTo((String) GamesTable.getValueAt(GamesTable.getSelectedRow(), NORMAL)) == 0) {
+                    temp = myBox.getGames().get(i);
+                    TextOutputGames.append(myBox.getGames().get(i).getTitle()+ " has been returned. \n ");
+            }
+
+        }
+        myBox.returnDisc(temp, myBox.getGames());
+        GameModel.setRowCount(0);
+        for (Disc disc : myBox.getGames()) {
+            GameModel.addRow(new Object[]{
+                disc.getTitle(), disc.getGenre(), disc.getType(),
+                disc.getRelease(), disc.getCriticScore(), disc.getQuantity(), disc.getPrice()});
+        }
+    }//GEN-LAST:event_returnGameActionPerformed
+
+    private void returnMovieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_returnMovieActionPerformed
+        // TODO add your handling code here:
+        Disc temp = new Disc();
+
+        for (int i = 0; i < myBox.getMovies().size(); i++) {
+            if (myBox.getMovies().get(i).getTitle().compareTo((String) MoviesTable.getValueAt(MoviesTable.getSelectedRow(), NORMAL)) == 0) {
+                    temp = myBox.getMovies().get(i);
+                    TextOutputMovies.append(myBox.getMovies().get(i).getTitle()+ " has been returned. \n ");
+            }
+
+        }
+        myBox.returnDisc(temp, myBox.getMovies());
+        MovieModel.setRowCount(0);
+        for (Disc disc : myBox.getMovies()) {
+            MovieModel.addRow(new Object[]{
+                disc.getTitle(), disc.getGenre(), disc.getType(),
+                disc.getRelease(), disc.getCriticScore(), disc.getQuantity(), disc.getPrice()});
+        }
+    }//GEN-LAST:event_returnMovieActionPerformed
 
     /**
      * @param args the command line arguments

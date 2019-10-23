@@ -214,7 +214,7 @@ public class PurpleBox implements InterfaceAdmin, InterfaceUser{
     @Override
     public void returnDisc(Disc disc, ArrayList<Disc> inventory) {       
         for ( int i = 0; i < inventory.size(); i++){
-            if (inventory.contains(disc)) {
+            if (inventory.get(i).getTitle().compareTo(disc.getTitle())==0) {
                 inventory.get(i).setQuantity(inventory.get(i).getQuantity()+1);
             }
         }

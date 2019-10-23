@@ -283,6 +283,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Return Movie"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="returnMovieActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -437,6 +440,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Return Game"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="returnGameActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
